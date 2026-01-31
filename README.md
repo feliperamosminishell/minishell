@@ -70,7 +70,7 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] Lexer implementation
+- [x] Lexer implementation
 - [ ] Token recognition (words, operators, quotes)
 - [ ] Quote handling (single `'` and double `"`)
 - [ ] Syntax error detection
