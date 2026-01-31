@@ -47,7 +47,7 @@ Hello World!
 
 <!-- Actualiza este porcentaje manualmente según tu progreso -->
 ```
-████████████████████████████████████████████████████████████████████░░░░░░░░  85%
+████████████████████████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  60%
 ```
 
 **Completed:** 38/45 tasks | **Time Invested:** 90h | **Deadline:** March 6, 2025
@@ -59,11 +59,11 @@ Hello World!
 ## 📅 Development Phases
 
 ### 📝 Phase 1: Parsing & Tokenization
-**Deadline:** Feb 14, 2025 | 📅 Days remaining | **Status:** ✅ COMPLETED
+**Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 352 days| **Status:** ✅ COMPLETED
 
 ```
 Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [==================]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -91,11 +91,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔧 Phase 2: Built-in Commands
-**Deadline:** Feb 21, 2025 | 📅 Days remaining | **Status:** ✅ COMPLETED
+**Deadline:** Feb 21, 2025 | ⚠️ OVERDUE by 345 days| **Status:** ✅ COMPLETED
 
 ```
 Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [==================]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -124,11 +124,11 @@ Timeline: ███████████████████████�
 ---
 
 ### ⚙️ Phase 3: Execution & Processes
-**Deadline:** Mar 1, 2025 | 📅 Days remaining | **Status:** 🚧 IN PROGRESS (85%)
+**Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 337 days| **Status:** 🚧 IN PROGRESS (85%)
 
 ```
 Progress: ██████████████████████████████████░░░░░░  85%
-Timeline: ████████████████████████░░░░░░░░░░░░░░░░ [============------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -156,11 +156,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔀 Phase 4: Pipes & Redirections
-**Deadline:** Mar 8, 2025 | 📅 Days remaining | **Status:** 🚧 IN PROGRESS (60%)
+**Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 330 days| **Status:** 🚧 IN PROGRESS (60%)
 
 ```
 Progress: ████████████████████████░░░░░░░░░░░░░░░░  60%
-Timeline: ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░ [=========---------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -190,11 +190,11 @@ Timeline: ██████████████░░░░░░░░░�
 ---
 
 ### 💾 Phase 5: Environment & Variables
-**Deadline:** Mar 15, 2025 | 📅 Days remaining | **Status:** ✅ COMPLETED
+**Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 323 days| **Status:** ✅ COMPLETED
 
 ```
 Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [==================]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -216,11 +216,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🎯 Phase 6: Signals
-**Deadline:** Mar 22, 2025 | 📅 Days remaining | **Status:** 🚧 IN PROGRESS (60%)
+**Deadline:** Mar 22, 2025 | ⚠️ OVERDUE by 316 days| **Status:** 🚧 IN PROGRESS (60%)
 
 ```
 Progress: ████████████████████████░░░░░░░░░░░░░░░░  60%
-Timeline: ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [=======-----------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -250,11 +250,11 @@ Timeline: ███████████░░░░░░░░░░░░�
 ---
 
 ### 🐛 Phase 7: Testing & Bug Fixes
-**Deadline:** Mar 29, 2025 | 📅 Days remaining | **Status:** 📋 PLANNED
+**Deadline:** Mar 29, 2025 | ⚠️ OVERDUE by 309 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  25%
-Timeline: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [------------------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -288,11 +288,11 @@ Timeline: ░░░░░░░░░░░░░░░░░░░░░░░�
 ```
 Parsing        ████████████████████ 100% ✅
 Built-ins      ████████████████████ 100% ✅
-Execution      ████████████████░░░░  85% 🚧
-Pipes          ████████████░░░░░░░░  60% 🚧
+Execution      █████████████░░░░░░░  67% 🚧
+Pipes          ██████████████░░░░░░  71% 🚧
 Environment    ████████████████████ 100% ✅
 Signals        ████████████░░░░░░░░  60% 🚧
-Testing        █████░░░░░░░░░░░░░░░  25% 📋
+Testing        ░░░░░░░░░░░░░░░░░░░░   0% 📋
 ```
 
 ### Time Distribution
@@ -581,7 +581,7 @@ $ git push origin main
 
 <img src="https://komarev.com/ghpvc/?username=TU_USUARIO&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: January 30, 2025
+### 📌 Last Updated: January 31, 2026 at 14:46 UTC
 
 </div>
 
