@@ -73,12 +73,12 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [x] Lexer implementation
-- [x] Token recognition (words, operators, quotes)
-- [x] Quote handling (single `'` and double `"`)
-- [x] Syntax error detection
-- [x] Command splitting by pipes `|`
-- [x] Memory leak checks with valgrind
+- [ ] Lexer implementation
+- [ ] Token recognition (words, operators, quotes)
+- [ ] Quote handling (single `'` and double `"`)
+- [ ] Syntax error detection
+- [ ] Command splitting by pipes `|`
+- [ ] Memory leak checks with valgrind
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
@@ -551,6 +551,7 @@ $ echo "Let's connect!"
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/feliperamosminishell)
 [![42 Intra](https://img.shields.io/badge/42_Intra-000000?style=for-the-badge&logo=42&logoColor=white)](https://profile.intra.42.fr/)
+
 
 ---
 
