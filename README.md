@@ -564,9 +564,9 @@ $ git push origin main
 
 **Made with ❤️, ☕, and countless `segfaults`**
 
-<img src="https://komarev.com/ghpvc/?username=TU_USUARIO&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
+<img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: January 31, 2026 at 14:41 UTC
+### 📌 Last Updated: January 30, 2025 at 12:00 UTC
 
 </div>
 
