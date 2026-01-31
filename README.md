@@ -25,7 +25,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/TU_USUARIO/minishell.git
+git clone https://github.com/feliperamosminishell/minishell.git
 cd minishell
 
 # Compile
@@ -46,10 +46,17 @@ Hello World!
 ### 🎯 Overall Progress
 
 ```
-█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12%
+████████████████████████████████████████████████████████████████████░░░░░░░░  85%
 ```
 
-**Completed:** 6/50 tasks | **Time Invested:** 90h | **Deadline:** March 06, 2025 (⚠️ OVERDUE by 332 days)
+**Completed:** 38/45 tasks | **Time Invested:** 90h | **Deadline:** March 6, 2025 (📅 35d remaining)
+
+### ⏱️ Time Progress
+
+```
+████████████████████████░░░░░░░░░░░░░░░░  60%  [============--------] 
+```
+**Project Timeline:** Jan 15 → Mar 6, 2025 | **Elapsed:** 16 days | **Remaining:** 34 days
 
 </div>
 
@@ -58,7 +65,7 @@ Hello World!
 ## 📅 Development Phases
 
 ### 📝 Phase 1: Parsing & Tokenization
-**Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 352 days| **Status:** ✅ COMPLETED
+**Deadline:** Feb 14, 2025 | 📅 15d remaining | **Status:** ✅ COMPLETED
 
 ```
 Progress: ████████████████████████████████████████ 100%
@@ -90,7 +97,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔧 Phase 2: Built-in Commands
-**Deadline:** Feb 21, 2025 | ⚠️ OVERDUE by 345 days| **Status:** ✅ COMPLETED
+**Deadline:** Feb 21, 2025 | 📅 22d remaining | **Status:** 🚧 IN PROGRESS
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -123,11 +130,11 @@ Timeline: ███████████████████████�
 ---
 
 ### ⚙️ Phase 3: Execution & Processes
-**Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 337 days| **Status:** 🚧 IN PROGRESS (85%)
+**Deadline:** Mar 1, 2025 | 📅 30d remaining | **Status:** 📋 PLANNED
 
 ```
-Progress: ██████████████████████████████████░░░░░░  85%
-Timeline: ████████████████████████████████████████ [====================]
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
+Timeline: ████████████████████████░░░░░░░░░░░░░░░░ [============--------]
 ```
 
 **Checklist:**
@@ -135,17 +142,16 @@ Timeline: ███████████████████████�
 - [ ] Binary execution with `execve`
 - [ ] `fork` and process management
 - [ ] Exit status handling `$?`
-- [ ] Process cleanup and zombie prevention ⚠️
+- [ ] Process cleanup and zombie prevention
 - [ ] Edge cases with invalid commands
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 22h (ongoing)  
+**⏱️ Time spent:** 22h  
 **💡 Key learnings:** fork/exec model, process lifecycle, waitpid  
-**🔴 Current blocker:** Testing edge cases with invalid binaries
 
-**What's left:**
+**What's needed:**
 - Proper zombie process handling
 - Testing various edge cases
 - Signal handling during execution
@@ -155,11 +161,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔀 Phase 4: Pipes & Redirections
-**Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 330 days| **Status:** 🚧 IN PROGRESS (60%)
+**Deadline:** Mar 8, 2025 | 📅 37d remaining | **Status:** 📋 PLANNED
 
 ```
-Progress: ████████████████████████░░░░░░░░░░░░░░░░  60%
-Timeline: ████████████████████████████████████████ [====================]
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
+Timeline: ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░ [==========-----------]
 ```
 
 **Checklist:**
@@ -168,28 +174,27 @@ Timeline: ███████████████████████�
 - [ ] Input redirection `<`
 - [ ] Output redirection `>`
 - [ ] Append mode `>>`
-- [ ] Heredoc `<<` implementation 🔄
+- [ ] Heredoc `<<` implementation
 - [ ] Complex pipe + redirection combos
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 16h (ongoing)  
+**⏱️ Time spent:** 16h  
 **💡 Key learnings:** File descriptors, dup2, pipe creation  
-**🔴 Current blocker:** Heredoc delimiter parsing needs refinement
 
-**Progress notes:**
-- Basic pipes working perfectly
-- Redirections functional
-- Need to implement heredoc properly
-- Complex combinations need more testing
+**What's needed:**
+- Basic pipes implementation
+- Redirections implementation
+- Heredoc with proper delimiter parsing
+- Complex combinations testing
 
 </details>
 
 ---
 
 ### 💾 Phase 5: Environment & Variables
-**Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 323 days| **Status:** ✅ COMPLETED
+**Deadline:** Mar 15, 2025 | 📅 44d remaining | **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -208,39 +213,35 @@ Timeline: ███████████████████████�
 
 **⏱️ Time spent:** 14h  
 **💡 Key learnings:** envp manipulation, string expansion  
-**🎯 Highlights:** Proper handling of variables in different quote contexts
+**🎯 Focus:** Proper handling of variables in different quote contexts
 
 </details>
 
 ---
 
 ### 🎯 Phase 6: Signals
-**Deadline:** Mar 22, 2025 | ⚠️ OVERDUE by 316 days| **Status:** 🚧 IN PROGRESS (60%)
+**Deadline:** Mar 22, 2025 | 📅 51d remaining | **Status:** 📋 PLANNED
 
 ```
-Progress: ████████████████████████░░░░░░░░░░░░░░░░  60%
-Timeline: ████████████████████████████████████████ [====================]
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
+Timeline: ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [=======-------------]
 ```
 
 **Checklist:**
 - [ ] Handle `Ctrl+C` (SIGINT) - new prompt
 - [ ] Handle `Ctrl+D` (EOF) - exit shell
 - [ ] Handle `Ctrl+\` (SIGQUIT) - do nothing
-- [ ] Signal handling in child processes 🔄
+- [ ] Signal handling in child processes
 - [ ] Interactive vs non-interactive mode signals
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 8h (ongoing)  
+**⏱️ Time spent:** 8h  
 **💡 Key learnings:** signal(), sigaction(), signal masks  
-**🔴 Current blocker:** Different signal behavior needed for child processes
 
-**What works:**
-- Main process signals handled correctly
-- Prompt behavior correct
-
-**TODO:**
+**What's needed:**
+- Main process signal handling
 - Child process signal inheritance
 - Heredoc signal behavior
 
@@ -249,11 +250,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🐛 Phase 7: Testing & Bug Fixes
-**Deadline:** Mar 29, 2025 | ⚠️ OVERDUE by 309 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 29, 2025 | 📅 58d remaining | **Status:** 📋 PLANNED
 
 ```
-Progress: ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  25%
-Timeline: ████████████████████████████████████████ [====================]
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
+Timeline: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [--------------------]
 ```
 
 **Checklist:**
@@ -389,7 +390,7 @@ minishell/
 │   │   ├── executor.c        # Command execution
 │   │   ├── pipes.c           # Pipe management
 │   │   ├── redirections.c    # I/O redirections
-│   │   └── heredoc.c         # Heredoc (WIP)
+│   │   └── heredoc.c         # Heredoc
 │   ├── builtins/
 │   │   ├── cd.c              # Change directory
 │   │   ├── echo.c            # Echo command
@@ -517,15 +518,7 @@ valgrind --leak-check=full --show-leak-kinds=all ./minishell
 ## 🤝 Team & Collaboration
 
 **Developed by:**
-- 👤 **Your Name** - [@your_github](https://github.com/feliperamosminishell)
-
-
-**Work Distribution:**
-```
-You      →  Parsing (100%) | Built-ins (100%) | Testing (25%)
-Partner  →  Execution (85%) | Pipes (60%) | Signals (60%)
-Both     →  Code review, debugging, integration
-```
+- 👤 **Felipe Ramos** - [@feliperamosminishell](https://github.com/feliperamosminishell)
 
 ---
 
@@ -538,15 +531,26 @@ Both     →  Code review, debugging, integration
 
 ---
 
-## 📊 Commit Activity & Stats
+## 📊 Project Stats
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feliperamosminishell/minishell?style=flat-square&color=00ff41)
-![GitHub last commit](https://img.shields.io/github/last-commit/feliperamosminishell/minishell?style=flat-square&color=00ff41)
-![Lines of code](https://img.shields.io/tokei/lines/github/feliperamosminishell/minishell?style=flat-square&color=00ff41)
+- 📅 Started: January 15, 2025
+- 🎯 Deadline: March 6, 2025  
+- 💻 Language: C (C99)
+- 📏 Lines of Code: ~3000+
+- ✅ Norminette: Passing
 
 ---
 
 <div align="center">
+
+## 💬 Contact & Feedback
+
+```bash
+$ echo "Let's connect!"
+```
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/feliperamosminishell)
+[![42 Intra](https://img.shields.io/badge/42_Intra-000000?style=for-the-badge&logo=42&logoColor=white)](https://profile.intra.42.fr/)
 
 ---
 
@@ -572,13 +576,22 @@ $ git push origin main
 
 ---
 
+## 📝 How to Update This README
 
-```python
-DEADLINE = datetime(2025, 3, 6)  # ← Deadline principal
+Este README se actualiza **AUTOMÁTICAMENTE** gracias a GitHub Actions.
 
-PHASE_DEADLINES = {
-    1: datetime(2025, 2, 14),
-    2: datetime(2025, 2, 21),
-    # ... etc
-}
+### 🤖 Actualizaciones Automáticas
+
+- ✅ **Barras de progreso**: Se calculan según checkboxes marcadas
+- ⏱️ **Timeline**: Se actualiza según la fecha actual vs deadline
+- 📊 **Estadísticas**: Tareas y tiempo se calculan automáticamente
+- 🔄 **Frecuencia**: Cada día a las 00:00 UTC y con cada push
+
+### ✏️ Solo marca las checkboxes:
+
+```markdown
+- [ ] Tarea pendiente
+- [x] Tarea completada  ← Marca así cuando completes
 ```
+
+El sistema actualizará todo automáticamente 🚀
