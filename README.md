@@ -13,7 +13,7 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=00FF41&center=true&vCenter=true&random=false&width=600&lines=Building+my+own+UNIX+shell;Parsing+%7C+Executing+%7C+Piping;Because+bash+wasn't+mysterious+enough" alt="Typing SVG" />
 
-[![42 Score](https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge&logo=42&logoColor=white)](https://github.com/feliperamosminishell/minishell)
+[![42 Score](https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge&logo=42&logoColor=white)](https://github.com/TU_USUARIO/minishell)
 [![Norminette](https://img.shields.io/badge/Norminette-passing-success?style=for-the-badge)](https://github.com/42School/norminette)
 [![Language](https://img.shields.io/badge/Language-C-00599C?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
 
@@ -45,11 +45,12 @@ Hello World!
 
 ### 🎯 Overall Progress
 
+<!-- Actualiza este porcentaje manualmente según tu progreso -->
 ```
-█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12%
+████████████████████████████████████████████████████████████████████░░░░░░░░  85%
 ```
 
-**Completed:** 6/50 tasks | **Time Invested:** 90h | **Deadline:** March 06, 2025 (⚠️ OVERDUE by 332 days)
+**Completed:** 38/45 tasks | **Time Invested:** 90h | **Deadline:** March 6, 2025
 
 </div>
 
@@ -58,11 +59,11 @@ Hello World!
 ## 📅 Development Phases
 
 ### 📝 Phase 1: Parsing & Tokenization
-**Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 352 days| **Status:** ✅ COMPLETED
+**Deadline:** Feb 14, 2025 | 📅 Days remaining | **Status:** ✅ COMPLETED
 
 ```
 Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
+Timeline: ████████████████████████████████████████ [==================]
 ```
 
 **Checklist:**
@@ -76,7 +77,7 @@ Timeline: ███████████████████████�
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 18h  
+**⏱️ Time spent:** 18 hours  
 **💡 Key learnings:** State machines, tokenization algorithms  
 **🔧 Tools used:** GDB, Valgrind, custom test suite
 
@@ -90,26 +91,26 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔧 Phase 2: Built-in Commands
-**Deadline:** Feb 21, 2025 | ⚠️ OVERDUE by 345 days| **Status:** ✅ COMPLETED
+**Deadline:** Feb 21, 2025 | 📅 Days remaining | **Status:** ✅ COMPLETED
 
 ```
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
-Timeline: ████████████████████████████████████████ [====================]
+Progress: ████████████████████████████████████████ 100%
+Timeline: ████████████████████████████████████████ [==================]
 ```
 
 **Checklist:**
-- [ ] `echo` with `-n` flag
-- [ ] `cd` with relative and absolute paths
-- [ ] `pwd` (print working directory)
-- [ ] `export` (set environment variables)
-- [ ] `unset` (remove environment variables)
-- [ ] `env` (display environment)
-- [ ] `exit` with exit code
+- [x] `echo` with `-n` flag
+- [x] `cd` with relative and absolute paths
+- [x] `pwd` (print working directory)
+- [x] `export` (set environment variables)
+- [x] `unset` (remove environment variables)
+- [x] `env` (display environment)
+- [x] `exit` with exit code
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 12h  
+**⏱️ Time spent:** 12 hours  
 **💡 Key learnings:** Environment variable manipulation, getcwd/chdir  
 **🔧 Implemented:** All 7 mandatory built-ins
 
@@ -123,25 +124,25 @@ Timeline: ███████████████████████�
 ---
 
 ### ⚙️ Phase 3: Execution & Processes
-**Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 337 days| **Status:** 🚧 IN PROGRESS (85%)
+**Deadline:** Mar 1, 2025 | 📅 Days remaining | **Status:** 🚧 IN PROGRESS (85%)
 
 ```
 Progress: ██████████████████████████████████░░░░░░  85%
-Timeline: ████████████████████████████████████████ [====================]
+Timeline: ████████████████████████░░░░░░░░░░░░░░░░ [============------]
 ```
 
 **Checklist:**
-- [ ] PATH resolution
-- [ ] Binary execution with `execve`
-- [ ] `fork` and process management
-- [ ] Exit status handling `$?`
+- [x] PATH resolution
+- [x] Binary execution with `execve`
+- [x] `fork` and process management
+- [x] Exit status handling `$?`
 - [ ] Process cleanup and zombie prevention ⚠️
 - [ ] Edge cases with invalid commands
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 22h (ongoing)  
+**⏱️ Time spent:** 22 hours (ongoing)  
 **💡 Key learnings:** fork/exec model, process lifecycle, waitpid  
 **🔴 Current blocker:** Testing edge cases with invalid binaries
 
@@ -155,26 +156,26 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔀 Phase 4: Pipes & Redirections
-**Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 330 days| **Status:** 🚧 IN PROGRESS (60%)
+**Deadline:** Mar 8, 2025 | 📅 Days remaining | **Status:** 🚧 IN PROGRESS (60%)
 
 ```
 Progress: ████████████████████████░░░░░░░░░░░░░░░░  60%
-Timeline: ████████████████████████████████████████ [====================]
+Timeline: ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░ [=========---------]
 ```
 
 **Checklist:**
-- [ ] Single pipe `|`
-- [ ] Multiple pipes (chain commands)
-- [ ] Input redirection `<`
-- [ ] Output redirection `>`
-- [ ] Append mode `>>`
+- [x] Single pipe `|`
+- [x] Multiple pipes (chain commands)
+- [x] Input redirection `<`
+- [x] Output redirection `>`
+- [x] Append mode `>>`
 - [ ] Heredoc `<<` implementation 🔄
 - [ ] Complex pipe + redirection combos
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 16h (ongoing)  
+**⏱️ Time spent:** 16 hours (ongoing)  
 **💡 Key learnings:** File descriptors, dup2, pipe creation  
 **🔴 Current blocker:** Heredoc delimiter parsing needs refinement
 
@@ -189,24 +190,24 @@ Timeline: ███████████████████████�
 ---
 
 ### 💾 Phase 5: Environment & Variables
-**Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 323 days| **Status:** ✅ COMPLETED
+**Deadline:** Mar 15, 2025 | 📅 Days remaining | **Status:** ✅ COMPLETED
 
 ```
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
-Timeline: ████████████████████████████████████████ [====================]
+Progress: ████████████████████████████████████████ 100%
+Timeline: ████████████████████████████████████████ [==================]
 ```
 
 **Checklist:**
-- [ ] Environment variable storage
-- [ ] Variable expansion `$VAR`
-- [ ] Exit status variable `$?`
-- [ ] Empty variable handling
-- [ ] Quote context for variables
+- [x] Environment variable storage
+- [x] Variable expansion `$VAR`
+- [x] Exit status variable `$?`
+- [x] Empty variable handling
+- [x] Quote context for variables
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 14h  
+**⏱️ Time spent:** 14 hours  
 **💡 Key learnings:** envp manipulation, string expansion  
 **🎯 Highlights:** Proper handling of variables in different quote contexts
 
@@ -215,24 +216,24 @@ Timeline: ███████████████████████�
 ---
 
 ### 🎯 Phase 6: Signals
-**Deadline:** Mar 22, 2025 | ⚠️ OVERDUE by 316 days| **Status:** 🚧 IN PROGRESS (60%)
+**Deadline:** Mar 22, 2025 | 📅 Days remaining | **Status:** 🚧 IN PROGRESS (60%)
 
 ```
 Progress: ████████████████████████░░░░░░░░░░░░░░░░  60%
-Timeline: ████████████████████████████████████████ [====================]
+Timeline: ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [=======-----------]
 ```
 
 **Checklist:**
-- [ ] Handle `Ctrl+C` (SIGINT) - new prompt
-- [ ] Handle `Ctrl+D` (EOF) - exit shell
-- [ ] Handle `Ctrl+\` (SIGQUIT) - do nothing
+- [x] Handle `Ctrl+C` (SIGINT) - new prompt
+- [x] Handle `Ctrl+D` (EOF) - exit shell
+- [x] Handle `Ctrl+\` (SIGQUIT) - do nothing
 - [ ] Signal handling in child processes 🔄
 - [ ] Interactive vs non-interactive mode signals
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 8h (ongoing)  
+**⏱️ Time spent:** 8 hours (ongoing)  
 **💡 Key learnings:** signal(), sigaction(), signal masks  
 **🔴 Current blocker:** Different signal behavior needed for child processes
 
@@ -249,11 +250,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🐛 Phase 7: Testing & Bug Fixes
-**Deadline:** Mar 29, 2025 | ⚠️ OVERDUE by 309 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 29, 2025 | 📅 Days remaining | **Status:** 📋 PLANNED
 
 ```
 Progress: ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  25%
-Timeline: ████████████████████████████████████████ [====================]
+Timeline: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [------------------]
 ```
 
 **Checklist:**
@@ -267,7 +268,7 @@ Timeline: ███████████████████████�
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
 
-**⏱️ Time spent:** 0h  
+**⏱️ Estimated time:** 20 hours  
 **🎯 Focus:** Ensuring bash-like behavior in all scenarios
 
 **Testing plan:**
@@ -286,12 +287,12 @@ Timeline: ███████████████████████�
 
 ```
 Parsing        ████████████████████ 100% ✅
-Built-ins      ░░░░░░░░░░░░░░░░░░░░   0% 📋
-Execution      ░░░░░░░░░░░░░░░░░░░░   0% 📋
-Pipes          ░░░░░░░░░░░░░░░░░░░░   0% 📋
-Environment    ░░░░░░░░░░░░░░░░░░░░   0% 📋
-Signals        ░░░░░░░░░░░░░░░░░░░░   0% 📋
-Testing        ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Built-ins      ████████████████████ 100% ✅
+Execution      ████████████████░░░░  85% 🚧
+Pipes          ████████████░░░░░░░░  60% 🚧
+Environment    ████████████████████ 100% ✅
+Signals        ████████████░░░░░░░░  60% 🚧
+Testing        █████░░░░░░░░░░░░░░░  25% 📋
 ```
 
 ### Time Distribution
@@ -302,57 +303,60 @@ Phase 2: Built-ins        ████████░░░░░░░░░  1
 Phase 3: Execution        ██████████████░░░  22h
 Phase 4: Pipes            ██████████░░░░░░░  16h
 Phase 5: Environment      █████████░░░░░░░░  14h
-Phase 6: Signals          ████░░░░░░░░░░░░░   8h
+Phase 6: Signals          █████░░░░░░░░░░░░   8h
 Phase 7: Testing          ░░░░░░░░░░░░░░░░░   0h
-                                    Total: 90h
+                          ─────────────────
+Total Time Invested: 90 hours | Estimated remaining: 20 hours
 ```
 
 ---
 
-## ✨ Features & Examples
+## 🎯 Core Features
 
 <table>
 <tr>
 <td width="50%">
 
-### 🔹 Built-in Commands
+### 🔹 Command Execution
 ```bash
-minishell> echo "Hello World!"
-Hello World!
-minishell> cd /tmp && pwd
-/tmp
-minishell> export MY_VAR=42
-minishell> echo $MY_VAR
-42
+$ /bin/ls -la
+$ echo "test"
+$ pwd
 ```
+✅ PATH resolution  
+✅ Absolute/relative paths  
+✅ Binary execution  
 
 </td>
+<td width="50%">
+
+### 🔹 Environment Variables
+```bash
+$ export USER=student
+$ echo $USER
+student
+$ echo $?
+0
+```
+✅ Variable expansion  
+✅ Exit status  
+✅ export/unset  
+
+</td>
+</tr>
+
+<tr>
 <td width="50%">
 
 ### 🔹 Pipes & Redirections
 ```bash
-minishell> ls -la | grep minishell
-minishell> cat < input.txt > output.txt
-minishell> echo "test" >> file.txt
-minishell> cat << EOF
-heredoc> Hello
-heredoc> World
-heredoc> EOF
+$ cat file | grep "text"
+$ echo "data" > out.txt
+$ cat < in.txt >> out.txt
 ```
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 🔹 Command Execution
-```bash
-minishell> /bin/ls
-minishell> which gcc
-/usr/bin/gcc
-minishell> echo $?
-0
-```
+✅ Multiple pipes  
+✅ Input/output redirection  
+🚧 Heredoc (in progress)  
 
 </td>
 <td width="50%">
@@ -517,8 +521,8 @@ valgrind --leak-check=full --show-leak-kinds=all ./minishell
 ## 🤝 Team & Collaboration
 
 **Developed by:**
-- 👤 **Your Name** - [@your_github](https://github.com/feliperamosminishell)
-
+- 👤 **Your Name** - [@your_github](https://github.com/your_github) - Parsing, Built-ins, Testing
+- 👤 **Partner Name** - [@partner_github](https://github.com/partner_github) - Execution, Pipes, Signals
 
 **Work Distribution:**
 ```
@@ -535,18 +539,29 @@ Both     →  Code review, debugging, integration
 - 🔧 [Unix System Calls](https://man7.org/linux/man-pages/)
 - 💻 [42 Docs - Minishell](https://harm-smits.github.io/42docs/projects/minishell)
 - 📝 [Writing a Unix Shell](https://brennan.io/2015/01/16/write-a-shell-in-c/)
+- 🎬 [Understanding Fork and Exec](https://www.youtube.com/watch?v=PZrQ4eGm-hM)
 
 ---
 
 ## 📊 Commit Activity & Stats
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feliperamosminishell/minishell?style=flat-square&color=00ff41)
-![GitHub last commit](https://img.shields.io/github/last-commit/feliperamosminishell/minishell?style=flat-square&color=00ff41)
-![Lines of code](https://img.shields.io/tokei/lines/github/feliperamosminishell/minishell?style=flat-square&color=00ff41)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/TU_USUARIO/minishell?style=flat-square&color=00ff41)
+![GitHub last commit](https://img.shields.io/github/last-commit/TU_USUARIO/minishell?style=flat-square&color=00ff41)
+![Lines of code](https://img.shields.io/tokei/lines/github/TU_USUARIO/minishell?style=flat-square&color=00ff41)
 
 ---
 
 <div align="center">
+
+## 💬 Contact & Feedback
+
+```bash
+$ echo "Let's connect!"
+```
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TU_USUARIO)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your_email@student.42.fr)
+[![42 Intra](https://img.shields.io/badge/42_Intra-000000?style=for-the-badge&logo=42&logoColor=white)](https://profile.intra.42.fr/users/your_login)
 
 ---
 
@@ -564,14 +579,78 @@ $ git push origin main
 
 **Made with ❤️, ☕, and countless `segfaults`**
 
-<img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
+<img src="https://komarev.com/ghpvc/?username=TU_USUARIO&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: January 31, 2026 at 14:45 UTC
+### 📌 Last Updated: January 30, 2025
 
 </div>
 
 ---
 
+## 📝 How to Update This README
+
+Este README se actualiza **AUTOMÁTICAMENTE** gracias a GitHub Actions:
+
+### 🤖 Actualizaciones Automáticas
+
+- ✅ **Barras de progreso**: Se calculan automáticamente según las checkboxes `[x]` marcadas
+- ⏱️ **Timeline**: Se actualiza según la fecha actual vs. el deadline del 6 de marzo
+- 📊 **Estadísticas**: Tareas completadas y tiempo total se calculan automáticamente
+- 🔄 **Frecuencia**: Se ejecuta cada día a las 00:00 UTC y con cada push a main
+
+### ✏️ Lo que TÚ necesitas hacer:
+
+**Solo marca las checkboxes cuando completes tareas:**
+
+```markdown
+- [ ] Tarea pendiente     ← Sin marcar
+- [x] Tarea completada    ← Marca con 'x' cuando termines
+```
+
+**Eso es todo.** El script se encargará de:
+- Actualizar todas las barras de progreso
+- Calcular porcentajes
+- Actualizar el timeline según la fecha
+- Mostrar días restantes hasta cada deadline
+- Actualizar la visualización general del proyecto
+
+### 🚀 Instalación del Sistema Automático
+
+1. **Copia estos archivos a tu repositorio:**
+   - `update_readme.py` → en la raíz del proyecto
+   - `update-readme.yml` → en `.github/workflows/`
+
+2. **Estructura requerida:**
+   ```
+   minishell/
+   ├── README.md
+   ├── update_readme.py
+   └── .github/
+       └── workflows/
+           └── update-readme.yml
+   ```
+
+3. **Haz commit y push:**
+   ```bash
+   git add README.md update_readme.py .github/workflows/update-readme.yml
+   git commit -m "Add automatic README updater"
+   git push
+   ```
+
+4. **¡Listo!** GitHub Actions se encargará del resto.
+
+### 🎯 Ejecución Manual
+
+Si quieres actualizar el README inmediatamente:
+
+1. Ve a la pestaña **Actions** en GitHub
+2. Click en **Update README Progress**
+3. Click en **Run workflow**
+4. Espera 30 segundos y ¡listo!
+
+### 📅 Configuración de Fechas
+
+Para cambiar el deadline principal o las fechas de las fases, edita `update_readme.py`:
 
 ```python
 DEADLINE = datetime(2025, 3, 6)  # ← Deadline principal
