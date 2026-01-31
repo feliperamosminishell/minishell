@@ -56,7 +56,7 @@ Hello World!
 ```
 ████████████████████████░░░░░░░░░░░░░░░░  60%  [============--------] 
 ```
-**Project Timeline:** Jan 15 → Mar 30, 2025 | **Elapsed:** 16 days | **Remaining:** 34 days
+**Project Timeline:** Jan 31 → Mar 30, 2025 | **Elapsed:** 16 days | **Remaining:** 34 days
 
 </div>
 
