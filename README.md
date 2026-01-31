@@ -540,9 +540,9 @@ Both     →  Code review, debugging, integration
 
 ## 📊 Commit Activity & Stats
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/TU_USUARIO/minishell?style=flat-square&color=00ff41)
-![GitHub last commit](https://img.shields.io/github/last-commit/TU_USUARIO/minishell?style=flat-square&color=00ff41)
-![Lines of code](https://img.shields.io/tokei/lines/github/TU_USUARIO/minishell?style=flat-square&color=00ff41)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/feliperamosminishell/minishell?style=flat-square&color=00ff41)
+![GitHub last commit](https://img.shields.io/github/last-commit/feliperamosminishell/minishell?style=flat-square&color=00ff41)
+![Lines of code](https://img.shields.io/tokei/lines/github/feliperamosminishell/minishell?style=flat-square&color=00ff41)
 
 ---
 
