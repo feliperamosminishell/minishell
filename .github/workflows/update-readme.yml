@@ -1,14 +1,11 @@
 name: Update README Progress
 
 on:
-  # Se ejecuta automáticamente cada día a las 00:00 UTC
   schedule:
     - cron: '0 0 * * *'
   
-  # También se puede ejecutar manualmente desde GitHub Actions
   workflow_dispatch:
   
-  # Se ejecuta cada vez que haces push a main
   push:
     branches:
       - main
@@ -28,16 +25,32 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       
+      - name: 📂 List files (debug)
+        run: |
+          echo "=== Current directory ==="
+          pwd
+          echo "=== Files in root ==="
+          ls -la
+          echo "=== Checking for update_readme.py ==="
+          ls -la update_readme.py || echo "❌ update_readme.py not found!"
+      
       - name: 🔄 Run README updater
         run: |
-          python update_readme.py
+          if [ -f "update_readme.py" ]; then
+            python update_readme.py
+          else
+            echo "❌ ERROR: update_readme.py not found in repository"
+            exit 1
+          fi
       
       - name: 📊 Check if README was modified
         id: check_changes
