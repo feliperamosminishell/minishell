@@ -518,7 +518,7 @@ valgrind --leak-check=full --show-leak-kinds=all ./minishell
 ## 🤝 Team & Collaboration
 
 **Developed by:**
-- 👤 **Felipe Ramos** - [@feliperamosminishell](https://github.com/feliperamosminishell)
+- 👤 **Felipe & Gramos** - [@feliperamosminishell](https://github.com/feliperamosminishell)
 
 ---
 
