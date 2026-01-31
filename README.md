@@ -46,10 +46,10 @@ Hello World!
 ### 🎯 Overall Progress
 
 ```
-████████████████████████████████████████████████████████████████████░░░░░░░░  85%
+██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  13%
 ```
 
-**Completed:** 38/45 tasks | **Time Invested:** 90h | **Deadline:** March 6, 2025 (📅 35d remaining)
+**Completed:** 7/52 tasks | **Time Invested:** 90h | **Deadline:** March 06, 2025 (⚠️ OVERDUE by 332 days)
 
 ### ⏱️ Time Progress
 
@@ -65,7 +65,7 @@ Hello World!
 ## 📅 Development Phases
 
 ### 📝 Phase 1: Parsing & Tokenization
-**Deadline:** Feb 14, 2025 | 📅 15d remaining | **Status:** ✅ COMPLETED
+**Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 352 days| **Status:** ✅ COMPLETED
 
 ```
 Progress: ████████████████████████████████████████ 100%
@@ -97,7 +97,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔧 Phase 2: Built-in Commands
-**Deadline:** Feb 21, 2025 | 📅 22d remaining | **Status:** 🚧 IN PROGRESS
+**Deadline:** Feb 21, 2025 | ⚠️ OVERDUE by 345 days| **Status:** 🚧 IN PROGRESS
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -130,11 +130,11 @@ Timeline: ███████████████████████�
 ---
 
 ### ⚙️ Phase 3: Execution & Processes
-**Deadline:** Mar 1, 2025 | 📅 30d remaining | **Status:** 📋 PLANNED
+**Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 337 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
-Timeline: ████████████████████████░░░░░░░░░░░░░░░░ [============--------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -161,11 +161,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔀 Phase 4: Pipes & Redirections
-**Deadline:** Mar 8, 2025 | 📅 37d remaining | **Status:** 📋 PLANNED
+**Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 330 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
-Timeline: ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░ [==========-----------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -194,7 +194,7 @@ Timeline: ██████████████░░░░░░░░░�
 ---
 
 ### 💾 Phase 5: Environment & Variables
-**Deadline:** Mar 15, 2025 | 📅 44d remaining | **Status:** 📋 PLANNED
+**Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 323 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -220,11 +220,11 @@ Timeline: ███████████████████████�
 ---
 
 ### 🎯 Phase 6: Signals
-**Deadline:** Mar 22, 2025 | 📅 51d remaining | **Status:** 📋 PLANNED
+**Deadline:** Mar 22, 2025 | ⚠️ OVERDUE by 316 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
-Timeline: ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [=======-------------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -250,11 +250,11 @@ Timeline: ███████████░░░░░░░░░░░░�
 ---
 
 ### 🐛 Phase 7: Testing & Bug Fixes
-**Deadline:** Mar 29, 2025 | 📅 58d remaining | **Status:** 📋 PLANNED
+**Deadline:** Mar 29, 2025 | ⚠️ OVERDUE by 309 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
-Timeline: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ [--------------------]
+Timeline: ████████████████████████████████████████ [====================]
 ```
 
 **Checklist:**
@@ -570,7 +570,7 @@ $ git push origin main
 
 <img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: January 31, 2026 at 14:51 UTC
+### 📌 Last Updated: January 31, 2026 at 14:56 UTC
 
 </div>
 
