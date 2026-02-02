@@ -70,7 +70,7 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [x] Lexer implementation
+- [ ] Lexer implementation
 - [ ] Token recognition (words, operators, quotes)
 - [ ] Quote handling (single `'` and double `"`)
 - [ ] Syntax error detection
@@ -102,7 +102,7 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] `echo` with `-n` flag
+- [x] `echo` with `-n` flag
 - [ ] `cd` with relative and absolute paths
 - [x] `pwd` (print working directory)
 - [ ] `export` (set environment variables)
