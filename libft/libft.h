@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/02 02:00:21 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/03 00:26:08 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ typedef struct s_cmd
 	int     fd_out;
 } t_cmd;
 
+/*Edicion añadir pwd para builtin cd y pwd*/
 typedef struct s_shell
 {
+	char	pwd[PATH_MAX];
 	t_cmd   *cmds;
 	int     cmd_count;
 	char    **env;

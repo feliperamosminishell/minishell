@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   builtin_pwd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/03 00:25:28 by goramos-         ###   ########.fr       */
+/*   Created: 2026/02/03 00:26:31 by goramos-          #+#    #+#             */
+/*   Updated: 2026/02/03 00:27:47 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-#  define MINISHELL_H
+# include "../../minishell.h"
 
-#include <readline/readline.h>
-#include <readline/history.h>
-# include "libft/libft.h"
-
-void    ft_loop(t_shell *mini);
-int     ft_check_str(char *str);
-t_token *ft_lexer(const char *line);
-char    *expand_var(const char *line, int *i);
-
-#endif
+int	builtin_pwd(t_shell *sh)
+{
+	if (!sh->pwd[0])
+		return (1);
+	write(1, sh->pwd, ft_strlen(sh->pwd));
+	write(1, "\n", 1);
+	return (0);
+}
