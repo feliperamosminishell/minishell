@@ -104,7 +104,7 @@ Timeline: ███████████████████████�
 **Checklist:**
 - [ ] `echo` with `-n` flag
 - [ ] `cd` with relative and absolute paths
-- [ ] `pwd` (print working directory)
+- [x] `pwd` (print working directory)
 - [ ] `export` (set environment variables)
 - [ ] `unset` (remove environment variables)
 - [ ] `env` (display environment)
