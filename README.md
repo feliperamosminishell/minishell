@@ -71,11 +71,11 @@ Timeline: ███████████████████████�
 
 **Checklist:**
 - [x] Lexer implementation
-- [ ] Token recognition (words, operators, quotes)
-- [ ] Quote handling (single `'` and double `"`)
-- [ ] Syntax error detection
-- [ ] Command splitting by pipes `|`
-- [ ] Memory leak checks with valgrind
+- [x] Token recognition (words, operators, quotes)
+- [x] Quote handling (single `'` and double `"`)
+- [x] Syntax error detection
+- [x] Command splitting by pipes `|`
+- [x] Memory leak checks with valgrind
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
