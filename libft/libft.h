@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/01/31 16:24:30 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/02 02:00:21 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,43 @@
 
 typedef enum e_token
 {
-    WORD,
-    PIPE,
-    REDIR_IN,      
+	WORD,
+	PIPE,
+	REDIR_IN,      
 	REDIR_OUT,     
-    REDIR_APPEND,  
-    HEREDOC        
+	REDIR_APPEND,  
+	HEREDOC,
+	DOUBLEQ,
+	SINGLEQ      
 } en_token;
 
 typedef struct s_token
 {
-    char            *value;
-    en_token         type;
-    struct s_token  *next;
+	char            *value;
+	en_token         type;
+	struct s_token  *next;
 } t_token;
 
 typedef struct s_redir
 {
-    char    *file;
-    en_token type;
+	char    *file;
+	en_token type;
 } t_redir;
 
 typedef struct s_cmd
 {
-    char    **argv;
-    t_redir *redirs;
-    int     fd_in;
-    int     fd_out;
+	char    **argv;
+	t_redir *redirs;
+	int     fd_in;
+	int     fd_out;
 } t_cmd;
 
 typedef struct s_shell
 {
-    t_cmd   *cmds;
-    int     cmd_count;
-    char    **env;
-    int     exit_status;
+	t_cmd   *cmds;
+	int     cmd_count;
+	char    **env;
+	int     exit_status;
 } t_shell;
 
 
@@ -105,4 +107,7 @@ void	ft_lstdelone(t_token *lst);
 void	ft_lstclear(t_token **lst);
 void	ft_lstiter(t_token *lst, void (*f)(int));
 void	ft_freelist(t_token **list);
+int		ft_isspace (char c);
+void	ft_multifree(int n, ...);
+
 #endif
