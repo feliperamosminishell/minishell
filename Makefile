@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
+#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/01/28 19:53:22 by juan-her         ###   ########.fr        #
+#    Updated: 2026/02/03 01:02:34 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,13 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = minishell
 SRCLIBFT = ./libft
 LIBFT = $(SRCLIBFT)/libft.a
-SRC = main.c loop.c init.c
-OBJ_URL = ./obj
-OBJ = $(SRC:%.c=$(OBJ_URL)/%.o)
+SRC = main.c loop.c expand.c lexer.c check_str.c src/builtins/builtin_echo.c src/builtins/builtin_pwd.c
+OBJ = obj/main.o obj/loop.o obj/expand.o obj/lexer.o obj/check_str.o obj/builtin_echo.o obj/builtin_pwd.o
 INCLUDE = -I$(SRCLIBFT)
 LIBS = -lreadline
 RM = rm -rf
+
+VPATH = . src/builtins
 
 all: $(LIBFT) $(NAME)
 	@echo "MINISHELL DONE"
@@ -32,15 +33,15 @@ $(NAME): $(OBJ)
 $(LIBFT):
 	@$(MAKE) -C $(SRCLIBFT)
 
-$(OBJ_URL):
-	@mkdir -p $(OBJ_URL)
+obj:
+	@mkdir -p obj
 
-$(OBJ_URL)/%.o: %.c | $(OBJ_URL)
+obj/%.o: %.c | obj
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	@$(MAKE) -C $(SRCLIBFT) clean
-	@$(RM) $(OBJ_URL)
+	@$(RM) obj
 	@echo "Objects deleted."
 
 fclean: clean
