@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 02:03:23 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 01:49:09 by goramos-         ###   ########.fr       */
+/*   Created: 2026/02/04 15:47:46 by goramos-          #+#    #+#             */
+/*   Updated: 2026/02/04 15:57:33 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../minishell.h"
-/*
+#include "../../includes/minishell.h"
+
 t_token	*ft_new_token(int type, char *value)
 {
-	t_token	*list;
-	(void)value;
+	t_token	*token;
 
-	list = malloc(sizeof(t_shell));
-	if (!list)
+	token = malloc(sizeof(t_token));
+	if (!token)
 		return (NULL);
-	list->type = type;
-	list->next = NULL;
-	return (list);
+	token->type = type;
+	token->value = value;
+	token->next = NULL;
+	return (token);
 }
 
-*/
-t_list	*ft_lstnew(void *content,char *value)
+void	ft_token_add_back(t_token **list, t_token *new)
 {
-	t_list	*list;
-	(void)value;
+	t_token	*tmp;
 
-	list = (t_list *) malloc(sizeof(t_list));
-	if (!list)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	if (!list || !new)
+		return ;
+	if (!*list)
+	{
+		*list = new;
+		return ;
+	}
+	tmp = *list;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 }

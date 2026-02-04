@@ -6,13 +6,13 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 02:03:23 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 01:49:41 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:50:59 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-t_list	*ft_lstnew(void *content,char *value)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
 

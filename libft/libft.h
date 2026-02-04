@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 01:54:01 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:51:19 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int		ft_lstsize(t_list *lst);
 /*
 t_token	*ft_new_token(int type, char *value);
 */
-t_list	*ft_lstnew(void *content,char *value);
+t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));

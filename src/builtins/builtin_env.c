@@ -6,11 +6,11 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:23:22 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/03 21:59:56 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:42:30 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../minishell.h"
+# include "../../includes/minishell.h"
 
 void	print_env_list(t_env *env_list)
 {
@@ -30,15 +30,13 @@ void	print_env_list(t_env *env_list)
 	}
 }
 
-
 int	builtin_env(char **argv, t_shell *shell)
 {
 	if (argv && argv[1])
 	{
-		ft_putstr_fd("env: '", 2);
-		ft_putstr_fd(argv[1], 2);
-		ft_putstr_fd("': No such file or directory\n", 2);
-		return (127);
+		ft_putstr_fd("env: too many arguments\n", 2);
+		shell->exit_status = 1;
+		return (1);
 	}
 	if (!shell->env_list)
 		return (0);
