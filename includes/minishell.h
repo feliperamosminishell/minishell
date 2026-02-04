@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/03 22:04:37 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:42:44 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <readline/readline.h>
 #include <readline/history.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef enum e_token
 {
@@ -61,7 +61,7 @@ typedef struct s_cmd
 
 typedef struct s_shell
 {
-	t_env	*env_list;
+	t_env	*env;
 	t_cmd	*cmds;
 	char	*pwd;
 	char	*oldpwd;
@@ -70,9 +70,22 @@ typedef struct s_shell
 } t_shell;
 
 
+// ========== FUNCTION PROTOTYPES ==========
+
+// Loop
 void    ft_loop(t_shell *mini);
+
+// Parsing
 int     ft_check_str(char *str);
 t_token *ft_lexer(const char *line);
 char    *expand_var(const char *line, int *i);
+
+// Utils
+void    ft_freelist(t_list **list);
+
+// Environment
+t_env   *init_env(char **envp);
+void    add_back_env(t_env **list, t_env *new_node);
+void    free_env(t_env *env);
 
 #endif

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_freelist.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:42:34 by juan-her          #+#    #+#             */
-/*   Updated: 2026/01/31 16:18:36 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:26:32 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_freelist(t_token **list)
+void	ft_freelist(t_list **list)
 {
 	t_token	*temp;
 

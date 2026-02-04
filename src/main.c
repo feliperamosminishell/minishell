@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/01/31 16:33:52 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:40:01 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/minishell.h"
 
 static void ft_init_shell(t_shell *mini, char **ev)
 {
-    mini->env = ev;
+    mini->env = init_env(ev);
     mini->exit_status = 0;
 }
 int main(int ac, char **ag, char **env)

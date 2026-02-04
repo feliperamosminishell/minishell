@@ -6,11 +6,11 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 22:06:49 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/03 22:08:05 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:41:05 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../../includes/minishell.h"
 
 
 void	add_back_env(t_env **list, t_env *new_node)

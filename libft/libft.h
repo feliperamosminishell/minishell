@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/03 22:04:16 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:54:01 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <limits.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 /*
 typedef enum e_token
 {
@@ -110,14 +116,17 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		ft_lstsize(t_token *lst);
+int		ft_lstsize(t_list *lst);
+/*
 t_token	*ft_new_token(int type, char *value);
-t_token	*ft_lstlast(t_token *lst);
-void	ft_lstadd(t_token **lst, t_token *new);
-void	ft_lstdelone(t_token *lst);
-void	ft_lstclear(t_token **lst);
-void	ft_lstiter(t_token *lst, void (*f)(int));
-void	ft_freelist(t_token **list);
+*/
+t_list	*ft_lstnew(void *content,char *value);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_freelist(t_list **list);
 int		ft_isspace (char c);
 void	ft_multifree(int n, ...);
 

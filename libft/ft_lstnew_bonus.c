@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 02:03:23 by juan-her          #+#    #+#             */
-/*   Updated: 2026/01/31 16:14:24 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:49:41 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 
-t_token	*ft_new_token(int type, char *value)
+t_list	*ft_lstnew(void *content,char *value)
 {
-	t_token	*list;
+	t_list	*list;
 
-	list = malloc(sizeof(t_shell));
+	list = (t_list *) malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
-	list->type = type;
+	list->content = content;
 	list->next = NULL;
 	return (list);
 }
-

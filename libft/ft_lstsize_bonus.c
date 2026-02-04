@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 03:02:24 by juan-her          #+#    #+#             */
-/*   Updated: 2026/01/31 16:18:18 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:23:06 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 
-int	ft_lstsize(t_token *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		i;
-	t_token	*size;
+	t_list	*size;
 
 	i = 0;
 	size = lst;

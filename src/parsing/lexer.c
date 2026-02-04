@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:14:13 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/02 01:50:31 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/04 01:52:46 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../includes/minishell.h"
 
 t_token *ft_lexer(const char *line)
 {
     int i = 0;
-    int start = -1;
+    unsigned int start = -1;
     int in_single = 0;
     int in_double = 0;
     char *tmp;
@@ -33,8 +33,8 @@ t_token *ft_lexer(const char *line)
                 start = i + 1;
             else
             {
-                node = ft_new_token(SINGLEQ,
-                        ft_substr(line, start, i - start));
+                node = ft_lstnew(SINGLEQ,
+                        ft_substr(line, start, (size_t)i - start));
                 ft_lstadd(&list, node);
             }
             in_single = 1;
@@ -45,7 +45,7 @@ t_token *ft_lexer(const char *line)
                 start = i + 1;
             else
             {
-                node = ft_new_token(DOUBLEQ,
+                node = ft_lstnew(DOUBLEQ,
                         ft_substr(line, start, i - start));
                 ft_lstadd(&list, node);
             }
