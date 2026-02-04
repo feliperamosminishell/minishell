@@ -1,0 +1,26 @@
+# Ejecutables
+minishell
+*.out
+a.out
+
+# Archivos objeto
+*.o
+*.a
+obj/
+
+# macOS
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Editors
+.vscode/
+.idea/
+
+# Debug
+*.dSYM/
+vgcore.*
+
+# Tests temporales
+testeo/
