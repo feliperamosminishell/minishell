@@ -107,7 +107,7 @@ Timeline: ███████████████████████�
 - [x] `pwd` (print working directory)
 - [ ] `export` (set environment variables)
 - [ ] `unset` (remove environment variables)
-- [ ] `env` (display environment)
+- [x] `env` (display environment)
 - [ ] `exit` with exit code
 
 <details>
