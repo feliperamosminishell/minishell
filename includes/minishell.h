@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 16:30:42 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/06 02:11:31 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,10 @@ void	execute_command(t_shell *shell, t_cmd *cmd);
 // ========== UTILS ==========
 t_token	*ft_new_token(int type, char *value);
 void	ft_token_add_back(t_token **list, t_token *new);
+int		count_env_vars(t_env *env);
+void	copy_env_to_array(t_env *env, t_env **array);
+
+
 
 
 
