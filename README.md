@@ -45,7 +45,7 @@ Hello World!
 
 ### 🎯 Overall Progress
 ```
-███████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  19%
+██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  8%
 ```
 **Completed:** 1/52 tasks | **Time Invested:** 90h | **Deadline:** March 30, 2026
 
@@ -65,7 +65,7 @@ Hello World!
 **Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 359 days| **Status:** ✅ COMPLETED
 
 ```
-Progress: ████████████████████████████████████████ 100%
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
 Timeline: ████████████████████████████████████████ [====================]
 ```
 
@@ -283,7 +283,7 @@ Timeline: ███████████████████████�
 ### Overall Project Timeline
 
 ```
-Parsing        ████████████████████ 100% ✅
+Parsing        ░░░░░░░░░░░░░░░░░░░░   0% 📋
 Built-ins      ████████░░░░░░░░░░░░  43% 🚧
 Execution      ░░░░░░░░░░░░░░░░░░░░   0% 📋
 Pipes          ░░░░░░░░░░░░░░░░░░░░   0% 📋
@@ -568,7 +568,7 @@ $ git push origin main
 
 <img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: February 07, 2026 at 16:08 UTC
+### 📌 Last Updated: February 07, 2026 at 16:09 UTC
 
 </div>
 
