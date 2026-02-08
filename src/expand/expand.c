@@ -6,19 +6,24 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/02 01:57:15 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/08 06:19:22 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char *expand_var(const char *line, int *i)
+char *ft_expand_var(const char *line, int *i, int last_status)
 {
-    int start;
-    char *var;
-    char *value;
+    int     start;
+    char    *var;
+    char    *value;
 
     (*i)++;
+    if (line[*i] == '?')
+    {
+        (*i)++;
+        return (ft_itoa(last_status));
+    }
     start = *i;
     while (ft_isalnum(line[*i]) || line[*i] == '_')
         (*i)++;

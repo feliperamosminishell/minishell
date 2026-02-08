@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:23:22 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/03 21:59:56 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/08 06:22:07 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../minishell.h"
+#include "minishell.h"
 
 void	print_env_list(t_env *env_list)
 {
@@ -40,8 +40,8 @@ int	builtin_env(char **argv, t_shell *shell)
 		ft_putstr_fd("': No such file or directory\n", 2);
 		return (127);
 	}
-	if (!shell->env_list)
+	if (!shell->env_bash)
 		return (0);
-	print_env_list(shell->env_list);
+	print_env_list(shell->env);
 	return (0);
 }

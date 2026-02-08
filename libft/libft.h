@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/03 22:04:16 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/08 05:07:20 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,60 +21,6 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <limits.h>
-/*
-typedef enum e_token
-{
-	WORD,
-	PIPE,
-	REDIR_IN,      
-	REDIR_OUT,     
-	REDIR_APPEND,  
-	HEREDOC,
-	DOUBLEQ,
-	SINGLEQ      
-} en_token;
-
-typedef struct s_token
-{
-	char            *value;
-	en_token         type;
-	struct s_token  *next;
-} t_token;
-
-typedef struct s_redir
-{
-	char    *file;
-	en_token type;
-} t_redir;
-
-typedef struct s_cmd
-{
-	char    **argv;
-	t_redir *redirs;
-	int     fd_in;
-	int     fd_out;
-} t_cmd;
-*/
-
-/*Edicion añadir pwd para builtin cd y pwd*/
-/*
-typedef struct s_shell
-{
-	char	pwd[PATH_MAX];
-	t_cmd   *cmds;
-	int     cmd_count;
-	char    **env;
-	int     exit_status;
-} t_shell;
-
-typedef struct s_env
-{
-	char			*key;
-	char			*value;
-	struct s_env	*next;
-} t_env;
-*/
-
 
 size_t	ft_strlen(const char *s);
 long	ft_atoi(const char *str);
@@ -110,14 +56,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		ft_lstsize(t_token *lst);
-t_token	*ft_new_token(int type, char *value);
-t_token	*ft_lstlast(t_token *lst);
-void	ft_lstadd(t_token **lst, t_token *new);
-void	ft_lstdelone(t_token *lst);
-void	ft_lstclear(t_token **lst);
-void	ft_lstiter(t_token *lst, void (*f)(int));
-void	ft_freelist(t_token **list);
 int		ft_isspace (char c);
 void	ft_multifree(int n, ...);
 

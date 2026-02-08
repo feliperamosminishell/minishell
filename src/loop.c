@@ -6,16 +6,31 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/07 17:23:41 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/08 06:26:07 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+static void ft_see(t_cmd *parser)
+{
+    int i;
+
+    while (parser)
+    {
+        i = 0;
+        while (parser->argv[i])
+            printf("%s \n", parser->argv[i++]);
+        printf("Otro comando \n");
+        parser = parser->next;
+    }
+}
 
 void ft_loop(t_shell *mini)
 {
     char    *line;
+    t_token *tokens;
+    t_cmd   *cmds;
 
     (void)mini;
     while (1)
@@ -25,7 +40,9 @@ void ft_loop(t_shell *mini)
             break ;
         if (*line)
         {
-            //data = ft_set_tokens(line);
+            tokens = ft_lexer(line, 1);
+            cmds = ft_parser(&tokens);
+            ft_see(cmds);
             add_history(line);
         }
     }

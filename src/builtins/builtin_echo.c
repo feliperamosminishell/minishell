@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 00:37:01 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/03 03:52:21 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/08 03:41:55 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../minishell.h"
+#include "../../includes/minishell.h"
 
 static int	is_valid_n_flag(char *arg)
 {

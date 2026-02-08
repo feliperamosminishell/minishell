@@ -3,53 +3,82 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
+#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/03 01:02:34 by goramos-         ###   ########.fr        #
+#    Updated: 2026/02/08 06:12:15 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-NAME = minishell
-SRCLIBFT = ./libft
-LIBFT = $(SRCLIBFT)/libft.a
-SRC = main.c loop.c expand.c lexer.c check_str.c src/builtins/builtin_echo.c src/builtins/builtin_pwd.c
-OBJ = obj/main.o obj/loop.o obj/expand.o obj/lexer.o obj/check_str.o obj/builtin_echo.o obj/builtin_pwd.o
-INCLUDE = -I$(SRCLIBFT)
-LIBS = -lreadline
-RM = rm -rf
+NAME		= minishell
+SRC_DIR		= src
+OBJ_DIR		= obj
+INC_DIR		= includes
+LIBFT_DIR	= libft
 
-VPATH = . src/builtins
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+INCLUDES	= -I$(INC_DIR) -I$(LIBFT_DIR)
+LDFLAGS		= -L$(LIBFT_DIR) -lft -lreadline
 
-all: $(LIBFT) $(NAME)
-	@echo "MINISHELL DONE"
+# Archivos fuente - Main
+MAIN_SRCS	= main.c \
+				loop.c
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -L $(SRCLIBFT) -lft -o $(NAME) -lreadline
-	@echo "FINISH MINISHELL"
+# Archivos fuente - Expand
+EXPAND_SRCS = expand.c \
+
+# Archivos fuente - Lexer
+LEXER_SRCS = check_str.c \
+				check_str2.c \
+				lexer.c
+
+# Archivos fuente - Parsing
+PARSING_SRCS = add_cnt.c \
+				parse.c
+
+# Archivos fuente - Builtins
+BUILTINS_SRCS = builtin_echo.c \
+				builtin_pwd.c \
+				builtin_env.c
+
+# Archivos fuente - Utils
+UTILS_SRCS	= env_utils.c \
+				free_nodes.c \
+				new_nodes.c
+
+# Construcción de rutas completas
+SRCS		= $(addprefix $(SRC_DIR)/, $(MAIN_SRCS)) \
+				$(addprefix $(SRC_DIR)/parsing/, $(PARSING_SRCS)) \
+				$(addprefix $(SRC_DIR)/builtins/, $(BUILTINS_SRCS)) \
+				$(addprefix $(SRC_DIR)/utils/, $(UTILS_SRCS)) \
+				$(addprefix $(SRC_DIR)/expand/, $(EXPAND_SRCS)) \
+				$(addprefix $(SRC_DIR)/lexer/, $(LEXER_SRCS))
+
+OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+LIBFT		= $(LIBFT_DIR)/libft.a
+
+all: $(NAME)
 
 $(LIBFT):
-	@$(MAKE) -C $(SRCLIBFT)
+	@$(MAKE) -C $(LIBFT_DIR)
 
-obj:
-	@mkdir -p obj
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-obj/%.o: %.c | obj
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+$(NAME): $(LIBFT) $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 clean:
-	@$(MAKE) -C $(SRCLIBFT) clean
-	@$(RM) obj
-	@echo "Objects deleted."
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@$(MAKE) -C $(SRCLIBFT) fclean
-	@$(RM) $(NAME)
-	@echo "Objects deleted."
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@rm -f $(NAME)
 
 re: fclean all
-	@echo "Has been updated"
 
 .PHONY: all clean fclean re
