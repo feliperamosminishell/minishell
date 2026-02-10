@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   new_nodes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:14:01 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/08 06:31:57 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:59:43 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../includes/minishell.h"
 
 t_token	*ft_new_token(int type, char *value)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/08 06:37:56 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:40:47 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../includes/minishell.h"
 
 static void ft_create_word_token(t_token **list, const char *line, int start, int end)
 {
@@ -45,11 +45,11 @@ static int ft_handle_operator(t_token **list, const char *line, int i)
 
 t_token *ft_lexer(const char *line, int last_status)
 {
-	int     i;
-	int     start;
-	int     in[2];
-	char    *expanded;
-	t_token *list;
+	int		i;
+	int		start;
+	int		in[2];
+	char	*expanded;
+	t_token	*list;
 
 	i = 0;
 	in[0] = 0;

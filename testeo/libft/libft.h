@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/03 22:16:02 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/10 13:04:03 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ typedef struct s_env
 	struct s_env	*next;
 } t_env;
 */
-
 
 size_t	ft_strlen(const char *s);
 long	ft_atoi(const char *str);
