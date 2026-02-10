@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 14:22:04 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/10 13:12:20 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void ft_loop(t_shell *mini)
 	(void)mini;
 	while (1)
 	{
-		line = readline("minishel> ");
+		line = readline("Minishell> ");
 		if (!ft_strncmp(line, "exit", 5))
 			break ;
 		if (*line)
@@ -47,4 +47,3 @@ void ft_loop(t_shell *mini)
 		}
 	}
 }
-
