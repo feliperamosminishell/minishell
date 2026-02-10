@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 14:22:30 by goramos-         ###   ########.fr       */
+/*   Created: 2025/10/05 02:03:23 by juan-her          #+#    #+#             */
+/*   Updated: 2026/02/04 15:50:59 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+# include "libft.h"
 
-static void ft_init_shell(t_shell *mini, char **ev)
+t_list	*ft_lstnew(void *content)
 {
-    mini->env = ev;
-    mini->exit_status = 0;
-}
-int main(int ac, char **ag, char **env)
-{
-	t_shell	mini;
+	t_list	*list;
 
-	(void) ac;
-	(void) ag;
-	ft_init_shell(&mini, env);
-	ft_loop(&mini);
+	list = (t_list *) malloc(sizeof(t_list));
+	if (!list)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

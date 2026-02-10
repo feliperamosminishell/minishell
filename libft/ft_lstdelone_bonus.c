@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 14:22:30 by goramos-         ###   ########.fr       */
+/*   Created: 2025/10/05 04:29:05 by juan-her          #+#    #+#             */
+/*   Updated: 2026/02/04 01:19:32 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "libft.h"
 
-static void ft_init_shell(t_shell *mini, char **ev)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    mini->env = ev;
-    mini->exit_status = 0;
-}
-int main(int ac, char **ag, char **env)
-{
-	t_shell	mini;
-
-	(void) ac;
-	(void) ag;
-	ft_init_shell(&mini, env);
-	ft_loop(&mini);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

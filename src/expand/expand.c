@@ -6,7 +6,11 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
+<<<<<<< HEAD:src/expand/expand.c
 /*   Updated: 2026/02/10 12:38:03 by goramos-         ###   ########.fr       */
+=======
+/*   Updated: 2026/02/04 01:47:59 by goramos-         ###   ########.fr       */
+>>>>>>> main:src/parsing/expand.c
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 14:22:30 by goramos-         ###   ########.fr       */
+/*   Created: 2025/10/05 03:56:29 by juan-her          #+#    #+#             */
+/*   Updated: 2026/02/04 01:23:11 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+# include "libft.h"
 
-static void ft_init_shell(t_shell *mini, char **ev)
+t_list	*ft_lstlast(t_list *lst)
 {
-    mini->env = ev;
-    mini->exit_status = 0;
-}
-int main(int ac, char **ag, char **env)
-{
-	t_shell	mini;
+	t_list	*last;
 
-	(void) ac;
-	(void) ag;
-	ft_init_shell(&mini, env);
-	ft_loop(&mini);
+	if (!lst)
+		return (NULL);
+	last = lst;
+	while (last->next != NULL)
+		last = last->next;
+	return (last);
 }
