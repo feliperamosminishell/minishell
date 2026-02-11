@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2026/02/08 05:07:20 by juan-her         ###   ########.fr       */
+=======
 /*   Updated: 2026/02/04 15:51:19 by goramos-         ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +25,8 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <limits.h>
+<<<<<<< HEAD
+=======
 
 typedef struct s_list
 {
@@ -81,6 +87,7 @@ typedef struct s_env
 } t_env;
 */
 
+>>>>>>> main
 
 size_t	ft_strlen(const char *s);
 long	ft_atoi(const char *str);
@@ -116,6 +123,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+<<<<<<< HEAD
+=======
 int		ft_lstsize(t_list *lst);
 /*
 t_token	*ft_new_token(int type, char *value);
@@ -127,6 +136,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_freelist(t_list **list);
+>>>>>>> main
 int		ft_isspace (char c);
 void	ft_multifree(int n, ...);
 

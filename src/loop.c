@@ -6,31 +6,44 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/06 12:21:36 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/10 13:12:20 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/minishell.h"
 
+static void ft_see(t_cmd *parser)
+{
+	int	i;
+
+	while (parser)
+	{
+		i = 0;
+		while (parser->argv[i])
+			printf("%s \n", parser->argv[i++]);
+		printf("Otro comando \n");
+		parser = parser->next;
+	}
+}
 
 void ft_loop(t_shell *mini)
 {
-    char    *line;
+	char	*line;
+	t_token	*tokens;
+	t_cmd	*cmds;
 
-    (void)mini;
-    while (1)
-    {
-        // las lineas de abajo las ha hecho alepinto y es la implementacion del modo comando de bash
-        if (ft_strncmp(av[1], "-c", 0))
-            line = av[2];
-        else
-            line = readline("minishel> ");
-        if (!ft_strncmp(line, "exit", 5))
-            break ;
-        if (*line)
-        {
-            //data = ft_set_tokens(line);
-            add_history(line);
-        }
-    }
+	(void)mini;
+	while (1)
+	{
+		line = readline("Minishell> ");
+		if (!ft_strncmp(line, "exit", 5))
+			break ;
+		if (*line)
+		{
+			tokens = ft_lexer(line, 1);
+			cmds = ft_parser(&tokens);
+			ft_see(cmds);
+			add_history(line);
+		}
+	}
 }
