@@ -5,147 +5,90 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/02 01:14:13 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 16:21:55 by goramos-         ###   ########.fr       */
+/*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
+/*   Updated: 2026/02/11 14:09:28 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_token *ft_lexer(const char *line)
+static void ft_create_word_token(t_token **list, const char *line, int start, int end)
 {
-    int i = 0;
-    int start = -1;
-    int in_single = 0;
-    int in_double = 0;
-    char *tmp;
-    t_token *list = NULL;
-    t_token *node;
+	char *value;
 
-    if (!ft_check_str((char *)line))
-        return (NULL);
+	if (end <= start)
+		return;
+	value = ft_substr(line, start, end - start);
+	ft_lstadd_token(list, ft_new_token(WORD, value));
+}
 
-    while (line[i])
-    {
-        if (line[i] == '\'' && !in_double)
-        {
-            if (!in_single)
-                start = i + 1;
-            else
-            {
-                node = ft_new_token(SINGLEQ,
-                        ft_substr(line, start, (size_t)i - start));
-                ft_token_add_back(&list, node);
-            }
-            in_single = 1;
-        }
-        else if (line[i] == '\"' && !in_single)
-        {
-            if (!in_double)
-                start = i + 1;
-            else
-            {
-                node = ft_new_token(DOUBLEQ,
-                        ft_substr(line, start, i - start));
-                ft_token_add_back(&list, node);
-            }
-            in_double = 1;
-        }
-        else if (!in_single && !in_double)
-        {
-            if (ft_isspace(line[i]) && start != -1)
-            {
-                node = ft_new_token(WORD,
-                        ft_substr(line, start, i - start));
-                ft_token_add_back(&list, node);
-                start = -1;
-            }
-            else if (line[i] == '|')
-            {
-                if (start != -1)
-                {
-                    node = ft_new_token(WORD,
-                            ft_substr(line, start, i - start));
-                    ft_token_add_back(&list, node);
-                    start = -1;
-                }
-                node = ft_new_token(PIPE, ft_strdup("|"));
-                ft_token_add_back(&list, node);
-            }
-            else if (line[i] == '<' && line[i + 1] == '<')
-            {
-                if (start != -1)
-                {
-                    node = ft_new_token(WORD,
-                            ft_substr(line, start, i - start));
-                    ft_token_add_back(&list, node);
-                    start = -1;
-                }
-                node = ft_new_token(HEREDOC, ft_strdup("<<"));
-                ft_token_add_back(&list, node);
-                i++;
-            }
-            else if (line[i] == '>' && line[i + 1] == '>')
-            {
-                if (start != -1)
-                {
-                    node = ft_new_token(WORD,
-                            ft_substr(line, start, i - start));
-                    ft_token_add_back(&list, node);
-                    start = -1;
-                }
-                node = ft_new_token(REDIR_APPEND, ft_strdup(">>"));
-                ft_token_add_back(&list, node);
-                i++;
-            }
-            else if (line[i] == '<')
-            {
-                if (start != -1)
-                {
-                    node = ft_new_token(WORD,
-                            ft_substr(line, start, i - start));
-                    ft_token_add_back(&list, node);
-                    start = -1;
-                }
-                node = ft_new_token(REDIR_IN, ft_strdup("<"));
-                ft_token_add_back(&list, node);
-            }
-            else if (line[i] == '>')
-            {
-                if (start != -1)
-                {
-                    node = ft_new_token(WORD,
-                            ft_substr(line, start, i - start));
-                    ft_token_add_back(&list, node);
-                    start = -1;
-                }
-                node = ft_new_token(REDIR_OUT, ft_strdup(">"));
-                ft_token_add_back(&list, node);
-            }
-            else if (start == -1)
-                start = i;
-        }
-        if (line[i] == '$' && !in_single)
-        {
-            if (start != -1)
-            {
-                node = ft_new_token(WORD,
-                        ft_substr(line, start, i - start));
-                ft_token_add_back(&list, node);
-            }
-            tmp = expand_var(line, &i);
-            node = ft_new_token(WORD, tmp);
-            ft_token_add_back(&list, node);
-            start = -1;
-            continue;
-        }
-        i++;
-    }
-    if (start != -1)
-    {
-        node = ft_new_token(WORD,
-                ft_substr(line, start, i - start));
-        ft_token_add_back(&list, node);
-    }
-    return (list);
+static int ft_handle_operator(t_token **list, const char *line, int i)
+{
+	if (line[i] == '<' && line[i + 1] == '<')
+	{
+		ft_lstadd_token(list, ft_new_token(HEREDOC, ft_strdup("<<")));
+		return (i + 2);
+	}
+	if (line[i] == '>' && line[i + 1] == '>')
+	{
+		ft_lstadd_token(list, ft_new_token(REDIR_APPEND, ft_strdup(">>")));
+		return (i + 2);
+	}
+	if (line[i] == '<')
+		ft_lstadd_token(list, ft_new_token(REDIR_IN, ft_strdup("<")));
+	else if (line[i] == '>')
+		ft_lstadd_token(list, ft_new_token(REDIR_OUT, ft_strdup(">")));
+	else if (line[i] == '|')
+		ft_lstadd_token(list, ft_new_token(PIPE, ft_strdup("|")));
+	return (i + 1);
+}
+
+t_token *ft_lexer(const char *line, int last_status)
+{
+	int     i;
+	int     start;
+	int     in[2];
+	char    *expanded;
+	t_token *list;
+
+	i = 0;
+	in[0] = 0;
+	in[1] = 0;
+	list = NULL;
+	if (!ft_check_str(line))
+		return (NULL);
+	while (line[i])
+	{
+		while (ft_isspace(line[i]))
+			i++;
+		if (!line[i])
+			break;
+		start = i;
+		if (!in[0] && !in[1] && (line[i] == '|' || line[i] == '<'
+				|| line[i] == '>'))
+			i = ft_handle_operator(&list, line, i);
+		else
+		{
+			while (line[i] && (!ft_isspace(line[i]) || in[0] || in[1])
+				&& !(line[i] == '|' || line[i] == '<' || line[i] == '>'))
+			{
+				if (line[i] == '\'' && !in[1])
+					in[0] = !in[0];
+				else if (line[i] == '\"' && !in[0])
+					in[1] = !in[1];
+				else if (line[i] == '$' && !in[0])
+				{
+					if (i > start)
+						ft_create_word_token(&list, line, start, i);
+					expanded = ft_expand_var(line, &i, last_status);
+					ft_lstadd_token(&list, ft_new_token(WORD, expanded));
+					start = i;
+					continue;
+				}
+				i++;
+			}
+			ft_create_word_token(&list, line, start, i);
+		}
+	}
+	return (list);
 }

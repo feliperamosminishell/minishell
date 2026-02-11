@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 14:22:30 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/11 13:54:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void ft_init_shell(t_shell *mini, char **ev)
 {
-    mini->env = ev;
+    mini->env_bash= ev;
     mini->exit_status = 0;
 }
 int main(int ac, char **ag, char **env)

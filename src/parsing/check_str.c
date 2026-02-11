@@ -6,13 +6,13 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:21:46 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 01:48:04 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:16:32 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int ft_check_str(char *str)
+int ft_check_str(const char *str)
 {
     int i;
     int j;

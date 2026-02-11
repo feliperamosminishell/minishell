@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:23:22 by goramos-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/02/08 06:22:07 by juan-her         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "minishell.h"
-=======
-/*   Updated: 2026/02/04 15:42:30 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:08:48 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/minishell.h"
->>>>>>> main
 
 void	print_env_list(t_env *env_list)
 {

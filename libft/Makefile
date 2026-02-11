@@ -6,11 +6,7 @@
 #    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:12:20 by juan-her          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2026/02/08 05:26:51 by juan-her         ###   ########.fr        #
-=======
-#    Updated: 2026/02/04 01:32:18 by goramos-         ###   ########.fr        #
->>>>>>> main
+#    Updated: 2026/02/11 13:51:14 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +21,9 @@ SOURCE = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_strlen.c \
 			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 			ft_isspace.c
-<<<<<<< HEAD
-SOURCEBONUS = ft_multifree.c
-=======
 SOURCEBONUS = ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-				ft_lstadd_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+				ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstdelone_bonus.c\
 				ft_multifree.c 
->>>>>>> main
 OBJ = $(SOURCE:.c=.o)
 OBJBONUS = $(SOURCEBONUS:.c=.o)
 INCLUDE = libft.h
