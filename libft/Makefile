@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
+#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:12:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/11 13:51:14 by goramos-         ###   ########.fr        #
+#    Updated: 2026/02/12 15:18:16 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ INCLUDE = libft.h
 RM = rm -f
 
 all: $(NAME)
+	@echo $(NAME) done
 
 clean:
 	@$(RM) $(OBJ) $(OBJBONUS)

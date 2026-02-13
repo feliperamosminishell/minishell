@@ -3,41 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 15:47:46 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/04 15:57:33 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:17:28 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_token	*ft_new_token(int type, char *value)
-{
-	t_token	*token;
-
-	token = malloc(sizeof(t_token));
-	if (!token)
-		return (NULL);
-	token->type = type;
-	token->value = value;
-	token->next = NULL;
-	return (token);
-}
-
-void	ft_token_add_back(t_token **list, t_token *new)
+void	ft_lstadd_token(t_token **lst, t_token *new_node)
 {
 	t_token	*tmp;
-
-	if (!list || !new)
-		return ;
-	if (!*list)
+	
+	if (!*lst || !new_node)
 	{
-		*list = new;
+		*lst = new_node;
 		return ;
 	}
-	tmp = *list;
-	while (tmp->next)
+	tmp = *lst;
+	while (tmp->next != NULL)
 		tmp = tmp->next;
-	tmp->next = new;
+	tmp->next = new_node;
+}
+
+void ft_print_message(int fd, char *str)
+{
+	int i;
+	
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+		write(fd, &str[i++], 1);
 }
