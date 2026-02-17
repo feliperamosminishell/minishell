@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_cnt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 02:55:14 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 12:59:28 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:10:23 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,33 +54,31 @@ int ft_add_redir (t_redir **list, en_token type, char *file)
 
 char **ft_conv_args(t_args **ag)
 {
-	int		count;
-	int		i;
+	int		count[2];
 	char	**args;
 	t_args	*next;
 	t_args	*tmp;
 
-	i = 0;
-	count = 0;
+	count[0] = 0;
+	count[1] = 0;
 	tmp = *ag;
 	while (tmp)
 	{
-		count++;
+		count[1]++;
 		tmp = tmp->next;
 	}
-	args = ft_calloc((count + 1), sizeof(char *));
+	args = ft_calloc((count[1] + 1), sizeof(char *));
 	if (!args)
 		return (NULL);
 	tmp = *ag;
 	while (tmp)
 	{
-		args[i++] = tmp->ag;
+		args[count[0]++] = tmp->ag;
 		next = tmp->next;
 		free(tmp);
 		tmp = next;    
 	}
-	*ag = NULL;
-	return (args);
+	return (*ag = NULL, args);
 }
 
 void ft_add_cmd(t_cmd **list, t_cmd *new)
@@ -96,4 +94,15 @@ void ft_add_cmd(t_cmd **list, t_cmd *new)
 			tmp = tmp->next;
 		tmp->next = new;
 	}
+}
+
+int ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag)
+{
+	(*cmd)->argv = ft_conv_args(list_ag);
+	ft_add_cmd(l_c, *cmd);
+	*cmd = ft_new_cmd();
+	if (!*cmd)
+		return (ft_free_cmds(l_c), 0);
+	*list_ag = NULL;
+	return (1);
 }

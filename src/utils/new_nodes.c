@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_nodes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:14:01 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 12:59:43 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/17 20:09:58 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_token	*ft_new_token(int type, char *value)
 {
 	t_token	*list;
 
-	list = malloc(sizeof(t_shell));
+	list = malloc(sizeof(t_token));
 	if (!list)
 		return (NULL);
     list->value = value;

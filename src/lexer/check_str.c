@@ -6,31 +6,30 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:03:05 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/13 17:53:51 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/16 21:03:28 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-
-static int ft_error_check2(const char *str, int *i)
+static int ft_error_check_2(const char *str, int *i)
 {
 	if (str[*i] == '<' && str[*i] == str[*i + 1])
-		{
-			if (str[*i] == str[*i + 2])
-				return (ft_print_error_sintax(4), 0);
-			i++;
-		}
-		else if (str[*i] == '>' && str[*i] == str[*i + 1])
-		{
-			if (str[*i] == str[*i + 2])
-				return (ft_print_error_sintax(5), 0);
-			i++;
-		}
-		else if ((str[*i] == '<' && str[*i + 1] == '>') ||
-				 (str[*i] == '>' && str[*i + 1] == '<'))
-			return (ft_print_error_sintax(0), 0);
-		return (1);
+	{
+		if (str[*i] == str[*i + 2])
+			return (ft_print_error_sintax(4), 0);
+		(*i)++;
+	}
+	else if (str[*i] == '>' && str[*i] == str[*i + 1])
+	{
+		if (str[*i] == str[*i + 2])
+			return (ft_print_error_sintax(5), 0);
+		(*i)++;
+	}
+	else if ((str[*i] == '<' && str[*i + 1] == '>') ||
+			 (str[*i] == '>' && str[*i + 1] == '<'))
+		return (ft_print_error_sintax(0), 0);
+	return (1);
 }
 
 static int ft_error_check (const char *str, int *i)
@@ -40,7 +39,7 @@ static int ft_error_check (const char *str, int *i)
 	next = 0;
 	if (ft_is_operator(str[*i]))
 	{
-		if (!ft_error_check2(str, i))
+		if (!ft_error_check_2(str, i))
 			return (0);
 		next = ft_skip_spaces(str, *i + 1);
 		if (ft_is_operator(str[next]))

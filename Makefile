@@ -6,7 +6,7 @@
 #    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/12 15:20:13 by juan-her         ###   ########.fr        #
+#    Updated: 2026/02/16 20:48:47 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ LEXER_SRCS = check_str.c \
 
 # Archivos fuente - Parsing
 PARSING_SRCS = add_cnt.c \
+				add_cnt_2.c \
 				parse.c
 
 # Archivos fuente - Builtins
@@ -74,6 +75,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 $(NAME): $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+	@echo Minishell done
 
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean

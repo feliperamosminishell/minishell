@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/13 21:16:56 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:41:31 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void 	ft_free_cmds(t_cmd **cmd);
 t_env	*init_env(char **envp);
 void	add_back_env(t_env **list, t_env *new_node);
 void	free_env(t_env *env);
+int		ft_is_redir (en_token type);
 void	ft_print_message(int fd, char *str);
 
 // ==========  ERROR_HANDLER ==========
@@ -130,6 +131,8 @@ int		ft_add_args(t_args **list, char *value);
 int		ft_add_redir (t_redir **list, en_token type, char *file);
 char	**ft_conv_args(t_args **ag);
 void	ft_add_cmd(t_cmd **list, t_cmd *new);
+int		ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag);
+int		ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk);
 t_cmd	*ft_parser(t_token **token);
 
 // ========== BUILTINS ==========

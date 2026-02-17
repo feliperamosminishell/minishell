@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 04:13:58 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/13 17:35:41 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:02:37 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 int ft_is_operator(char c)
 {
 	return (c == '|' || c == '<' || c == '>');
+}
+
+int ft_is_redir(en_token type)
+{
+	if (type == REDIR_IN || type == REDIR_OUT
+		|| type == REDIR_APPEND || type == HEREDOC)
+		return (1);
+	return (0);
 }
 
 int ft_skip_spaces(const char *str, int i)
