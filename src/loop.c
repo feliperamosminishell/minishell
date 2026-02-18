@@ -6,17 +6,17 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/17 22:36:57 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:19:37 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static void ft_see(t_cmd *parser)
+static void	ft_see(t_cmd *parser)
 {
-	int	i;
-	t_cmd *tmp;
-	t_redir *tmp_r;
+	int		i;
+	t_cmd	*tmp;
+	t_redir	*tmp_r;
 
 	tmp = parser;
 	while (tmp)
@@ -29,7 +29,6 @@ static void ft_see(t_cmd *parser)
 			{
 				printf("%s redirecciones\n", tmp_r->file);
 				printf("%d tipo\n", tmp_r->type);
-
 				tmp_r = tmp_r->next;
 			}
 			printf("%s comando\n", tmp->argv[i]);
@@ -41,17 +40,28 @@ static void ft_see(t_cmd *parser)
 	}
 }
 
-void ft_loop(t_shell *mini)
+static void	ft_handler_line(char *line, t_shell **mini)
+{
+	t_token	*tokens;
+	t_token	*head;
+
+	head = ft_lexer(line, 1);
+	tokens = head;
+	(*mini)->cmds = ft_parser(&tokens);
+	ft_free_tokens(&head);
+	ft_see((*mini)->cmds);
+	add_history(line);
+	free(line);
+	ft_free_cmds(&(*mini)->cmds);
+}
+
+void	ft_loop(t_shell *mini)
 {
 	char	*line;
-	t_token	*tokens;
-	t_token *head;
-	t_cmd	*cmds;
 
-	(void)mini;
 	while (1)
 	{
-		cmds = NULL;
+		mini->cmds = NULL;
 		line = readline("Minishell> ");
 		if (!ft_strncmp(line, "exit", 5))
 		{
@@ -59,15 +69,6 @@ void ft_loop(t_shell *mini)
 			break ;
 		}
 		if (*line)
-		{
-			head = ft_lexer(line, 1);
-			tokens = head;
-			cmds = ft_parser(&tokens);
-			ft_free_tokens(&head);
-			ft_see(cmds);
-			add_history(line);
-			free(line);
-			ft_free_cmds(&cmds);
-		}
+			ft_handler_line(line, &mini);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/17 13:41:31 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 15:02:18 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ int		ft_check_str(const char *str);
 
 // ==========  LEXER ==========
 void	ft_lstadd_token(t_token **lst, t_token *new_node);
+void	ft_handle_word(const char *line, t_lexer *lx);
 t_token *ft_lexer(const char *line, int last_status);
 
 // ==========  PARSING ==========
@@ -151,6 +152,7 @@ void	print_env_list(t_env *env_list);
 
 // ========== EXPAND ==========
 char	*ft_expand_var(const char *line, int *i, int last_status);
+char	*ft_lexer_dq(const char *line, t_lexer *lx);
 
 
 // ========== EXECUTOR ==========

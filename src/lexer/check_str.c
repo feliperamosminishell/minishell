@@ -6,13 +6,13 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:03:05 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/16 21:03:28 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:08:15 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int ft_error_check_2(const char *str, int *i)
+static int	ft_error_check_2(const char *str, int *i)
 {
 	if (str[*i] == '<' && str[*i] == str[*i + 1])
 	{
@@ -26,15 +26,15 @@ static int ft_error_check_2(const char *str, int *i)
 			return (ft_print_error_sintax(5), 0);
 		(*i)++;
 	}
-	else if ((str[*i] == '<' && str[*i + 1] == '>') ||
-			 (str[*i] == '>' && str[*i + 1] == '<'))
+	else if ((str[*i] == '<' && str[*i + 1] == '>')
+		|| (str[*i] == '>' && str[*i + 1] == '<'))
 		return (ft_print_error_sintax(0), 0);
 	return (1);
 }
 
-static int ft_error_check (const char *str, int *i)
+static int	ft_error_check(const char *str, int *i)
 {
-	int next;
+	int	next;
 
 	next = 0;
 	if (ft_is_operator(str[*i]))
@@ -52,7 +52,6 @@ static int ft_error_check (const char *str, int *i)
 
 static int	ft_post_operator(const char *str, int *i)
 {
-	
 	if (str[*i] == ';' || str[*i] == '&')
 		return (ft_print_error_sintax(6), 0);
 	if (str[*i] == '|' && str[*i + 1] == '|')
@@ -76,11 +75,11 @@ static int	ft_last_check(const char *str, int quote_s, int quote_d, int i)
 	return (1);
 }
 
-int ft_check_str(const char *str)
+int	ft_check_str(const char *str)
 {
-	int i;
-	int quote_s;
-	int quote_d;
+	int	i;
+	int	quote_s;
+	int	quote_d;
 
 	quote_s = 0;
 	quote_d = 0;

@@ -6,16 +6,16 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 20:39:55 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/16 20:42:57 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 15:58:09 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk)
+int	ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk)
 {
 	en_token	type;
-	
+
 	type = (*tk)->type;
 	if (type == WORD)
 		ft_add_args(l_ag, (*tk)->value);

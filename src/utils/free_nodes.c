@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   free_nodes.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:57:55 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 13:01:47 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:32:25 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void ft_free_tokens(t_token **token)
+void	ft_free_tokens(t_token **token)
 {
 	t_token	*tok;
 
@@ -25,7 +25,7 @@ void ft_free_tokens(t_token **token)
 	}
 }
 
-void ft_free_args(t_args **ags)
+void	ft_free_args(t_args **ags)
 {
 	t_args	*ag;
 
@@ -38,7 +38,7 @@ void ft_free_args(t_args **ags)
 	}
 }
 
-void ft_free_redirs(t_redir **redir)
+void	ft_free_redirs(t_redir **redir)
 {
 	t_redir	*tmp;
 
@@ -52,7 +52,7 @@ void ft_free_redirs(t_redir **redir)
 	}
 }
 
-void ft_free_cmds(t_cmd **cmd)
+void	ft_free_cmds(t_cmd **cmd)
 {
 	int		i;
 	t_cmd	*tmp;

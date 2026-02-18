@@ -6,7 +6,7 @@
 #    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/16 20:48:47 by juan-her         ###   ########.fr        #
+#    Updated: 2026/02/18 15:12:11 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ MAIN_SRCS	= main.c \
 
 # Archivos fuente - Expand
 EXPAND_SRCS = expand.c \
+				expand_quotes.c
 
 # Archivos fuente - Error
 ERROR_SRCS = error_handling.c \
@@ -32,6 +33,7 @@ ERROR_SRCS = error_handling.c \
 # Archivos fuente - Lexer
 LEXER_SRCS = check_str.c \
 				check_str2.c \
+				handle_word.c \
 				lexer.c
 
 # Archivos fuente - Parsing

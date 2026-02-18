@@ -6,16 +6,16 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 02:55:14 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/16 15:10:23 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 15:59:58 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int ft_add_args(t_args **list, char *value)
+int	ft_add_args(t_args **list, char *value)
 {
-	t_args *new;
-	t_args *tmp;
+	t_args	*new;
+	t_args	*tmp;
 
 	new = ft_new_args(ft_strdup(value));
 	if (!new)
@@ -27,15 +27,15 @@ int ft_add_args(t_args **list, char *value)
 		tmp = *list;
 		while (tmp->next)
 			tmp = tmp->next;
-		tmp->next = new; 
+		tmp->next = new;
 	}
 	return (0);
 }
 
-int ft_add_redir (t_redir **list, en_token type, char *file)
+int	ft_add_redir(t_redir **list, en_token type, char *file)
 {
-	t_redir *new;
-	t_redir *tmp;
+	t_redir	*new;
+	t_redir	*tmp;
 
 	new = ft_new_redir(ft_strdup(file), type);
 	if (!new)
@@ -52,7 +52,7 @@ int ft_add_redir (t_redir **list, en_token type, char *file)
 	return (0);
 }
 
-char **ft_conv_args(t_args **ag)
+char	**ft_conv_args(t_args **ag)
 {
 	int		count[2];
 	char	**args;
@@ -76,15 +76,15 @@ char **ft_conv_args(t_args **ag)
 		args[count[0]++] = tmp->ag;
 		next = tmp->next;
 		free(tmp);
-		tmp = next;    
+		tmp = next;
 	}
 	return (*ag = NULL, args);
 }
 
-void ft_add_cmd(t_cmd **list, t_cmd *new)
+void	ft_add_cmd(t_cmd **list, t_cmd *new)
 {
-	t_cmd *tmp;
-		
+	t_cmd	*tmp;
+
 	tmp = *list;
 	if (!*list)
 		*list = new;
@@ -96,7 +96,7 @@ void ft_add_cmd(t_cmd **list, t_cmd *new)
 	}
 }
 
-int ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag)
+int	ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag)
 {
 	(*cmd)->argv = ft_conv_args(list_ag);
 	ft_add_cmd(l_c, *cmd);
