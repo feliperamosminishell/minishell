@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:19:37 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:35:19 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,12 @@ static void	ft_handler_line(char *line, t_shell **mini)
 	tokens = head;
 	(*mini)->cmds = ft_parser(&tokens);
 	ft_free_tokens(&head);
-	ft_see((*mini)->cmds);
-	add_history(line);
+	if ((*mini)->cmds)
+	{
+		ft_see((*mini)->cmds);
+		ft_free_cmds(&(*mini)->cmds);
+	}
 	free(line);
-	ft_free_cmds(&(*mini)->cmds);
 }
 
 void	ft_loop(t_shell *mini)
@@ -69,6 +71,9 @@ void	ft_loop(t_shell *mini)
 			break ;
 		}
 		if (*line)
+		{
+			add_history(line);
 			ft_handler_line(line, &mini);
+		}
 	}
 }

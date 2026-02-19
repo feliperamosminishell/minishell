@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:57:10 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 15:56:41 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:53:18 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,47 @@ void	ft_print_error_exec(int message, char *name)
 		ft_print_message(2, finish_msg);
 		free(finish_msg);
 	}
+}
+
+static int	ft_files_ok(t_redir *redir)
+{
+	int	fd;
+
+	fd = 0;
+	if (redir->type == REDIR_IN)
+	{
+		if (access(redir->file, F_OK) != 0)
+			return (ft_print_error_exec(2, redir->file), 0);
+		if (access(redir->file, R_OK) != 0)
+			return (ft_print_error_exec(1, redir->file), 0);
+	}
+	else if (redir->type == REDIR_APPEND)
+	{
+		fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (fd < 0)
+			return (ft_print_error_exec(1, redir->file), 0);
+		close(fd);
+	}
+	else if (redir->type == REDIR_OUT)
+	{
+		fd = open(redir->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
+		if (fd < 0)
+			return (ft_print_error_exec(1, redir->file), 0);
+		close(fd);
+	}
+	return (1);
+}
+
+int	ft_check_files(t_redir *redir)
+{
+	t_redir	*tmp;
+
+	tmp = redir;
+	while (tmp)
+	{
+		if (!ft_files_ok(tmp))
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

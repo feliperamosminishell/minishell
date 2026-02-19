@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 15:02:18 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 17:22:00 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void	ft_print_message(int fd, char *str);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
+int		ft_check_files(t_redir *redir);
 
 // ==========  CHECK LINE ==========
 int		ft_is_operator(char c);
