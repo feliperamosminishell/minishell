@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_freelist.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:42:34 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/04 16:33:09 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:34:21 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 void	ft_freelist(t_list **list)
 {

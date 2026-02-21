@@ -6,15 +6,15 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:15:33 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/02 01:58:58 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:39:41 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isspace (char c)
+int	ft_isspace(char c)
 {
-    if (c == ' ' || c == '\t')
-        return (1);
-    return (0);
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:24:57 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/06 02:05:33 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:31:49 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 /*funcion para contar variables de entorno de shell->env_list*/
-int count_env_vars(t_env *env)
+int	count_env_vars(t_env *env)
 {
 	int		count;
 	t_env	*current;
@@ -29,7 +29,7 @@ int count_env_vars(t_env *env)
 }
 
 /*copiar estas variables a un array*/
-void copy_env_to_array(t_env *env, t_env **array)
+void	copy_env_to_array(t_env *env, t_env **array)
 {
 	int		i;
 	t_env	*current;
@@ -39,8 +39,8 @@ void copy_env_to_array(t_env *env, t_env **array)
 	while (current)
 	{
 		array[i] = current;
-		current =  current->next;
+		current = current->next;
 		i++;
-	}	
+	}
 }
 /*bubblesort de ese array de variables*/

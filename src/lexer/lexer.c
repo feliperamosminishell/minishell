@@ -3,26 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/10 12:40:47 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:22:16 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static void ft_create_word_token(t_token **list, const char *line, int start, int end)
-{
-	char *value;
-
-	if (end <= start)
-		return;
-	value = ft_substr(line, start, end - start);
-	ft_lstadd_token(list, ft_new_token(WORD, value));
-}
-
-static int ft_handle_operator(t_token **list, const char *line, int i)
+static int	ft_handle_operator(t_token **list, const char *line, int i)
 {
 	if (line[i] == '<' && line[i + 1] == '<')
 	{
@@ -43,52 +33,34 @@ static int ft_handle_operator(t_token **list, const char *line, int i)
 	return (i + 1);
 }
 
-t_token *ft_lexer(const char *line, int last_status)
+static void	ft_init_lexer(t_lexer *lexer, int last_status)
 {
-	int		i;
-	int		start;
-	int		in[2];
-	char	*expanded;
-	t_token	*list;
+	lexer->i = 0;
+	lexer->in_s = 0;
+	lexer->in_d = 0;
+	lexer->start = 0;
+	lexer->list = NULL;
+	lexer->last_status = last_status;
+}
 
-	i = 0;
-	in[0] = 0;
-	in[1] = 0;
-	list = NULL;
+t_token	*ft_lexer(const char *line, int last_status)
+{
+	t_lexer	lx;
+
+	ft_init_lexer(&lx, last_status);
 	if (!ft_check_str(line))
 		return (NULL);
-	while (line[i])
+	while (line[lx.i])
 	{
-		while (ft_isspace(line[i]))
-			i++;
-		if (!line[i])
-			break;
-		start = i;
-		if (!in[0] && !in[1] && (line[i] == '|' || line[i] == '<'
-				|| line[i] == '>'))
-			i = ft_handle_operator(&list, line, i);
+		while (ft_isspace(line[lx.i]))
+			lx.i++;
+		if (!line[lx.i])
+			break ;
+		lx.start = lx.i;
+		if (!lx.in_s && ft_is_operator(line[lx.i]))
+			lx.i = ft_handle_operator(&(lx.list), line, lx.i);
 		else
-		{
-			while (line[i] && (!ft_isspace(line[i]) || in[0] || in[1])
-				&& !(line[i] == '|' || line[i] == '<' || line[i] == '>'))
-			{
-				if (line[i] == '\'' && !in[1])
-					in[0] = !in[0];
-				else if (line[i] == '\"' && !in[0])
-					in[1] = !in[1];
-				else if (line[i] == '$' && !in[0])
-				{
-					if (i > start)
-						ft_create_word_token(&list, line, start, i);
-					expanded = ft_expand_var(line, &i, last_status);
-					ft_lstadd_token(&list, ft_new_token(WORD, expanded));
-					start = i;
-					continue;
-				}
-				i++;
-			}
-			ft_create_word_token(&list, line, start, i);
-		}
+			ft_handle_word(line, &lx);
 	}
-	return (list);
+	return (lx.list);
 }

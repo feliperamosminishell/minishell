@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:34:30 by juan-her          #+#    #+#             */
-/*   Updated: 2025/10/02 17:16:17 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:39:21 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join = (char *) malloc(total * sizeof(char));
 	if (!join)
 		return (NULL);
-	while (i <= (len_s1 + len_s2))
+	while (i < (len_s1 + len_s2))
 	{
 		if (i < len_s1)
 			join[i] = s1[i];

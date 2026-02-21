@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand.c                                           :+:      :+:    :+:   */
+/*   add_cnt_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 15:39:24 by juan-her         ###   ########.fr       */
+/*   Created: 2026/02/16 20:39:55 by juan-her          #+#    #+#             */
+/*   Updated: 2026/02/18 15:58:09 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char	*ft_expand_var(const char *line, int *i, int last_status)
+int	ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk)
 {
-	int		start;
-	char	*var;
-	char	*value;
+	en_token	type;
 
-	(*i)++;
-	if (line[*i] == '?')
+	type = (*tk)->type;
+	if (type == WORD)
+		ft_add_args(l_ag, (*tk)->value);
+	else if (ft_is_redir(type))
 	{
-		(*i)++;
-		return (ft_itoa(last_status));
+		*tk = (*tk)->next;
+		ft_add_redir(&(*cmd)->redirs, type, (*tk)->value);
 	}
-	start = *i;
-	while (ft_isalnum(line[*i]) || line[*i] == '_')
-		(*i)++;
-	var = ft_substr(line, start, *i - start);
-	value = getenv(var);
-	free(var);
-	if (!value)
-		return (ft_strdup(""));
-	return (ft_strdup(value));
+	else if (type == PIPE)
+	{
+		if (!ft_new_pipe(cmd, l_c, l_ag))
+			return (0);
+	}
+	return (1);
 }
