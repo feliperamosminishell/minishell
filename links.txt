@@ -1,1 +1,29 @@
 https://gist.github.com/VideoCarp/d7cec2195a7de370d850aead62fa09cd -> lexing
+
+/* static void	ft_see(t_cmd *parser)
+{
+	int		i;
+	t_cmd	*tmp;
+	t_redir	*tmp_r;
+
+	tmp = parser;
+	while (tmp)
+	{
+		i = 0;
+		tmp_r = tmp->redirs;
+		while (tmp->argv[i])
+		{
+			while (tmp_r)
+			{
+				printf("%s redirecciones\n", tmp_r->file);
+				printf("%d tipo\n", tmp_r->type);
+				tmp_r = tmp_r->next;
+			}
+			printf("%s comando\n", tmp->argv[i]);
+			i++;
+		}
+		if (tmp->next)
+			printf("Otro comando \n");
+		tmp = tmp->next;
+	}
+} */

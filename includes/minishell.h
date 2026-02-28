@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 17:22:00 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/27 20:59:16 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 #include <readline/history.h>
 #include <unistd.h>
 #include <fcntl.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 #include <stdlib.h>
 #include <stdio.h>
 # include "../libft/libft.h"
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
 
 typedef enum e_token
 {
@@ -115,6 +121,7 @@ void	ft_print_message(int fd, char *str);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
+void	ft_print_error_exec(int message, char *name);
 int		ft_check_files(t_redir *redir);
 
 // ==========  CHECK LINE ==========
@@ -155,9 +162,14 @@ void	print_env_list(t_env *env_list);
 char	*ft_expand_var(const char *line, int *i, int last_status);
 char	*ft_lexer_dq(const char *line, t_lexer *lx);
 
+// ========== REDIRECTION ==========
+char	*get_next_line(int fd);
+int		ft_prepare_redirection(t_cmd *cmd);
+void	ft_apply_redirections(t_cmd *cmd);
 
 // ========== EXECUTOR ==========
-//void	execute_command(t_shell *shell, t_cmd *cmd);
+void	ft_execute(char **cmd, char **env);
+void	ft_exec(t_shell **mini);
 
 
 #endif

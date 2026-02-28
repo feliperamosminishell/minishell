@@ -6,7 +6,7 @@
 #    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/18 15:12:11 by juan-her         ###   ########.fr        #
+#    Updated: 2026/02/28 18:37:14 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,14 @@ UTILS_SRCS	= env_utils.c \
 				ft_freelist.c \
 				utils.c
 
+# Archivos fuente - Executor
+REDIR_SRCS	= get_next_line.c \
+				set_redir.c
+
+# Archivos fuente - Executor
+EXEC_SRCS	= exec.c \
+				executor.c
+
 # Construcción de rutas completas
 SRCS		= $(addprefix $(SRC_DIR)/, $(MAIN_SRCS)) \
 				$(addprefix $(SRC_DIR)/parsing/, $(PARSING_SRCS)) \
@@ -60,7 +68,10 @@ SRCS		= $(addprefix $(SRC_DIR)/, $(MAIN_SRCS)) \
 				$(addprefix $(SRC_DIR)/utils/, $(UTILS_SRCS)) \
 				$(addprefix $(SRC_DIR)/expand/, $(EXPAND_SRCS)) \
 				$(addprefix $(SRC_DIR)/lexer/, $(LEXER_SRCS)) \
-				$(addprefix $(SRC_DIR)/error/, $(ERROR_SRCS))
+				$(addprefix $(SRC_DIR)/error/, $(ERROR_SRCS)) \
+				$(addprefix $(SRC_DIR)/redirection/, $(REDIR_SRCS)) \
+				$(addprefix $(SRC_DIR)/executor/, $(EXEC_SRCS))
+
 
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
