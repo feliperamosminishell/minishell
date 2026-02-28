@@ -45,7 +45,7 @@ Hello World!
 
 ### 🎯 Overall Progress
 ```
-███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  9%
+█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12%
 ```
 **Completed:** 1/52 tasks | **Time Invested:** 90h | **Deadline:** March 30, 2026
 
@@ -65,7 +65,7 @@ Hello World!
 **Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 380 days| **Status:** ✅ COMPLETED
 
 ```
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 100%
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
 Timeline: ████████████████████████████████████████ [====================]
 ```
 
@@ -130,7 +130,7 @@ Timeline: ███████████████████████�
 **Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 365 days| **Status:** 📋 PLANNED
 
 ```
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 75%
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
 Timeline: ████████████████████████████████████████ [====================]
 ```
 
@@ -161,7 +161,7 @@ Timeline: ███████████████████████�
 **Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 358 days| **Status:** 📋 PLANNED
 
 ```
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 100%
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
 Timeline: ████████████████████████████████████████ [====================]
 ```
 
@@ -194,7 +194,7 @@ Timeline: ███████████████████████�
 **Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 351 days| **Status:** 📋 PLANNED
 
 ```
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 25%
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
 Timeline: ████████████████████████████████████████ [====================]
 ```
 
@@ -283,7 +283,7 @@ Timeline: ███████████████████████�
 ### Overall Project Timeline
 
 ```
-Parsing        ████████████████████   100% 📋
+Parsing        ░░░░░░░░░░░░░░░░░░░░   0% 📋
 Built-ins      ████████░░░░░░░░░░░░  43% 🚧
 Execution      ░░░░░░░░░░░░░░░░░░░░   0% 📋
 Pipes          ░░░░░░░░░░░░░░░░░░░░   0% 📋
@@ -568,7 +568,7 @@ $ git push origin main
 
 <img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: February 28, 2026 at 04:35 UTC
+### 📌 Last Updated: February 28, 2026 at 21:47 UTC
 
 </div>
 
