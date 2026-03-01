@@ -62,7 +62,7 @@ Hello World!
 ## 📅 Development Phases
 
 ### 📝 Phase 1: Parsing & Tokenization
-**Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 380 days| **Status:** ✅ COMPLETED
+**Deadline:** Feb 14, 2025 | ⚠️ OVERDUE by 381 days| **Status:** ✅ COMPLETED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -94,7 +94,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔧 Phase 2: Built-in Commands
-**Deadline:** Feb 21, 2025 | ⚠️ OVERDUE by 373 days| **Status:** 🚧 IN PROGRESS
+**Deadline:** Feb 21, 2025 | ⚠️ OVERDUE by 374 days| **Status:** 🚧 IN PROGRESS
 
 ```
 Progress: █████████████████░░░░░░░░░░░░░░░░░░░░░░░ 43%
@@ -127,7 +127,7 @@ Timeline: ███████████████████████�
 ---
 
 ### ⚙️ Phase 3: Execution & Processes
-**Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 365 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 01, 2025 | ⚠️ OVERDUE by 366 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -158,7 +158,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 🔀 Phase 4: Pipes & Redirections
-**Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 358 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 08, 2025 | ⚠️ OVERDUE by 359 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -191,7 +191,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 💾 Phase 5: Environment & Variables
-**Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 351 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 15, 2025 | ⚠️ OVERDUE by 352 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -217,7 +217,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 🎯 Phase 6: Signals
-**Deadline:** Mar 22, 2025 | ⚠️ OVERDUE by 344 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 22, 2025 | ⚠️ OVERDUE by 345 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -247,7 +247,7 @@ Timeline: ███████████████████████�
 ---
 
 ### 🐛 Phase 7: Testing & Bug Fixes
-**Deadline:** Mar 29, 2025 | ⚠️ OVERDUE by 337 days| **Status:** 📋 PLANNED
+**Deadline:** Mar 29, 2025 | ⚠️ OVERDUE by 338 days| **Status:** 📋 PLANNED
 
 ```
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0%
@@ -568,7 +568,7 @@ $ git push origin main
 
 <img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
 
-### 📌 Last Updated: February 28, 2026 at 21:47 UTC
+### 📌 Last Updated: March 01, 2026 at 05:10 UTC
 
 </div>
 
