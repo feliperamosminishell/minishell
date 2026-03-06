@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 22:06:49 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/11 14:12:10 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:22:57 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,37 @@ t_env	*init_env(char **envp)
 		i++;
 	}
 	return (env_list);
+}
+t_env	*env_find(t_env *env, const char *key)
+{
+	while (env)
+	{
+		if (ft_strcmp(env->key, key) == 0)
+			return (env);
+		env = env->next;
+	}
+	return (NULL);
+}
+void	env_update(t_env *node, const char *new_value)
+{
+	if (!node)
+		return ;
+	free(node->value);
+	if (new_value)
+		node->value = ft_strdup(new_value);
+	else
+		node->value = NULL;
+}
+void	free_env(t_env *env)
+{
+	t_env	*tmp;
+
+	while (env)
+	{
+		tmp = env->next;
+		free(env->key);
+		free(env->value);
+		free(env);
+		env = tmp;
+	}
 }

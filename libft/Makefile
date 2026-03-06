@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
+#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:12:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/12 15:18:16 by juan-her         ###   ########.fr        #
+#    Updated: 2026/03/06 13:39:41 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SOURCE = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_strlen.c \
 			ft_strnstr.c ft_strrchr.c ft_toupper.c ft_tolower.c ft_substr.c \
 			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_isspace.c
+			ft_isspace.c ft_strcmp.c
 SOURCEBONUS = ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 				ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstdelone_bonus.c\
 				ft_multifree.c 

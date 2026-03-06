@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 17:22:00 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/06 13:32:07 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ typedef enum e_token
 {
 	WORD,
 	PIPE,
-	REDIR_IN,      
-	REDIR_OUT,     
-	REDIR_APPEND,  
-	HEREDOC,     
+	REDIR_IN,
+	REDIR_OUT,
+	REDIR_APPEND,
+	HEREDOC,
 } en_token;
 
 typedef struct s_token
 {
-	char            *value;
-	en_token         type;
-	struct s_token  *next;
+	char			*value;
+	en_token		type;
+	struct s_token	*next;
 } t_token;
 
 typedef struct s_lexer
@@ -145,12 +145,27 @@ void	execute_builtin(t_shell *shell, t_cmd *cmd);
 int		builtin_echo(char **args);
 //void	builtin_cd(t_shell *shell, char **args);
 int		builtin_pwd(t_shell *sh);
-//void	builtin_export(t_shell *shell, char **args);
-//void	builtin_unset(t_shell *shell, char **args);
+void	builtin_export(t_shell *shell, char **args);
+void	builtin_unset(t_shell *shell, char **args);
 int		builtin_env(char **argv, t_shell *shell);
 //void	builtin_exit(t_shell *shell, char **args);
 void	print_env_list(t_env *env_list);
 
+// ========== BUILTINS UTILS ==========
+void	add_back_env(t_env **list, t_env *new_node);
+t_env	*create_env_node(const char *key, const char *value);
+char	*get_key(char *arg);
+int		count_env_vars(t_env *env);
+void	copy_env_to_array(t_env *env, t_env **array);
+void	sort_env_array(t_env **array, int count);
+void	print_export_var(t_env *env);
+int		is_valid_id(char *key);
+char	*get_value(char *arg);
+t_env	*env_find(t_env *env, const char *key);
+void	env_update(t_env *node, const char *new_value);
+void	builtin_export(t_shell *shell, char **args);
+void	builtin_export_no_args(t_shell *shell);
+void	builtin_export_with_args(t_shell *shell, char **args);
 // ========== EXPAND ==========
 char	*ft_expand_var(const char *line, int *i, int last_status);
 char	*ft_lexer_dq(const char *line, t_lexer *lx);

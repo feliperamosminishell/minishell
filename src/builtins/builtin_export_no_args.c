@@ -3,29 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export_no_args.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:22:35 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/18 16:28:37 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/02/18 15:47:47 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+# include "../../includes/minishell.h"
 
-void	builtin_export(t_shell *shell, char **args)
+void builtin_export(t_shell *shell, char **args)
+{
+	if (args[1] == NULL)
+		builtin_export_no_args(shell);
+	else
+		builtin_export_with_args(shell, args);
+}
+
+void builtin_export_no_args(t_shell *shell)
 {
 	t_env	**env_array;
 	int		count;
 	int		i;
 
-	if (args[1] != NULL)
-	{
-		ft_putstr_fd("minishell: export: too many arguments\n", 2);
-		shell->exit_status = 1;
-		return (0);
-	}
 	count = count_env_vars(shell->env);
+	if (count == 0)
+		return; 
 	env_array = malloc(count * sizeof(t_env *));
+	if (!env_array)
+	{
+		shell->exit_status = 1;
+		return;
+	}	
 	copy_env_to_array(shell->env, env_array);
 	sort_env_array(env_array, count);
 	i = 0;
@@ -36,3 +45,6 @@ void	builtin_export(t_shell *shell, char **args)
 	}
 	free(env_array);
 }
+
+
+
