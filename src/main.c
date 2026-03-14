@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 15:37:12 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/14 19:43:07 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main(int ac, char **ag, char **env)
 
 	(void) ac;
 	(void) ag;
+	rl_catch_signals = 0;
 	ft_init_shell(&mini, env);
+	ft_init_sig_father();
 	ft_loop(&mini);
 	rl_clear_history();
 }

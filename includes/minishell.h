@@ -6,12 +6,14 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/27 20:59:16 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/14 19:36:40 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
+#define _POSIX_C_SOURCE 200809L
 
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -19,13 +21,16 @@
 #include <fcntl.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <signal.h>
 # include "../libft/libft.h"
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42
 #endif
+
+extern volatile sig_atomic_t WHO_SIG;
 
 typedef enum e_token
 {
@@ -170,6 +175,11 @@ void	ft_apply_redirections(t_cmd *cmd);
 // ========== EXECUTOR ==========
 void	ft_execute(char **cmd, char **env);
 void	ft_exec(t_shell **mini);
+
+// ========== SIGNALS ==========
+void    ft_init_sig_father(void);
+void    ft_init_sig_son(void);
+void    ft_check_exit_statuc(t_shell **mini);
 
 
 #endif

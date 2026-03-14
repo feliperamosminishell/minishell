@@ -6,7 +6,7 @@
 #    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/02/28 18:37:14 by juan-her         ###   ########.fr        #
+#    Updated: 2026/03/14 19:41:36 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,8 @@ REDIR_SRCS	= get_next_line.c \
 # Archivos fuente - Executor
 EXEC_SRCS	= exec.c \
 				executor.c
+# Archivos fuente - Executor
+SIG_SRCS	= signal.c
 
 # Construcción de rutas completas
 SRCS		= $(addprefix $(SRC_DIR)/, $(MAIN_SRCS)) \
@@ -70,7 +72,8 @@ SRCS		= $(addprefix $(SRC_DIR)/, $(MAIN_SRCS)) \
 				$(addprefix $(SRC_DIR)/lexer/, $(LEXER_SRCS)) \
 				$(addprefix $(SRC_DIR)/error/, $(ERROR_SRCS)) \
 				$(addprefix $(SRC_DIR)/redirection/, $(REDIR_SRCS)) \
-				$(addprefix $(SRC_DIR)/executor/, $(EXEC_SRCS))
+				$(addprefix $(SRC_DIR)/executor/, $(EXEC_SRCS)) \
+				$(addprefix $(SRC_DIR)/signals/, $(SIG_SRCS))
 
 
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
