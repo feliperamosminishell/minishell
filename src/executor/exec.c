@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/14 20:03:09 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/15 18:08:11 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 
 static int	ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 {
-	if (!ft_prepare_redirection(*cmd))
+	if (!ft_prepare_redirection(*cmd, mini))
 		return (0);
 	if (!ft_exec_cmd_child(fd, pv_p, cmd, mini))
 		return (0);

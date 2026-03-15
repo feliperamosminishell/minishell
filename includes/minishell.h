@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/14 19:36:40 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/15 18:09:12 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ char	*ft_lexer_dq(const char *line, t_lexer *lx);
 
 // ========== REDIRECTION ==========
 char	*get_next_line(int fd);
-int		ft_prepare_redirection(t_cmd *cmd);
+int		ft_prepare_redirection(t_cmd *cmd, t_shell **mini);
 void	ft_apply_redirections(t_cmd *cmd);
 
 // ========== EXECUTOR ==========
