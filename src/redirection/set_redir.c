@@ -6,13 +6,13 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/15 18:10:07 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:50:24 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static	int	ft_handle_heredoc(char *limiter, t_shell **mini)
+static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 {
 	int		fd[2];
 	int		status;
@@ -32,15 +32,18 @@ static	int	ft_handle_heredoc(char *limiter, t_shell **mini)
 			write(1, "> ", 2);
 			line = get_next_line(0);
 			if (!line)
-				break ;
+				exit(0);
 			if (line[ft_strlen(line) - 1] == '\n')
 				line[ft_strlen(line) - 1] = '\0';
 			if (ft_strncmp(line, limiter, ft_strlen(limiter) + 1) == 0)
 			{
 				free(line);
-				break ;
+				exit(0);
 			}
-			write(fd[1], line, ft_strlen(line));
+			if (quotes)
+				write(fd[1], line, ft_strlen(line));
+			else
+				ft_write_pipe(line, (*mini)->exit_status, fd[1]);
 			write(fd[1], "\n", 1);
 			free(line);
 		}
@@ -51,7 +54,7 @@ static	int	ft_handle_heredoc(char *limiter, t_shell **mini)
 	{
 		close(fd[0]);
 		write(1, "\n", 1);
-		(*mini)->exit_status = WEXITSTATUS(status);
+		(*mini)->exit_status = 130;
 		return (-1);
 	}
 	return (fd[0]);
@@ -63,7 +66,7 @@ static int	ft_set_fd(t_redir *rd_tmp, t_shell **mini)
 
 	if (rd_tmp->type == HEREDOC)
 	{
-		fd = ft_handle_heredoc(rd_tmp->file, mini);
+		fd = ft_handle_heredoc(rd_tmp->file, mini, rd_tmp->quotes);
 		ft_init_sig_father();
 	}
 	else if (rd_tmp->type == REDIR_IN)

@@ -6,13 +6,13 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:14:01 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:30:23 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/16 14:52:22 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_token	*ft_new_token(int type, char *value)
+t_token	*ft_new_token(int type, char *value, int quotes)
 {
 	t_token	*list;
 
@@ -21,6 +21,7 @@ t_token	*ft_new_token(int type, char *value)
 		return (NULL);
 	list->value = value;
 	list->type = type;
+	list->quotes = quotes;
 	list->next = NULL;
 	return (list);
 }
@@ -52,7 +53,7 @@ t_cmd	*ft_new_cmd(void)
 	return (cmd);
 }
 
-t_redir	*ft_new_redir(char *file, en_token type)
+t_redir	*ft_new_redir(char *file, en_token type, int quotes)
 {
 	t_redir	*redir;
 
@@ -61,6 +62,7 @@ t_redir	*ft_new_redir(char *file, en_token type)
 		return (NULL);
 	redir->file = file;
 	redir->type = type;
+	redir->quotes = quotes;
 	redir->next = NULL;
 	return (redir);
 }

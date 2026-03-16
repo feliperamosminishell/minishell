@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 02:55:14 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 15:59:58 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/16 14:51:50 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	ft_add_args(t_args **list, char *value)
 	return (0);
 }
 
-int	ft_add_redir(t_redir **list, en_token type, char *file)
+int	ft_add_redir(t_redir **list, en_token type, char *file, int quotes)
 {
 	t_redir	*new;
 	t_redir	*tmp;
 
-	new = ft_new_redir(ft_strdup(file), type);
+	new = ft_new_redir(ft_strdup(file), type, quotes);
 	if (!new)
 		return (-1);
 	if (!*list)

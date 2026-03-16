@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/15 18:09:12 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:43:30 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_token
 {
 	char            *value;
 	en_token         type;
+	int				quotes;
 	struct s_token  *next;
 } t_token;
 
@@ -61,8 +62,9 @@ typedef struct s_lexer
 
 typedef struct s_redir
 {
-	char	*file;
-	en_token type;
+	char		*file;
+	en_token	type;
+	int			quotes;
 	struct s_redir *next;
 } t_redir;
 
@@ -110,10 +112,10 @@ typedef struct s_shell
 void	ft_loop(t_shell *mini);
 
 // ==========  UTILS ==========
-t_token	*ft_new_token(int type, char *value);
+t_token	*ft_new_token(int type, char *value, int quotes);
 t_args	*ft_new_args(char *str);
 t_cmd	*ft_new_cmd(void);
-t_redir	*ft_new_redir(char *file, en_token type);
+t_redir	*ft_new_redir(char *file, en_token type, int quotes);
 void	ft_free_tokens(t_token **token);
 void	ft_free_args(t_args **ags);
 void	ft_free_redirs(t_redir **redir);
@@ -142,7 +144,7 @@ t_token *ft_lexer(const char *line, int last_status);
 
 // ==========  PARSING ==========
 int		ft_add_args(t_args **list, char *value);
-int		ft_add_redir (t_redir **list, en_token type, char *file);
+int		ft_add_redir(t_redir **list, en_token type, char *file, int quotes);
 char	**ft_conv_args(t_args **ag);
 void	ft_add_cmd(t_cmd **list, t_cmd *new);
 int		ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag);
@@ -166,6 +168,7 @@ void	print_env_list(t_env *env_list);
 // ========== EXPAND ==========
 char	*ft_expand_var(const char *line, int *i, int last_status);
 char	*ft_lexer_dq(const char *line, t_lexer *lx);
+void	ft_write_pipe(char *line, int last_status, int fd);
 
 // ========== REDIRECTION ==========
 char	*get_next_line(int fd);
