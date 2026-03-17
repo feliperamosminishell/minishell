@@ -6,11 +6,13 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 19:50:24 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:22:15 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+
 
 static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 {
