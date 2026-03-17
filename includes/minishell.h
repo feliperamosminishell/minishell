@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 19:43:30 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 23:43:11 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int		ft_check_str(const char *str);
 // ==========  LEXER ==========
 void	ft_lstadd_token(t_token **lst, t_token *new_node);
 void	ft_handle_word(const char *line, t_lexer *lx);
-t_token *ft_lexer(const char *line, int last_status);
+t_token	*ft_lexer(const char *line, int last_status, t_shell **mini);
 
 // ==========  PARSING ==========
 int		ft_add_args(t_args **list, char *value);
@@ -149,7 +149,7 @@ char	**ft_conv_args(t_args **ag);
 void	ft_add_cmd(t_cmd **list, t_cmd *new);
 int		ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag);
 int		ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk);
-t_cmd	*ft_parser(t_token **token);
+t_cmd	*ft_parser(t_token **token, t_shell **mini);
 
 // ========== BUILTINS ==========
 int		is_builtin(char *cmd);

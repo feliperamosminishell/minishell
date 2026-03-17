@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/14 21:30:14 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 23:43:54 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	ft_handler_line(char *line, t_shell **mini)
 	t_token	*tokens;
 	t_token	*head;
 
-	head = ft_lexer(line, (*mini)->exit_status);
+	head = ft_lexer(line, (*mini)->exit_status, mini);
 	tokens = head;
-	(*mini)->cmds = ft_parser(&tokens);
+	(*mini)->cmds = ft_parser(&tokens, mini);
 	ft_free_tokens(&head);
 	if ((*mini)->cmds)
 	{

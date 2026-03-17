@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 14:45:38 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 21:39:06 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ static void	ft_init_lexer(t_lexer *lexer, int last_status)
 	lexer->last_status = last_status;
 }
 
-t_token	*ft_lexer(const char *line, int last_status)
+t_token	*ft_lexer(const char *line, int last_status, t_shell **mini)
 {
 	t_lexer	lx;
 
 	ft_init_lexer(&lx, last_status);
 	if (!ft_check_str(line))
+	{
+		(*mini)->exit_status = 127;
 		return (NULL);
+	}
 	while (line[lx.i])
 	{
 		while (ft_isspace(line[lx.i]))
