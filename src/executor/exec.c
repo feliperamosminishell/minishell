@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/15 18:08:11 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:50:27 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,16 @@ static int	ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 			close(fd[1]);
 		}
 		ft_apply_redirections(*cmd);
-		ft_execute((*cmd)->argv, (*mini)->env_bash);
-		exit(1);
+		if (ft_is_builtin((*cmd)->argv[0]))
+		{
+			ft_exc_built(mini, *cmd);
+			exit((*mini)->exit_status);
+		}
+		else
+		{
+			ft_execute((*cmd)->argv, (*mini)->env_bash);
+			exit(1);
+		}
 	}
 	return (1);
 }
@@ -79,6 +87,12 @@ void	ft_exec(t_shell **mini)
 	prev_pipe = -1;
 	while (cmd)
 	{
+		if (!cmd->next && prev_pipe == -1 && ft_is_builtin(cmd->argv[0]))
+		{
+			ft_apply_redirections(cmd);
+			ft_exc_built(mini, cmd);
+			return ;
+		}
 		if (cmd->next)
 		{
 			if (pipe(fd) == -1)

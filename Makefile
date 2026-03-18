@@ -6,7 +6,7 @@
 #    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/03/16 18:09:11 by juan-her         ###   ########.fr        #
+#    Updated: 2026/03/18 16:43:23 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,10 +44,17 @@ PARSING_SRCS = add_cnt.c \
 # Archivos fuente - Builtins
 BUILTINS_SRCS = builtin_echo.c \
 				builtin_pwd.c \
-				builtin_env.c
+				builtin_env.c \
+				builtin_exit.c \
+				builtin_export_no_args.c \
+				builtin_export_with_args.c \
+				builtin_unset.c \
+				builtin_cd.c \
+				handler_builtin.c
 
 # Archivos fuente - Utils
 UTILS_SRCS	= env_utils.c \
+				export_utils.c \
 				free_nodes.c \
 				new_nodes.c \
 				ft_freelist.c \

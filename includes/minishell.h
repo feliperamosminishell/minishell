@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/18 00:53:33 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:09:51 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,8 @@ int		ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk);
 t_cmd	*ft_parser(t_token **token, t_shell **mini);
 
 // ========== BUILTINS ==========
-int		is_builtin(char *cmd);
-void	execute_builtin(t_shell *shell, t_cmd *cmd);
+int		ft_is_builtin(char *cmd);
+void	ft_exc_built(t_shell **mini, t_cmd *cmd);
 
 // ========== INDIVIDUAL BUILTINS ==========
 int		builtin_cd(t_shell *shell, char **argv);

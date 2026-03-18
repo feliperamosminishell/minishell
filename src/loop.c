@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/17 23:43:54 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:52:49 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,35 @@ static void	ft_handler_line(char *line, t_shell **mini)
 
 void ft_loop(t_shell *mini)
 {
-    char *line;
+	char *line;
 
-    while (1)
-    {
+	while (1)
+	{
 		WHO_SIG = 0;
-    	line = readline("Minishell> ");
+		line = readline("Minishell> ");
 		if (!line)
 		{
-		    printf("exit\n");
+			printf("exit\n");
 			rl_clear_history();
-		    exit(mini->exit_status);
+			exit(mini->exit_status);
 		}
 		if (WHO_SIG)
 		{
-		    mini->exit_status = 130;
-		    WHO_SIG = 0;
+			mini->exit_status = 130;
+			WHO_SIG = 0;
 		}
-        if (!ft_strncmp(line, "exit", 4) && line[4] == '\0')
-        {
-            free(line);
-            printf("exit\n");
+		if (!ft_strncmp(line, "exit", 4) && line[4] == '\0')
+		{
+			free(line);
+			printf("exit\n");
 			rl_clear_history();
-            exit(mini->exit_status);
-        }
-        if (*line)
-        {
-            add_history(line);
-            ft_handler_line(line, &mini);
-        }
+			exit(mini->exit_status);
+		}
+		if (*line)
+		{
+			add_history(line);
+			ft_handler_line(line, &mini);
+		}
 		free(line);
-    }
+	}
 }

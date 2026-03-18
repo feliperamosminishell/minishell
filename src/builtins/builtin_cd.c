@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 20:45:28 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 00:20:32 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:37:44 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,18 @@ static void	cd_update_env(t_shell *shell, const char *old, const char *new)
 
 static int	cd_error(t_shell *shell, const char *msg, const char *arg)
 {
+	char	*m;
+	char	*ar;
+
+	m = (char *)msg;
+	ar = (char *)arg;
 	ft_putstr_fd("minishell: cd: ", STDERR_FILENO);
 	if (arg)
 	{
-		ft_putstr_fd(arg, STDERR_FILENO);
+		ft_putstr_fd(ar, STDERR_FILENO);
 		ft_putstr_fd(": ", STDERR_FILENO);
 	}
-	ft_putstr_fd(msg, STDERR_FILENO);
+	ft_putstr_fd(m, STDERR_FILENO);
 	ft_putstr_fd("\n", STDERR_FILENO);
 	shell->exit_status = 1;
 	return (1);

@@ -6,19 +6,11 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:22:35 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 00:32:16 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:30:32 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/minishell.h"
-
-static void builtin_export(t_shell *shell, char **args)
-{
-	if (args[1] == NULL)
-		builtin_export_no_args(shell);
-	else
-		builtin_export_with_args(shell, args);
-}
 
 void	builtin_export_no_args(t_shell *shell)
 {
