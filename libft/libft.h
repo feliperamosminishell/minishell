@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:42:04 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 00:14:52 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_freelist(t_list **list);
 int		ft_isspace(char c);
 void	ft_multifree(int n, ...);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

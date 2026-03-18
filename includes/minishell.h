@@ -6,29 +6,30 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/17 23:43:11 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/18 00:53:33 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#define _POSIX_C_SOURCE 200809L
+# define _POSIX_C_SOURCE 200809L
 
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <unistd.h>
-#include <fcntl.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <unistd.h>
+# include <fcntl.h>
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <signal.h>
 # include "../libft/libft.h"
+# include <errno.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 extern volatile sig_atomic_t WHO_SIG;
 
@@ -121,7 +122,6 @@ void	ft_free_args(t_args **ags);
 void	ft_free_redirs(t_redir **redir);
 void 	ft_free_cmds(t_cmd **cmd);
 t_env	*init_env(char **envp);
-void	add_back_env(t_env **list, t_env *new_node);
 void	free_env(t_env *env);
 int		ft_is_redir (en_token type);
 void	ft_print_message(int fd, char *str);
@@ -156,14 +156,28 @@ int		is_builtin(char *cmd);
 void	execute_builtin(t_shell *shell, t_cmd *cmd);
 
 // ========== INDIVIDUAL BUILTINS ==========
+int		builtin_cd(t_shell *shell, char **argv);
 int		builtin_echo(char **args);
-//void	builtin_cd(t_shell *shell, char **args);
 int		builtin_pwd(t_shell *sh);
-//void	builtin_export(t_shell *shell, char **args);
-//void	builtin_unset(t_shell *shell, char **args);
 int		builtin_env(char **argv, t_shell *shell);
-//void	builtin_exit(t_shell *shell, char **args);
-void	print_env_list(t_env *env_list);
+void	builtin_exit(t_shell *shell, char **argv);
+void	builtin_export_no_args(t_shell *shell);
+void    builtin_export_with_args(t_shell *shell, char **args);
+int		builtin_pwd(t_shell *sh);
+void	builtin_unset(t_shell *shell, char **args);
+
+// ========== BUILTINS UTILS ==========
+void	add_back_env(t_env **list, t_env *new_node);
+t_env	*create_env_node(const char *key, const char *value);
+char	*get_key(char *arg);
+int		count_env_vars(t_env *env);
+void	copy_env_to_array(t_env *env, t_env **array);
+void	sort_env_array(t_env **array, int count);
+void	print_export_var(t_env *env);
+int		is_valid_id(char *key);
+char	*get_value(char *arg);
+t_env	*env_find(t_env *env, const char *key);
+void	env_update(t_env *node, const char *new_value);
 
 // ========== EXPAND ==========
 char	*ft_expand_var(const char *line, int *i, int last_status);

@@ -1,54 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_echo.c                                     :+:      :+:    :+:   */
+/*   builtin_unset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 00:37:01 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 00:05:19 by juan-her         ###   ########.fr       */
+/*   Created: 2026/03/06 13:37:01 by goramos-          #+#    #+#             */
+/*   Updated: 2026/03/18 00:09:05 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	is_valid_n_flag(char *arg)
+static void	unset_one(t_shell *shell, char *key)
 {
-	int	i;
+	t_env	*cur;
+	t_env	*prev;
 
-	i = 0;
-	if (arg[i] != '-')
-		return (0);
-	i++;
-	if (arg[i] != 'n')
-		return (0);
-	while (arg[i] == 'n')
-		i++;
-	if (arg[i] == '\0')
-		return (1);
-	return (0);
+	cur = shell->env;
+	prev = NULL;
+	while (cur)
+	{
+		if (ft_strcmp(cur->key, key) == 0)
+		{
+			if (prev)
+				prev->next = cur->next;
+			else
+				shell->env = cur->next;
+			free(cur->key);
+			free(cur->value);
+			free(cur);
+			return ;
+		}
+		prev = cur;
+		cur = cur->next;
+	}
 }
 
-int	builtin_echo(char **argv)
+void	builtin_unset(t_shell *shell, char **args)
 {
 	int	i;
-	int	flag_nl;
 
-	flag_nl = 1;
 	i = 1;
-	while (argv[i] && is_valid_n_flag(argv[i]))
+	while (args[i])
 	{
-		flag_nl = 0;
+		unset_one(shell, args[i]);
 		i++;
 	}
-	while (argv[i])
-	{
-		printf("%s", argv[i]);
-		if (argv[i + 1])
-			printf(" ");
-		i++;
-	}
-	if (flag_nl)
-		printf("\n");
-	return (0);
+	shell->exit_status = 0;
 }

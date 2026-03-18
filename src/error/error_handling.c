@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:57:10 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/28 21:00:03 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 23:54:40 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_print_error_exec(int message, char *name)
 	char	*msg;
 	char	*finish_msg;
 
+	finish_msg = NULL;
 	msg = ft_strjoin("Minishell: ", name);
 	if (!msg)
 		return ;

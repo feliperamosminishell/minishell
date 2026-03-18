@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_pwd.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 00:26:31 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 00:08:13 by juan-her         ###   ########.fr       */
+/*   Created: 2022/09/17 19:08:27 by goramos-          #+#    #+#             */
+/*   Updated: 2026/03/18 00:11:50 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
 
-int	builtin_pwd(t_shell *sh)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (!sh->pwd_data.pwd)
+	size_t	i;
+
+	i = 0;
+	if (!s1 || !s2)
 		return (1);
-	write(1, sh->pwd_data.pwd, ft_strlen(sh->pwd_data.pwd));
-	write(1, "\n", 1);
-	return (0);
+	while (s1[i] && s2[i] && (s1[i] == s2[i]))
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

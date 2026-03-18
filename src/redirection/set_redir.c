@@ -6,19 +6,42 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/17 15:22:15 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 23:56:50 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+static void	ft_read_stdin(char *limiter, t_shell **mini, int quotes, int fd)
+{
+	char	*line;
 
+	while (1)
+	{
+		write(1, "> ", 2);
+		line = get_next_line(0);
+		if (!line)
+			exit(0);
+		if (line[ft_strlen(line) - 1] == '\n')
+			line[ft_strlen(line) - 1] = '\0';
+		if (ft_strncmp(line, limiter, ft_strlen(limiter) + 1) == 0)
+		{
+			free(line);
+			exit(0);
+		}
+		if (quotes)
+			write(fd, line, ft_strlen(line));
+		else
+			ft_write_pipe(line, (*mini)->exit_status, fd);
+		write(fd, "\n", 1);
+		free(line);
+	}
+}
 
 static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 {
 	int		fd[2];
 	int		status;
-	char	*line;
 	pid_t	pid;
 
 	if (pipe(fd) == -1)
@@ -29,26 +52,7 @@ static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	{
 		signal(SIGINT, SIG_DFL);
 		close(fd[0]);
-		while (1)
-		{
-			write(1, "> ", 2);
-			line = get_next_line(0);
-			if (!line)
-				exit(0);
-			if (line[ft_strlen(line) - 1] == '\n')
-				line[ft_strlen(line) - 1] = '\0';
-			if (ft_strncmp(line, limiter, ft_strlen(limiter) + 1) == 0)
-			{
-				free(line);
-				exit(0);
-			}
-			if (quotes)
-				write(fd[1], line, ft_strlen(line));
-			else
-				ft_write_pipe(line, (*mini)->exit_status, fd[1]);
-			write(fd[1], "\n", 1);
-			free(line);
-		}
+		ft_read_stdin(limiter, mini, quotes, fd[1]);
 	}	
 	close(fd[1]);
 	waitpid(pid, &status, 0);
@@ -66,6 +70,7 @@ static int	ft_set_fd(t_redir *rd_tmp, t_shell **mini)
 {
 	int	fd;
 
+	fd = 0;
 	if (rd_tmp->type == HEREDOC)
 	{
 		fd = ft_handle_heredoc(rd_tmp->file, mini, rd_tmp->quotes);
