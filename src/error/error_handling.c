@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:57:10 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/19 13:53:18 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/17 23:54:40 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_print_error_exec(int message, char *name)
 	char	*msg;
 	char	*finish_msg;
 
+	finish_msg = NULL;
 	msg = ft_strjoin("Minishell: ", name);
 	if (!msg)
 		return ;
@@ -92,14 +93,14 @@ static int	ft_files_ok(t_redir *redir)
 	}
 	else if (redir->type == REDIR_APPEND)
 	{
-		fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		fd = open(redir->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
 		if (fd < 0)
 			return (ft_print_error_exec(1, redir->file), 0);
 		close(fd);
 	}
 	else if (redir->type == REDIR_OUT)
 	{
-		fd = open(redir->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
+		fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 		if (fd < 0)
 			return (ft_print_error_exec(1, redir->file), 0);
 		close(fd);

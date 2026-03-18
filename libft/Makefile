@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
+#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 17:12:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/03/06 13:39:41 by goramos-         ###   ########.fr        #
+#    Updated: 2026/03/18 00:18:52 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

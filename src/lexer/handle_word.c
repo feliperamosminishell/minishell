@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:01:04 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:34:57 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:49:16 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,37 @@ static void	ft_word(const char *line, t_lexer *lx, char **vl)
 	lx->i++;
 }
 
+static void	ft_search_line(const char *line, t_lexer *lx, int *quotes, char **value)
+{
+	if (line[lx->i] == '\'' )
+	{
+		lx->in_s = !lx->in_s;
+		lx->i++;
+		*quotes = 1;
+	}
+	else if (line[lx->i] == '\"' && !lx->in_s)	
+	{
+		ft_double_q(line, lx, value);
+		*quotes = 1;
+	}
+	else if (line[lx->i] == '$' && !lx->in_s)
+		ft_globlal(line, lx, value);
+	else
+		ft_word(line, lx, value);
+}
+
 void	ft_handle_word(const char *line, t_lexer *lx)
 {
 	char	*value;
+	int		quotes;
 
+	quotes = 0;
 	value = ft_strdup("");
 	while (line[lx->i] && !ft_is_operator(line[lx->i])
 		&& (!ft_isspace(line[lx->i]) || lx->in_s))
-	{
-		if (line[lx->i] == '\'' )
-		{
-			lx->in_s = !lx->in_s;
-			lx->i++;
-		}
-		else if (line[lx->i] == '\"' && !lx->in_s)
-			ft_double_q(line, lx, &value);
-		else if (line[lx->i] == '$' && !lx->in_s)
-			ft_globlal(line, lx, &value);
-		else
-			ft_word(line, lx, &value);
-	}
+		ft_search_line(line, lx, &quotes, &value);
 	if (value && value[0])
-		ft_lstadd_token(&lx->list, ft_new_token(WORD, value));
+		ft_lstadd_token(&lx->list, ft_new_token(WORD, value, quotes));
 	else
 		free(value);
 }

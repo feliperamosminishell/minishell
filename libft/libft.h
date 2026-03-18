@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 20:56:37 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/06 13:39:00 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/18 00:14:52 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
@@ -73,5 +72,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_freelist(t_list **list);
 int		ft_isspace(char c);
 void	ft_multifree(int n, ...);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

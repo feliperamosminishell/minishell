@@ -3,24 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export_no_args.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:22:35 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/18 15:47:47 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:30:32 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/minishell.h"
 
-void builtin_export(t_shell *shell, char **args)
-{
-	if (args[1] == NULL)
-		builtin_export_no_args(shell);
-	else
-		builtin_export_with_args(shell, args);
-}
-
-void builtin_export_no_args(t_shell *shell)
+void	builtin_export_no_args(t_shell *shell)
 {
 	t_env	**env_array;
 	int		count;
@@ -45,6 +37,3 @@ void builtin_export_no_args(t_shell *shell)
 	}
 	free(env_array);
 }
-
-
-

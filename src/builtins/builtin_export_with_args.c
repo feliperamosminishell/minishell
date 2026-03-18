@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export_with_args.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:58:03 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/23 14:42:34 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/18 00:07:42 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
