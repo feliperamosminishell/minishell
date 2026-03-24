@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 19:10:30 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/28 22:24:01 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:09:08 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	ft_execute(char **cmd, char **env)
 {
 	char	*path;
 
+	if (!cmd || !*cmd)
+		exit(127);
 	path = ft_find_path(cmd[0], env);
 	if (!path)
 	{

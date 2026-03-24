@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_str2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 04:13:58 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:20:23 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:06:56 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,14 @@ void	ft_next_operator(char c, int type)
 		ft_print_error_sintax(5);
 	else
 		ft_print_error_sintax(0);
+}
+int	ft_pipe_followed_by_redir(const char *str, int i)
+{
+	int	next;
+	if (str[i] != '|')
+		return (1);
+	next = ft_skip_spaces(str, i + 1);
+	if (str[next] == '<' || str[next] == '>')
+		return (ft_print_error_sintax(0), 0);
+	return (1);
 }

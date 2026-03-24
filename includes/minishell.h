@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/18 16:09:51 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:07:29 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ int		ft_check_str(const char *str);
 void	ft_lstadd_token(t_token **lst, t_token *new_node);
 void	ft_handle_word(const char *line, t_lexer *lx);
 t_token	*ft_lexer(const char *line, int last_status, t_shell **mini);
+int		ft_pipe_followed_by_redir(const char *str, int i);
 
 // ==========  PARSING ==========
 int		ft_add_args(t_args **list, char *value);

@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/18 23:17:23 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:06:02 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	ft_exec(t_shell **mini)
 	{
 		if (!cmd->next && prev_pipe == -1 && cmd->argv && cmd->argv[0] && ft_is_builtin(cmd->argv[0]))
 		{
+			if (!ft_prepare_redirection(cmd, mini))
+				return ;
 			ft_apply_redirections(cmd);
 			ft_exc_built(mini, cmd);
 			return ;
@@ -99,7 +101,11 @@ void	ft_exec(t_shell **mini)
 				return ;
 		}
 		if (!ft_execution(fd, prev_pipe, &cmd, mini))
-			return ;
+		{
+			if (prev_pipe != -1)
+				close(prev_pipe);
+			return
+		}
 		if (prev_pipe != -1)
 			close(prev_pipe);
 		ft_next_cmd(cmd, fd, &prev_pipe);

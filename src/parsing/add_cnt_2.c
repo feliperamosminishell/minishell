@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_cnt_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 20:39:55 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 14:50:24 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:58:10 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk)
 		ft_add_args(l_ag, (*tk)->value);
 	else if (ft_is_redir(type))
 	{
+		if (!(*tk)->next || !(*tk)->next->value)
+			return (0);
 		*tk = (*tk)->next;
 		ft_add_redir(&(*cmd)->redirs, type, (*tk)->value, (*tk)->quotes);
 	}

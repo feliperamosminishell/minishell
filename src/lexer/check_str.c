@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:03:05 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:08:15 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:08:20 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static int	ft_post_operator(const char *str, int *i)
 		return (ft_print_error_sintax(6), 0);
 	if (str[*i] == '|' && str[*i + 1] == '|')
 		return (ft_print_error_sintax(3), 0);
+	if (!ft_pipe_followed_by_redir(str, *i))
+		return (0);
 	if (!ft_error_check(str, i))
 		return (0);
 	return (1);
