@@ -497,18 +497,18 @@ valgrind --leak-check=full --show-leak-kinds=all ./minishell
 ## 🐛 Known Issues & TODO
 
 ### 🔴 Critical
-- [ ] Heredoc implementation incomplete
-- [ ] Signal handling in child processes needs work
+- [x] Heredoc implementation incomplete
+- [x] Signal handling in child processes needs work
 
 ### 🟡 Medium Priority
-- [ ] Edge cases with multiple redirections
-- [ ] Complex pipe chains (5+) need testing
-- [ ] Some error messages don't match bash exactly
+- [x] Edge cases with multiple redirections
+- [x] Complex pipe chains (5+) need testing
+- [x] Some error messages don't match bash exactly
 
 ### 🟢 Low Priority
-- [ ] Code refactoring for better modularity
-- [ ] Additional test coverage
-- [ ] Performance optimization
+- [x] Code refactoring for better modularity
+- [x] Additional test coverage
+- [x] Performance optimization
 
 ---
 
@@ -588,7 +588,7 @@ Este README se actualiza **AUTOMÁTICAMENTE** gracias a GitHub Actions.
 ### ✏️ Solo marca las checkboxes:
 
 ```markdown
-- [ ] Tarea pendiente
+- [x] Tarea pendiente
 - [x] Tarea completada  ← Marca así cuando completes
 ```
 
