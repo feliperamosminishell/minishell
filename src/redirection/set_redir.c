@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_redir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/17 23:56:50 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:55:45 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_read_stdin(char *limiter, t_shell **mini, int quotes, int fd)
 		if (quotes)
 			write(fd, line, ft_strlen(line));
 		else
-			ft_write_pipe(line, (*mini)->exit_status, fd);
+			ft_write_pipe(line, (*mini)->exit_status, fd, (*mini)->env);
 		write(fd, "\n", 1);
 		free(line);
 	}
@@ -46,8 +46,8 @@ static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 
 	if (pipe(fd) == -1)
 		return (-1);
-	pid = fork();
 	signal(SIGINT, SIG_IGN);
+	pid = fork();
 	if (pid == 0)
 	{
 		signal(SIGINT, SIG_DFL);
@@ -60,6 +60,8 @@ static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	{
 		close(fd[0]);
 		write(1, "\n", 1);
+		rl_on_new_line();
+		rl_replace_line("", 0);
 		(*mini)->exit_status = 130;
 		return (-1);
 	}

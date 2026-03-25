@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/18 16:52:49 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:56:56 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void ft_loop(t_shell *mini)
 		}
 		if (WHO_SIG)
 		{
-			mini->exit_status = 130;
 			WHO_SIG = 0;
 		}
 		if (!ft_strncmp(line, "exit", 4) && line[4] == '\0')

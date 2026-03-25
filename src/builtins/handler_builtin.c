@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:53:13 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/18 23:13:57 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:30:06 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	ft_exc_built(t_shell **mini, t_cmd *cmd)
 	cte_cmd = (const char *)cmd->argv[0];
 	args = cmd->argv;
 	if (ft_strcmp(cte_cmd, "cd") == 0)
-		builtin_cd(*mini, args);
+		(*mini)->exit_status = builtin_cd(*mini, args);
 	else if (ft_strcmp(cte_cmd, "echo") == 0)
-		builtin_echo(args);
+		(*mini)->exit_status = builtin_echo(args);
 	else if (ft_strcmp(cte_cmd, "env") == 0)
-		builtin_env(args, *mini);
+		(*mini)->exit_status = builtin_env(args, *mini);
 	else if (ft_strcmp(cte_cmd, "export") == 0)
 	{
 		if (!args[1])
@@ -61,7 +61,7 @@ void	ft_exc_built(t_shell **mini, t_cmd *cmd)
 	else if (ft_strcmp(cte_cmd, "exit") == 0)
 		builtin_exit(*mini, args);
 	else if (ft_strcmp(cte_cmd, "pwd") == 0)
-		builtin_pwd(*mini);
+		(*mini)->exit_status = builtin_pwd(*mini);
 	else if (ft_strcmp(cte_cmd, "unset") == 0)
 		builtin_unset(*mini, args);
 }

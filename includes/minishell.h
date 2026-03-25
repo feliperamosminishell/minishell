@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 13:07:29 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:26:52 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ typedef struct s_token
 	struct s_token  *next;
 } t_token;
 
+typedef struct s_env
+{
+	char			*key;
+	char			*value;
+	struct s_env	*next;
+} t_env;
+
 typedef struct s_lexer
 {
 	int		i;
@@ -58,6 +65,7 @@ typedef struct s_lexer
 	int		in_s;
 	int 	in_d;
 	int		last_status;
+	t_env	*env;
 	t_token	*list;
 } t_lexer;
 
@@ -84,12 +92,6 @@ typedef struct s_cmd
 	struct s_cmd *next;
 } t_cmd;
 
-typedef struct s_env
-{
-	char			*key;
-	char			*value;
-	struct s_env	*next;
-} t_env;
 
 typedef struct s_pwd
 {
@@ -99,11 +101,11 @@ typedef struct s_pwd
 
 typedef struct s_shell
 {
-	t_cmd   *cmds;
-	char    **env_bash;
+	t_cmd	*cmds;
+	char	**env_bash;
 	t_env	*env;
 	t_pwd	pwd_data;
-	int     exit_status;
+	int		exit_status;
 } t_shell;
 
 
@@ -181,9 +183,9 @@ t_env	*env_find(t_env *env, const char *key);
 void	env_update(t_env *node, const char *new_value);
 
 // ========== EXPAND ==========
-char	*ft_expand_var(const char *line, int *i, int last_status);
+char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env);
 char	*ft_lexer_dq(const char *line, t_lexer *lx);
-void	ft_write_pipe(char *line, int last_status, int fd);
+void	ft_write_pipe(char *line, int last_status, int fd, t_env *env);
 
 // ========== REDIRECTION ==========
 char	*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 19:10:30 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 13:09:08 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:26:46 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_execute(char **cmd, char **env)
 	path = ft_find_path(cmd[0], env);
 	if (!path)
 	{
-		ft_print_error_exec(3, "path");
+		ft_print_error_exec(3, cmd[0]);
 		exit(127);
 	}
 	execve(path, cmd, env);
