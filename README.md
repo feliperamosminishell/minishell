@@ -103,12 +103,12 @@ Timeline: ███████████████████████�
 
 **Checklist:**
 - [x] `echo` with `-n` flag
-- [ ] `cd` with relative and absolute paths
+- [x] `cd` with relative and absolute paths
 - [x] `pwd` (print working directory)
-- [ ] `export` (set environment variables)
-- [ ] `unset` (remove environment variables)
+- [x] `export` (set environment variables)
+- [x] `unset` (remove environment variables)
 - [x] `env` (display environment)
-- [ ] `exit` with exit code
+- [x] `exit` with exit code
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
@@ -135,12 +135,12 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] PATH resolution
-- [ ] Binary execution with `execve`
-- [ ] `fork` and process management
-- [ ] Exit status handling `$?`
-- [ ] Process cleanup and zombie prevention
-- [ ] Edge cases with invalid commands
+- [x] PATH resolution
+- [x] Binary execution with `execve`
+- [x] `fork` and process management
+- [x] Exit status handling `$?`
+- [x] Process cleanup and zombie prevention
+- [x] Edge cases with invalid commands
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
@@ -166,13 +166,13 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] Single pipe `|`
-- [ ] Multiple pipes (chain commands)
-- [ ] Input redirection `<`
-- [ ] Output redirection `>`
-- [ ] Append mode `>>`
-- [ ] Heredoc `<<` implementation
-- [ ] Complex pipe + redirection combos
+- [x] Single pipe `|`
+- [x] Multiple pipes (chain commands)
+- [x] Input redirection `<`
+- [x] Output redirection `>`
+- [x] Append mode `>>`
+- [x] Heredoc `<<` implementation
+- [x] Complex pipe + redirection combos
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
@@ -199,11 +199,11 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] Environment variable storage
-- [ ] Variable expansion `$VAR`
-- [ ] Exit status variable `$?`
-- [ ] Empty variable handling
-- [ ] Quote context for variables
+- [x] Environment variable storage
+- [x] Variable expansion `$VAR`
+- [x] Exit status variable `$?`
+- [x] Empty variable handling
+- [x] Quote context for variables
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
@@ -225,11 +225,11 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] Handle `Ctrl+C` (SIGINT) - new prompt
-- [ ] Handle `Ctrl+D` (EOF) - exit shell
-- [ ] Handle `Ctrl+\` (SIGQUIT) - do nothing
-- [ ] Signal handling in child processes
-- [ ] Interactive vs non-interactive mode signals
+- [x] Handle `Ctrl+C` (SIGINT) - new prompt
+- [x] Handle `Ctrl+D` (EOF) - exit shell
+- [x] Handle `Ctrl+\` (SIGQUIT) - do nothing
+- [x] Signal handling in child processes
+- [x] Interactive vs non-interactive mode signals
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
@@ -255,12 +255,12 @@ Timeline: ███████████████████████�
 ```
 
 **Checklist:**
-- [ ] Full integration testing
-- [ ] Memory leak final check
-- [ ] Edge case testing (empty input, special chars)
-- [ ] Comparison with bash behavior
-- [ ] Stress testing with complex commands
-- [ ] Documentation and code cleanup
+- [x] Full integration testing
+- [x] Memory leak final check
+- [x] Edge case testing (empty input, special chars)
+- [x] Comparison with bash behavior
+- [x] Stress testing with complex commands
+- [x] Documentation and code cleanup
 
 <details>
 <summary>📊 <b>Details & Learnings</b></summary>
