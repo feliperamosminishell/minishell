@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 13:06:02 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 13:54:18 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_exec(t_shell **mini)
 		{
 			if (prev_pipe != -1)
 				close(prev_pipe);
-			return
+			return ;
 		}
 		if (prev_pipe != -1)
 			close(prev_pipe);

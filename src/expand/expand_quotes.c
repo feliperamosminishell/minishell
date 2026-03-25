@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_quotes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:46:10 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 19:42:57 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/25 13:53:35 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_exp_in_quotes(const char *line, t_lexer *lx, char **val)
 
 	if (line[lx->i] == '$')
 	{
-		exp = ft_expand_var(line, &lx->i, lx->last_status);
+		exp = ft_expand_var(line, &lx->i, lx->last_status, lx ->env);
 		join = ft_strjoin(*val, exp);
 		free(*val);
 		free(exp);

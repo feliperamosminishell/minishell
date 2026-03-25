@@ -6,11 +6,20 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 06:20:05 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 13:51:59 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+static char *ft_get_env_value(t_env *env, char *var)
+{
+	t_env	*node;
+
+	node = env_find(env, var);
+	if (!node || !node -> value)
+		return (ft_strdup(""));
+	return (ft_strdup(node->value));
+}
 
 char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env)
 {
@@ -28,7 +37,7 @@ char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env)
 	while (ft_isalnum(line[*i]) || line[*i] == '_')
 		(*i)++;
 	var = ft_substr(line, start, *i - start);
-	value = env_find(env, var);
+	value = ft_get_env_value(env, var);
 	free(var);
 	if (!value)
 		return (ft_strdup(""));
