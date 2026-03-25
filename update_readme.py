@@ -109,6 +109,14 @@ def calculate_total_time(content):
     return sum(map(int, times))
 
 
+def get_status(percentage):
+    if percentage == 100:
+        return "✅ COMPLETED"
+    elif percentage > 0:
+        return "🚧 IN PROGRESS"
+    return "📋 PLANNED"
+
+
 def update_phase_section(content, phase_num):
     progress = calculate_phase_progress(content, phase_num)
     timeline = calculate_timeline_progress(PHASE_DEADLINES[phase_num])
@@ -126,6 +134,8 @@ def update_phase_section(content, phase_num):
             f'Progress: {bar} {progress}%',
             body
         )
+        # Status
+
 
         # Timeline bar
         tbar = create_progress_bar(timeline)
@@ -139,15 +149,17 @@ def update_phase_section(content, phase_num):
 
         # Deadline
         date_str = PHASE_DEADLINES[phase_num].strftime('%b %d, %Y')
+        status = get_status(progress)
         body = re.sub(
             r'\*\*Deadline:\*\* .*?\|.*?\|',
-            f'**Deadline:** {date_str} | {remaining} |',
+            f'**Deadline:** {date_str} | {remaining} |** {status} |',
             body
         )
 
         return header + body
 
     return re.sub(pattern, repl, content, flags=re.DOTALL)
+
 
 
 def update_overall_section(content):
