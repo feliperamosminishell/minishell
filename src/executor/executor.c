@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 19:10:30 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 13:26:46 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:38:31 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,16 @@ void	ft_execute(char **cmd, char **env)
 	path = ft_find_path(cmd[0], env);
 	if (!path)
 	{
-		ft_print_error_exec(3, cmd[0]);
+		ft_print_error_exec(0, cmd[0]);
 		exit(127);
 	}
 	execve(path, cmd, env);
+	if (errno == EISDIR)
+    ft_print_error_exec(3, cmd[0]);
+else if (errno == EACCES)
+    ft_print_error_exec(1, cmd[0]);
+else
+    ft_print_error_exec(2, cmd[0]);
 	free(path);
 	exit(127);
 }

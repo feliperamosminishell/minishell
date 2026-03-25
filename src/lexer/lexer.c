@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 06:45:37 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:41:02 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,16 @@ t_token	*ft_lexer(const char *line, int last_status, t_shell **mini)
 			break ;
 		lx.start = lx.i;
 		if (!lx.in_s && ft_is_operator(line[lx.i]))
+		{
+			if (line[lx.i] == '<' && line[lx.i + 1] == '<')
+				lx.after_heredoc = 1;
 			lx.i = ft_handle_operator(&(lx.list), line, lx.i);
+		}
 		else
+		{
 			ft_handle_word(line, &lx);
+			lx.after_heredoc = 0;
+		}
 	}
 	return (lx.list);
 }

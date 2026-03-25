@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:01:04 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 06:24:05 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:41:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	ft_search_line(const char *line, t_lexer *lx, int *quotes, char **va
 		ft_double_q(line, lx, value);
 		*quotes = 1;
 	}
-	else if (line[lx->i] == '$' && !lx->in_s)
+	else if (line[lx->i] == '$' && !lx->in_s && !lx->after_heredoc)
 		ft_globlal(line, lx, value);
 	else
 		ft_word(line, lx, value);

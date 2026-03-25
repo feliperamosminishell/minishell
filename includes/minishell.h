@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 13:52:21 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:38:54 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_lexer
 	int		in_s;
 	int 	in_d;
 	int		last_status;
+	int		after_heredoc; 
 	t_env	*env;
 	t_token	*list;
 } t_lexer;
