@@ -8,8 +8,8 @@ from datetime import datetime
 from pathlib import Path
 
 # Configuration
-DEADLINE = datetime(2025, 3, 6)
-START_DATE = datetime(2025, 1, 15)
+DEADLINE = datetime(2026, 3, 31)
+START_DATE = datetime(2026, 2, 1)
 
 PHASE_DEADLINES = {
     1: datetime(2026, 2, 14),
