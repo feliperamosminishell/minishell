@@ -21,6 +21,31 @@ PHASE_DEADLINES = {
     7: datetime(2026, 3, 29),
 }
 
+def update_time_progress(content):
+    now = datetime.now()
+
+    total_days = (DEADLINE - START_DATE).days
+    elapsed_days = (now - START_DATE).days
+
+    if elapsed_days < 0:
+        percent = 0
+    elif elapsed_days >= total_days:
+        percent = 100
+    else:
+        percent = round((elapsed_days / total_days) * 100)
+
+    bar = create_progress_bar(percent, 40)
+
+    visual = "=" * (percent // 5) + "-" * (20 - percent // 5)
+
+    content = re.sub(
+        r'░+.*?\d+%\s+\[.*?\]',
+        f'{bar}  {percent}%  [{visual}]',
+        content,
+        count=1
+    )
+
+    return content
 
 def create_progress_bar(percentage, width=40):
     filled = int((percentage / 100) * width)
@@ -203,6 +228,7 @@ def main():
     content = path.read_text(encoding="utf-8")
 
     content = update_overall_section(content)
+    content = update_time_progress(content)
 
     for i in range(1, 8):
         content = update_phase_section(content, i)
