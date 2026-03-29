@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/29 22:57:43 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:37:29 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ft_heredoc_child(char *limiter, t_shell **mini, int quotes, int *fd)
 	ft_read_stdin(limiter, mini, quotes, fd[1]);
 }
 
-static int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
+int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 {
 	int		fd[2];
 	int		status;
