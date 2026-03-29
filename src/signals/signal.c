@@ -6,18 +6,18 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:44:25 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 00:31:26 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:10 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-volatile sig_atomic_t	WHO_SIG = 0;
+volatile sig_atomic_t	g_who_sig = 0;
 
 static void	ft_handle_sing(int sig)
 {
 	(void)sig;
-	WHO_SIG = 1;
+	g_who_sig = 1;
 	write(1, "\n", 1);
 	rl_on_new_line();
 	rl_replace_line("", 0);

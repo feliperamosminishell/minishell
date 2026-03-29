@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_nodes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:14:01 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 14:52:22 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_cmd	*ft_new_cmd(void)
 	return (cmd);
 }
 
-t_redir	*ft_new_redir(char *file, en_token type, int quotes)
+t_redir	*ft_new_redir(char *file, t_en_token type, int quotes)
 {
 	t_redir	*redir;
 

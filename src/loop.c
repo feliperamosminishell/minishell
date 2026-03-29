@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/29 22:50:25 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:10 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void	ft_loop(t_shell *mini)
 
 	while (1)
 	{
-		WHO_SIG = 0;
+		g_who_sig = 0;
 		line = readline("Minishell> ");
 		if (!line)
 			ft_exit_shell(mini, NULL);
-		if (WHO_SIG)
-			WHO_SIG = 0;
+		if (g_who_sig)
+			g_who_sig = 0;
 		if (ft_is_exit_cmd(line))
 			ft_exit_shell(mini, line);
 		if (*line)

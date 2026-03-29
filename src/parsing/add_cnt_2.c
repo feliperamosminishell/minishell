@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 20:39:55 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 12:58:10 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_inst_data(t_cmd **cmd, t_cmd **l_c, t_args **l_ag, t_token **tk)
 {
-	en_token	type;
+	t_en_token	type;
 
 	type = (*tk)->type;
 	if (type == WORD)

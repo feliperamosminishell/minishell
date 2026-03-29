@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 00:38:13 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-extern volatile sig_atomic_t	WHO_SIG;
+extern volatile sig_atomic_t	g_who_sig;
 
 typedef enum e_token
 {
@@ -41,12 +41,12 @@ typedef enum e_token
 	REDIR_OUT,
 	REDIR_APPEND,
 	HEREDOC,
-}	en_token;
+}	t_en_token;
 
 typedef struct s_token
 {
 	char			*value;
-	en_token		type;
+	t_en_token		type;
 	int				quotes;
 	struct s_token	*next;
 }	t_token;
@@ -73,7 +73,7 @@ typedef struct s_lexer
 typedef struct s_redir
 {
 	char			*file;
-	en_token		type;
+	t_en_token		type;
 	int				quotes;
 	struct s_redir	*next;
 }	t_redir;
@@ -117,14 +117,14 @@ void	ft_loop(t_shell *mini);
 t_token	*ft_new_token(int type, char *value, int quotes);
 t_args	*ft_new_args(char *str);
 t_cmd	*ft_new_cmd(void);
-t_redir	*ft_new_redir(char *file, en_token type, int quotes);
+t_redir	*ft_new_redir(char *file, t_en_token type, int quotes);
 void	ft_free_tokens(t_token **token);
 void	ft_free_args(t_args **ags);
 void	ft_free_redirs(t_redir **redir);
 void	ft_free_cmds(t_cmd **cmd);
 t_env	*init_env(char **envp);
 void	free_env(t_env *env);
-int		ft_is_redir(en_token type);
+int		ft_is_redir(t_en_token type);
 void	ft_print_message(int fd, char *str);
 
 // ==========  ERROR_HANDLER ==========
@@ -146,7 +146,7 @@ int		ft_pipe_followed_by_redir(const char *str, int i);
 
 // ==========  PARSING ==========
 int		ft_add_args(t_args **list, char *value);
-int		ft_add_redir(t_redir **list, en_token type, char *file, int quotes);
+int		ft_add_redir(t_redir **list, t_en_token type, char *file, int quotes);
 char	**ft_conv_args(t_args **ag);
 void	ft_add_cmd(t_cmd **list, t_cmd *new);
 int		ft_new_pipe(t_cmd **cmd, t_cmd **l_c, t_args **list_ag);
@@ -191,7 +191,6 @@ char	*get_next_line(int fd);
 int		ft_prepare_redirection(t_cmd *cmd, t_shell **mini);
 void	ft_apply_redirections(t_cmd *cmd);
 int		ft_handle_heredoc(char *limiter, t_shell **mini, int quotes);
-
 
 // ========== EXECUTOR ==========
 void	ft_execute(char **cmd, char **env);

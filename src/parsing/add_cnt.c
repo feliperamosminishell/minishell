@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_cnt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 02:55:14 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/16 14:51:50 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_add_args(t_args **list, char *value)
 	return (0);
 }
 
-int	ft_add_redir(t_redir **list, en_token type, char *file, int quotes)
+int	ft_add_redir(t_redir **list, t_en_token type, char *file, int quotes)
 {
 	t_redir	*new;
 	t_redir	*tmp;

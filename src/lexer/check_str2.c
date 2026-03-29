@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 04:13:58 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/27 11:43:59 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_operator(char c)
 	return (c == '|' || c == '<' || c == '>');
 }
 
-int	ft_is_redir(en_token type)
+int	ft_is_redir(t_en_token type)
 {
 	if (type == REDIR_IN || type == REDIR_OUT
 		|| type == REDIR_APPEND || type == HEREDOC)
