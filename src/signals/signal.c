@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:44:25 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/27 11:51:24 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:31:26 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void	ft_check_exit_statuc(t_shell **mini)
 				write(1, "\n", 1);
 			(*mini)->exit_status = 128 + WTERMSIG(status);
 		}
+		pid = wait(&status);
 	}
 }
