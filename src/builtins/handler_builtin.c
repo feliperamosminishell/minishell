@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:53:13 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 13:30:06 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:12:44 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_is_builtin(char *cmd)
 
 void	ft_exc_built(t_shell **mini, t_cmd *cmd)
 {
-	char	**args;
+	char		**args;
 	const char	*cte_cmd;
 
 	cte_cmd = (const char *)cmd->argv[0];

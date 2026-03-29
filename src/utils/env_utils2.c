@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_pwd.c                                      :+:      :+:    :+:   */
+/*   env_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 00:26:31 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/27 11:12:15 by goramos-         ###   ########.fr       */
+/*   Created: 2026/03/29 22:43:33 by goramos-          #+#    #+#             */
+/*   Updated: 2026/03/29 22:45:53 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	builtin_pwd(t_shell *sh)
+void	env_update(t_env *node, const char *new_value)
 {
-	if (!sh->pwd_data.pwd)
-		return (1);
-	write(1, sh->pwd_data.pwd, ft_strlen(sh->pwd_data.pwd));
-	write(1, "\n", 1);
-	return (0);
+	if (!node)
+		return ;
+	free(node->value);
+	if (new_value)
+		node->value = ft_strdup(new_value);
+	else
+		node->value = NULL;
+}
+
+void	free_env(t_env *env)
+{
+	t_env	*tmp;
+
+	while (env)
+	{
+		tmp = env->next;
+		free(env->key);
+		free(env->value);
+		free(env);
+		env = tmp;
+	}
 }

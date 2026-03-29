@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
+#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/03/18 16:43:23 by juan-her         ###   ########.fr        #
+#    Updated: 2026/03/29 22:56:42 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,19 +54,23 @@ BUILTINS_SRCS = builtin_echo.c \
 
 # Archivos fuente - Utils
 UTILS_SRCS	= env_utils.c \
+				env_utils2.c \
 				export_utils.c \
+				export_utils_2.c \
 				free_nodes.c \
 				new_nodes.c \
 				ft_freelist.c \
-				utils.c
+				utils.c \
+				utils_redir.c
 
 # Archivos fuente - Executor
 REDIR_SRCS	= get_next_line.c \
-				set_redir.c
+				set_redir.c 
 
 # Archivos fuente - Executor
 EXEC_SRCS	= exec.c \
-				executor.c
+				executor.c\
+				exec_utils.c
 # Archivos fuente - Executor
 SIG_SRCS	= signal.c
 

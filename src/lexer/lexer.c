@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 17:41:02 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/29 22:52:23 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,34 @@ static void	ft_init_lexer(t_lexer *lexer, int last_status, t_shell **mini)
 	lexer->env = (*mini)->env;
 }
 
+static void	ft_process_token(const char *line, t_lexer *lx)
+{
+	if (!lx->in_s && ft_is_operator(line[lx->i]))
+	{
+		if (line[lx->i] == '<' && line[lx->i + 1] == '<')
+			lx->after_heredoc = 1;
+		lx->i = ft_handle_operator(&(lx->list), line, lx->i);
+	}
+	else
+	{
+		ft_handle_word(line, lx);
+		lx->after_heredoc = 0;
+	}
+}
+
+static void	ft_lex_loop(const char *line, t_lexer *lx)
+{
+	while (line[lx->i])
+	{
+		while (ft_isspace(line[lx->i]))
+			lx->i++;
+		if (!line[lx->i])
+			break ;
+		lx->start = lx->i;
+		ft_process_token(line, lx);
+	}
+}
+
 t_token	*ft_lexer(const char *line, int last_status, t_shell **mini)
 {
 	t_lexer	lx;
@@ -54,24 +82,6 @@ t_token	*ft_lexer(const char *line, int last_status, t_shell **mini)
 		(*mini)->exit_status = 127;
 		return (NULL);
 	}
-	while (line[lx.i])
-	{
-		while (ft_isspace(line[lx.i]))
-			lx.i++;
-		if (!line[lx.i])
-			break ;
-		lx.start = lx.i;
-		if (!lx.in_s && ft_is_operator(line[lx.i]))
-		{
-			if (line[lx.i] == '<' && line[lx.i + 1] == '<')
-				lx.after_heredoc = 1;
-			lx.i = ft_handle_operator(&(lx.list), line, lx.i);
-		}
-		else
-		{
-			ft_handle_word(line, &lx);
-			lx.after_heredoc = 0;
-		}
-	}
+	ft_lex_loop(line, &lx);
 	return (lx.list);
 }

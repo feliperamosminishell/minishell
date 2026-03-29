@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 17:38:54 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/29 22:38:16 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,74 +31,73 @@
 #  define BUFFER_SIZE 42
 # endif
 
-extern volatile sig_atomic_t WHO_SIG;
+extern volatile sig_atomic_t	WHO_SIG;
 
 typedef enum e_token
 {
 	WORD,
 	PIPE,
-	REDIR_IN,      
-	REDIR_OUT,     
-	REDIR_APPEND,  
-	HEREDOC,     
-} en_token;
+	REDIR_IN,
+	REDIR_OUT,
+	REDIR_APPEND,
+	HEREDOC,
+}	en_token;
 
 typedef struct s_token
 {
-	char            *value;
-	en_token         type;
+	char			*value;
+	en_token		type;
 	int				quotes;
-	struct s_token  *next;
-} t_token;
+	struct s_token	*next;
+}	t_token;
 
 typedef struct s_env
 {
 	char			*key;
 	char			*value;
 	struct s_env	*next;
-} t_env;
+}	t_env;
 
 typedef struct s_lexer
 {
 	int		i;
 	int		start;
 	int		in_s;
-	int 	in_d;
+	int		in_d;
 	int		last_status;
-	int		after_heredoc; 
+	int		after_heredoc;
 	t_env	*env;
 	t_token	*list;
-} t_lexer;
+}	t_lexer;
 
 typedef struct s_redir
 {
-	char		*file;
-	en_token	type;
-	int			quotes;
-	struct s_redir *next;
-} t_redir;
+	char			*file;
+	en_token		type;
+	int				quotes;
+	struct s_redir	*next;
+}	t_redir;
 
 typedef struct s_args
 {
-	char	*ag;
-	struct s_args *next;
-} t_args;
+	char			*ag;
+	struct s_args	*next;
+}	t_args;
 
 typedef struct s_cmd
 {
-	char    **argv;
-	t_redir *redirs;
-	int     fd_in;
-	int     fd_out;
-	struct s_cmd *next;
-} t_cmd;
-
+	char			**argv;
+	t_redir			*redirs;
+	int				fd_in;
+	int				fd_out;
+	struct s_cmd	*next;
+}	t_cmd;
 
 typedef struct s_pwd
 {
 	char	*pwd;
 	char	*old_pwd;
-} t_pwd;
+}	t_pwd;
 
 typedef struct s_shell
 {
@@ -107,8 +106,7 @@ typedef struct s_shell
 	t_env	*env;
 	t_pwd	pwd_data;
 	int		exit_status;
-} t_shell;
-
+}	t_shell;
 
 // ========== FUNCTION PROTOTYPES ==========
 
@@ -123,10 +121,10 @@ t_redir	*ft_new_redir(char *file, en_token type, int quotes);
 void	ft_free_tokens(t_token **token);
 void	ft_free_args(t_args **ags);
 void	ft_free_redirs(t_redir **redir);
-void 	ft_free_cmds(t_cmd **cmd);
+void	ft_free_cmds(t_cmd **cmd);
 t_env	*init_env(char **envp);
 void	free_env(t_env *env);
-int		ft_is_redir (en_token type);
+int		ft_is_redir(en_token type);
 void	ft_print_message(int fd, char *str);
 
 // ==========  ERROR_HANDLER ==========
@@ -166,7 +164,7 @@ int		builtin_pwd(t_shell *sh);
 int		builtin_env(char **argv, t_shell *shell);
 void	builtin_exit(t_shell *shell, char **argv);
 void	builtin_export_no_args(t_shell *shell);
-void    builtin_export_with_args(t_shell *shell, char **args);
+void	builtin_export_with_args(t_shell *shell, char **args);
 int		builtin_pwd(t_shell *sh);
 void	builtin_unset(t_shell *shell, char **args);
 
@@ -196,11 +194,15 @@ void	ft_apply_redirections(t_cmd *cmd);
 // ========== EXECUTOR ==========
 void	ft_execute(char **cmd, char **env);
 void	ft_exec(t_shell **mini);
+void	ft_exec_end(t_shell **mini);
+int		ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
+void	ft_next_cmd(t_cmd *cmd, int *fd, int *prev_pipe);
+int		ft_exec_builtin_solo(t_cmd *cmd, t_shell **mini, int prev_pipe);
+int		ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
 
 // ========== SIGNALS ==========
-void    ft_init_sig_father(void);
-void    ft_init_sig_son(void);
-void    ft_check_exit_statuc(t_shell **mini);
-
+void	ft_init_sig_father(void);
+void	ft_init_sig_son(void);
+void	ft_check_exit_statuc(t_shell **mini);
 
 #endif

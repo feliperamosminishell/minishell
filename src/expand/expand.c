@@ -6,12 +6,13 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 13:51:59 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:42:29 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-static char *ft_get_env_value(t_env *env, char *var)
+
+static char	*ft_get_env_value(t_env *env, char *var)
 {
 	t_env	*node;
 
@@ -46,15 +47,15 @@ char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env)
 
 void	ft_write_pipe(char *line, int last_status, int fd, t_env *env)
 {
-	char *str;
-	int i;
+	char	*str;
+	int		i;
 
 	i = 0;
 	while (line[i])
 	{
 		if (line[i] == '$')
 		{
-			str = ft_expand_var(line, &i, last_status,env);
+			str = ft_expand_var(line, &i, last_status, env);
 			write(fd, str, ft_strlen(str));
 		}
 		else

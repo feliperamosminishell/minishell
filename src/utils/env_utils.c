@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 22:06:49 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 00:36:59 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/29 22:46:00 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ t_env	*create_env_node(const char *key, const char *value)
 	if (!new)
 		return (NULL);
 	new->key = ft_strdup(key);
-	new->value = value ? ft_strdup(value) : NULL;
+	new->value = NULL;
+	if (value)
+		new->value = ft_strdup(value);
 	new->next = NULL;
 	return (new);
 }
@@ -82,6 +84,7 @@ t_env	*init_env(char **envp)
 	}
 	return (env_list);
 }
+
 t_env	*env_find(t_env *env, const char *key)
 {
 	while (env)
@@ -91,27 +94,4 @@ t_env	*env_find(t_env *env, const char *key)
 		env = env->next;
 	}
 	return (NULL);
-}
-void	env_update(t_env *node, const char *new_value)
-{
-	if (!node)
-		return ;
-	free(node->value);
-	if (new_value)
-		node->value = ft_strdup(new_value);
-	else
-		node->value = NULL;
-}
-void	free_env(t_env *env)
-{
-	t_env	*tmp;
-
-	while (env)
-	{
-		tmp = env->next;
-		free(env->key);
-		free(env->value);
-		free(env);
-		env = tmp;
-	}
 }

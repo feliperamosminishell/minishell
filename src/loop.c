@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/25 06:56:56 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/29 22:50:25 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,36 @@ static void	ft_handler_line(char *line, t_shell **mini)
 	}
 }
 
-
-
-void ft_loop(t_shell *mini)
+static void	ft_exit_shell(t_shell *mini, char *line)
 {
-	char *line;
+	if (line)
+		free(line);
+	printf("exit\n");
+	rl_clear_history();
+	exit(mini->exit_status);
+}
+
+static int	ft_is_exit_cmd(char *line)
+{
+	if (!ft_strncmp(line, "exit", 4) && line[4] == '\0')
+		return (1);
+	return (0);
+}
+
+void	ft_loop(t_shell *mini)
+{
+	char	*line;
 
 	while (1)
 	{
 		WHO_SIG = 0;
 		line = readline("Minishell> ");
 		if (!line)
-		{
-			printf("exit\n");
-			rl_clear_history();
-			exit(mini->exit_status);
-		}
+			ft_exit_shell(mini, NULL);
 		if (WHO_SIG)
-		{
 			WHO_SIG = 0;
-		}
-		if (!ft_strncmp(line, "exit", 4) && line[4] == '\0')
-		{
-			free(line);
-			printf("exit\n");
-			rl_clear_history();
-			exit(mini->exit_status);
-		}
+		if (ft_is_exit_cmd(line))
+			ft_exit_shell(mini, line);
 		if (*line)
 		{
 			add_history(line);

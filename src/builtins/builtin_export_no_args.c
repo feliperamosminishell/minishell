@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export_no_args.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:22:35 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 16:30:32 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:10:17 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 void	builtin_export_no_args(t_shell *shell)
 {
@@ -20,13 +20,13 @@ void	builtin_export_no_args(t_shell *shell)
 
 	count = count_env_vars(shell->env);
 	if (count == 0)
-		return; 
+		return ;
 	env_array = malloc(count * sizeof(t_env *));
 	if (!env_array)
 	{
 		shell->exit_status = 1;
-		return;
-	}	
+		return ;
+	}
 	copy_env_to_array(shell->env, env_array);
 	sort_env_array(env_array, count);
 	i = 0;

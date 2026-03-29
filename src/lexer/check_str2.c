@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 04:13:58 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/24 13:06:56 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:43:59 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	ft_next_operator(char c, int type)
 	else
 		ft_print_error_sintax(0);
 }
+
 int	ft_pipe_followed_by_redir(const char *str, int i)
 {
 	int	next;
+
 	if (str[i] != '|')
 		return (1);
 	next = ft_skip_spaces(str, i + 1);
