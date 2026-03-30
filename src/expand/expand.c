@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/27 11:42:29 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 05:16:06 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env)
 	free(var);
 	if (!value)
 		return (ft_strdup(""));
-	return (ft_strdup(value));
+	return (value);
 }
 
 void	ft_write_pipe(char *line, int last_status, int fd, t_env *env)
@@ -57,6 +57,7 @@ void	ft_write_pipe(char *line, int last_status, int fd, t_env *env)
 		{
 			str = ft_expand_var(line, &i, last_status, env);
 			write(fd, str, ft_strlen(str));
+			free(str);
 		}
 		else
 		{

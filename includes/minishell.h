@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 18:58:42 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ char	*get_next_line(int fd);
 int		ft_prepare_redirection(t_cmd *cmd, t_shell **mini);
 void	ft_apply_redirections(t_cmd *cmd);
 int		ft_handle_heredoc(char *limiter, t_shell **mini, int quotes);
+void ft_close_all_heredocs(t_cmd *cmd);
 
 // ========== EXECUTOR ==========
 void	ft_execute(char **cmd, char **env);

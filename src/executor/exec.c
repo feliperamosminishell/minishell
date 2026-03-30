@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/27 11:40:49 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:16:38 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,44 @@ int	ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 	return (1);
 }
 
+static void	ft_cleanup_cmds(t_cmd *cmd)
+{
+	while (cmd)
+	{
+		if (cmd->fd_in != STDIN_FILENO)
+			close(cmd->fd_in);
+		if (cmd->fd_out != STDOUT_FILENO)
+			close(cmd->fd_out);
+		cmd = cmd->next;
+	}
+}
+
 void	ft_exec(t_shell **mini)
 {
 	t_cmd	*cmd;
+	t_cmd	*tmp;
 	int		fd[2];
 	int		prev_pipe;
 
 	signal(SIGINT, SIG_IGN);
 	cmd = (*mini)->cmds;
+	tmp = cmd;
 	prev_pipe = -1;
+	while (tmp)
+	{
+		if (tmp->fd_in != STDIN_FILENO)
+		{
+			close(tmp->fd_in);
+			tmp->fd_in = STDIN_FILENO;
+		}
+		if (tmp->fd_out != STDOUT_FILENO)
+		{
+			close(tmp->fd_out);
+			tmp->fd_out = STDOUT_FILENO;
+		}
+		tmp = tmp->next;
+	}
+	tmp = cmd;
 	while (cmd)
 	{
 		if (ft_exec_builtin_solo(cmd, mini, prev_pipe) != 0)
@@ -90,4 +119,6 @@ void	ft_exec(t_shell **mini)
 		cmd = cmd->next;
 	}
 	ft_exec_end(mini);
+	ft_cleanup_cmds(tmp);
+	ft_close_all_heredocs((*mini)->cmds);
 }

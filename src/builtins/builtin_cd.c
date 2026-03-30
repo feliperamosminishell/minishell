@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 20:45:28 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/18 16:37:44 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/30 18:32:45 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static int	cd_do(t_shell *shell, const char *path)
 	char	old[4096];
 	char	new[4096];
 
-	if (!getcwd(old, sizeof(old)))
-		return (cd_error(shell, "getcwd failed", NULL));
+	/* if (!getcwd(old, sizeof(old)))
+		return (cd_error(shell, "getcwd failed", NULL)); */
 	if (chdir(path) != 0)
 		return (cd_error(shell, strerror(errno), path));
 	if (!getcwd(new, sizeof(new)))
