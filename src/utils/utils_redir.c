@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 22:54:34 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/30 19:15:05 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:40:45 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,6 @@ int	ft_prepare_redirection(t_cmd *cmd, t_shell **mini)
 	while (rd_tmp)
 	{
 		fd = ft_set_fd(rd_tmp, mini);
-		if (fd < 0)
-		{
-			if (cmd->fd_in != STDIN_FILENO)
-			{
-				close(cmd->fd_in);
-				cmd->fd_in = STDIN_FILENO;
-			}
-			if (cmd->fd_out != STDOUT_FILENO)
-			{
-				close(cmd->fd_out);
-				cmd->fd_out = STDOUT_FILENO;
-			}
-			return (0);
-		}
 		if (rd_tmp->type == HEREDOC || rd_tmp->type == REDIR_IN)
 		{
 			if (cmd->fd_in != STDIN_FILENO)

@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 19:20:18 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:40:15 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	return (fd[0]);
 }
 
-void ft_close_all_heredocs(t_cmd *cmd)
+void	ft_close_all_heredocs(t_cmd *cmd)
 {
 	while (cmd)
 	{

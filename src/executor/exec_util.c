@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:35:39 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/30 18:42:02 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:41:49 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	ft_exec_end(t_shell **mini)
 {
+	t_cmd	*tmp;
+
+	tmp = (*mini)->cmds;
 	ft_check_exit_statuc(mini);
 	ft_init_sig_father();
+	ft_cleanup_cmds(tmp);
 }
 
 static void	ft_close_cmd_fds(t_cmd *cmd)
