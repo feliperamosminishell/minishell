@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/29 22:52:23 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:10:57 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	ft_init_lexer(t_lexer *lexer, int last_status, t_shell **mini)
 	lexer->in_s = 0;
 	lexer->in_d = 0;
 	lexer->start = 0;
+	lexer->after_heredoc = 0;
 	lexer->list = NULL;
 	lexer->last_status = last_status;
 	lexer->env = (*mini)->env;

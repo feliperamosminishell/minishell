@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/31 23:10:25 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:16:45 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_init_shell(t_shell *mini, char **ev)
 		mini->pwd_data.pwd = ft_strdup(buf);
 	else
 		mini->pwd_data.pwd = NULL;
-	ft_update_shlvl(mini)
+	ft_update_shlvl(mini);
 }
 
 int	main(int ac, char **ag, char **env)

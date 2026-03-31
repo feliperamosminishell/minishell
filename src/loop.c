@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 00:28:36 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:15:39 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_exit_shell(t_shell *mini, char *line)
 	if (line)
 		free(line);
 	printf("exit\n");
-	ft_free_shell(&mini);
+	ft_free_shell(mini);
 	rl_clear_history();
 	exit(status);
 }
