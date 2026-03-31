@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 00:50:27 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:05:33 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,6 @@ int		builtin_env(char **argv, t_shell *shell);
 void	builtin_exit(t_shell *shell, char **argv);
 void	builtin_export_no_args(t_shell *shell);
 void	builtin_export_with_args(t_shell *shell, char **args);
-int		builtin_pwd(t_shell *sh);
 void	builtin_unset(t_shell *shell, char **args);
 
 // ========== BUILTINS UTILS ==========

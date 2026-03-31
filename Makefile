@@ -6,7 +6,7 @@
 #    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/04/01 01:00:28 by goramos-         ###   ########.fr        #
+#    Updated: 2026/04/01 01:04:57 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,8 +71,9 @@ REDIR_SRCS	= get_next_line.c \
 
 # Archivos fuente - Executor
 EXEC_SRCS	= exec.c \
-				executor.c\
-				exec_util.c
+				executor.c \
+				exec_util.c \
+				exec_utils_2.c
 # Archivos fuente - Executor
 SIG_SRCS	= signal.c
 
