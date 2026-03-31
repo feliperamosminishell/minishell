@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 19:35:04 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/01 00:50:27 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,12 @@ void	ft_free_args(t_args **ags);
 void	ft_free_redirs(t_redir **redir);
 void	ft_free_cmds(t_cmd **cmd);
 t_env	*init_env(char **envp);
-void	free_env(t_env *env);
+void	ft_update_shlvl(t_shell *mini);
+void	ft_free_env(t_env *env);
 int		ft_is_redir(t_en_token type);
 void	ft_print_message(int fd, char *str);
+void	ft_free_env_node(t_env *node);
+void	ft_free_shell(t_shell **mini);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
@@ -180,6 +183,7 @@ int		is_valid_id(char *key);
 char	*get_value(char *arg);
 t_env	*env_find(t_env *env, const char *key);
 void	env_update(t_env *node, const char *new_value);
+void	ft_free_array(char **strs);
 
 // ========== EXPAND ==========
 char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env);
@@ -202,6 +206,9 @@ int		ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
 void	ft_next_cmd(t_cmd *cmd, int *fd, int *prev_pipe);
 int		ft_exec_builtin_solo(t_cmd *cmd, t_shell **mini, int prev_pipe);
 int		ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
+char	*ft_check_paths(char *cmd, char **paths, int i);
+void	ft_search_path(char *cmd, char **paths, int i, char **path);
+
 
 // ========== SIGNALS ==========
 void	ft_init_sig_father(void);

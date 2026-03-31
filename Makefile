@@ -6,7 +6,7 @@
 #    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/03/30 00:32:24 by goramos-         ###   ########.fr        #
+#    Updated: 2026/03/31 23:01:33 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ UTILS_SRCS	= env_utils.c \
 				new_nodes.c \
 				ft_freelist.c \
 				utils.c \
-				utils_redir.c
+				utils_redir.c \
+				shell_level.c
 
 # Archivos fuente - Executor
 REDIR_SRCS	= get_next_line.c \

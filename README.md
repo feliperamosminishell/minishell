@@ -1,595 +1,141 @@
-<div align="center">
+This project has been created as part of the curriculum of 42 by <juanher-> & <goramos->
 
-```ascii
-╔══════════════════════════════════════════════════════════════════════╗
-║   ███╗   ███╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██╗     ██╗     ║
-║   ████╗ ████║██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██║     ██║     ║
-║   ██╔████╔██║██║██╔██╗ ██║██║███████╗███████║█████╗  ██║     ██║     ║
-║   ██║╚██╔╝██║██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║     ██║     ║
-║   ██║ ╚═╝ ██║██║██║ ╚████║██║███████║██║  ██║███████╗███████╗███████╗║
-║   ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝║
-╚══════════════════════════════════════════════════════════════════════╝
-```
+# Minishell
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=00FF41&center=true&vCenter=true&random=false&width=600&lines=Building+my+own+UNIX+shell;Parsing+%7C+Executing+%7C+Piping;Because+bash+wasn't+mysterious+enough" alt="Typing SVG" />
+## Description
 
-[![42 Score](https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge&logo=42&logoColor=white)](https://github.com/feliperamosminishell/minishell)
-[![Norminette](https://img.shields.io/badge/Norminette-passing-success?style=for-the-badge)](https://github.com/42School/norminette)
-[![Language](https://img.shields.io/badge/Language-C-00599C?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
+Minishell is a simplified implementation of a Unix shell, developed as
+part of the 42 curriculum. The goal of this project is to understand how
+command interpreters work by recreating essential features of a shell
+such as Bash.
 
-</div>
+This project focuses on: - Parsing user input - Executing commands -
+Managing processes and file descriptors - Handling signals -
+Implementing environment variables and built-in commands
 
----
+Minishell provides a hands-on introduction to system programming
+concepts such as process creation (`fork`), program execution
+(`execve`), and inter-process communication (`pipe`).
 
-## 🚀 Quick Start
+------------------------------------------------------------------------
 
-```bash
-# Clone the repository
-git clone https://github.com/feliperamosminishell/minishell.git
-cd minishell
+## Features
 
-# Compile
+-   Command execution (with absolute or relative paths)
+-   Environment variable expansion (`$VAR`)
+-   Built-in commands:
+    -   `echo`
+    -   `cd`
+    -   `pwd`
+    -   `export`
+    -   `unset`
+    -   `env`
+    -   `exit`
+-   Pipes (`|`)
+-   Input/Output redirections:
+    -   `<` input redirection
+    -   `>` output redirection
+    -   `>>` append output
+    -   `<<` heredoc
+-   Signal handling (Ctrl+C, Ctrl+D, Ctrl+)
+-   Error management and exit codes
+
+------------------------------------------------------------------------
+
+## Instructions
+
+### Requirements
+
+-   Unix-based operating system (Linux or macOS)
+-   `gcc` compiler
+-   `make`
+
+### Compilation
+
+Clone the repository and compile the project using:
+
+``` bash
 make
+```
 
-# Run
+This will generate the executable: minishell
+
+### Execution
+
+Run the shell with:
+
+``` bash
 ./minishell
-minishell> echo "Hello World!"
-Hello World!
 ```
 
----
+### Cleaning
 
-## 📊 Interactive Project Tracker
-
-<div align="center">
-
-### 🎯 Overall Progress
-```
-████████████████████████████████████████████████████████████████████████████████  100%
-```
-**Completed:** 52/52 tasks | **Time Invested:** 90h | **Deadline:** March 30, 2026
-
-### ⏱️ Time Progress
-```
-████████████████████████████████████████  100%  [====================]
-```
-**Project Timeline:** Jan 31 → Mar 30, 2026 | **Elapsed:** 0 days | **Remaining:** 58 days
-
-</div>
-
----
-
-## 📅 Development Phases
-
-### 📝 Phase 1: Parsing & Tokenization
-**Deadline:** Feb 14, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
+``` bash
+make clean
 ```
 
-**Checklist:**
-- [X] Lexer implementation
-- [X] Token recognition (words, operators, quotes)
-- [X] Quote handling (single `'` and double `"`)
-- [X] Syntax error detection
-- [X] Command splitting by pipes `|`
-- [X] Memory leak checks with valgrind
-
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
-
-**⏱️ Time spent:** 18h  
-**💡 Key learnings:** State machines, tokenization algorithms  
-**🔧 Tools used:** GDB, Valgrind, custom test suite
-
-**Challenges faced:**
-- Handling nested quotes correctly
-- Managing memory in recursive parsing functions
-- Edge cases with empty tokens
-
-</details>
-
----
-
-### 🔧 Phase 2: Built-in Commands
-**Deadline:** Feb 21, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
+``` bash
+make fclean
 ```
 
-**Checklist:**
-- [x] `echo` with `-n` flag
-- [x] `cd` with relative and absolute paths
-- [x] `pwd` (print working directory)
-- [x] `export` (set environment variables)
-- [x] `unset` (remove environment variables)
-- [x] `env` (display environment)
-- [x] `exit` with exit code
-
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
-
-**⏱️ Time spent:** 12h  
-**💡 Key learnings:** Environment variable manipulation, getcwd/chdir  
-**🔧 Implemented:** All 7 mandatory built-ins
-
-**Challenges faced:**
-- Handling cd with no arguments (HOME directory)
-- Export with and without values
-- Exit with invalid arguments
-
-</details>
-
----
-
-### ⚙️ Phase 3: Execution & Processes
-**Deadline:** Mar 01, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
+``` bash
+make re
 ```
 
-**Checklist:**
-- [x] PATH resolution
-- [x] Binary execution with `execve`
-- [x] `fork` and process management
-- [x] Exit status handling `$?`
-- [x] Process cleanup and zombie prevention
-- [x] Edge cases with invalid commands
+------------------------------------------------------------------------
 
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
+## Usage Examples
 
-**⏱️ Time spent:** 22h  
-**💡 Key learnings:** fork/exec model, process lifecycle, waitpid  
+``` bash
+$ echo Hello World
+Hello World
 
-**What's needed:**
-- Proper zombie process handling
-- Testing various edge cases
-- Signal handling during execution
+$ ls -l | grep minishell
 
-</details>
-
----
-
-### 🔀 Phase 4: Pipes & Redirections
-**Deadline:** Mar 08, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
-```
-
-**Checklist:**
-- [x] Single pipe `|`
-- [x] Multiple pipes (chain commands)
-- [x] Input redirection `<`
-- [x] Output redirection `>`
-- [x] Append mode `>>`
-- [x] Heredoc `<<` implementation
-- [x] Complex pipe + redirection combos
-
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
-
-**⏱️ Time spent:** 16h  
-**💡 Key learnings:** File descriptors, dup2, pipe creation  
-
-**What's needed:**
-- Basic pipes implementation
-- Redirections implementation
-- Heredoc with proper delimiter parsing
-- Complex combinations testing
-
-</details>
-
----
-
-### 💾 Phase 5: Environment & Variables
-**Deadline:** Mar 15, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
-```
-
-**Checklist:**
-- [x] Environment variable storage
-- [x] Variable expansion `$VAR`
-- [x] Exit status variable `$?`
-- [x] Empty variable handling
-- [x] Quote context for variables
-
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
-
-**⏱️ Time spent:** 14h  
-**💡 Key learnings:** envp manipulation, string expansion  
-**🎯 Focus:** Proper handling of variables in different quote contexts
-
-</details>
-
----
-
-### 🎯 Phase 6: Signals
-**Deadline:** Mar 22, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
-```
-
-**Checklist:**
-- [x] Handle `Ctrl+C` (SIGINT) - new prompt
-- [x] Handle `Ctrl+D` (EOF) - exit shell
-- [x] Handle `Ctrl+\` (SIGQUIT) - do nothing
-- [x] Signal handling in child processes
-- [x] Interactive vs non-interactive mode signals
-
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
-
-**⏱️ Time spent:** 8h  
-**💡 Key learnings:** signal(), sigaction(), signal masks  
-
-**What's needed:**
-- Main process signal handling
-- Child process signal inheritance
-- Heredoc signal behavior
-
-</details>
-
----
-
-### 🐛 Phase 7: Testing & Bug Fixes
-**Deadline:** Mar 29, 2026 | **Status:** ✅ COMPLETED
-
-```
-Progress: ████████████████████████████████████████ 100%
-Timeline: ████████████████████████████████████████ [====================]
-```
-
-**Checklist:**
-- [x] Full integration testing
-- [x] Memory leak final check
-- [x] Edge case testing (empty input, special chars)
-- [x] Comparison with bash behavior
-- [x] Stress testing with complex commands
-- [x] Documentation and code cleanup
-
-<details>
-<summary>📊 <b>Details & Learnings</b></summary>
-
-**⏱️ Time spent:** 0h  
-**🎯 Focus:** Ensuring bash-like behavior in all scenarios
-
-**Testing plan:**
-- Run comprehensive test suite
-- Compare outputs with bash
-- Valgrind on all test cases
-- Peer review
-
-</details>
-
----
-
-## 📈 Progress Visualization
-
-### Overall Project Timeline
-
-```
-Parsing        ████████████████████ 100% ✅
-Built-ins      ████████████████████ 100% ✅
-Execution      ████████████████████ 100% ✅
-Pipes          ████████████████████ 100% ✅
-Environment    ████████████████████ 100% ✅
-Signals        ████████████████████ 100% ✅
-Testing        ████████████████████ 100% ✅
-```
-
-### Time Distribution
-
-```
-Phase 1: Parsing          ███████████░░░░░░  18h
-Phase 2: Built-ins        ████████░░░░░░░░░  12h
-Phase 3: Execution        ██████████████░░░  22h
-Phase 4: Pipes            ██████████░░░░░░░  16h
-Phase 5: Environment      █████████░░░░░░░░  14h
-Phase 6: Signals          ████░░░░░░░░░░░░░   8h
-Phase 7: Testing          ░░░░░░░░░░░░░░░░░   0h
-                                    Total: 90h
-```
-
----
-
-## ✨ Features & Examples
-
-<table>
-<tr>
-<td width="50%">
-
-### 🔹 Built-in Commands
-```bash
-minishell> echo "Hello World!"
-Hello World!
-minishell> cd /tmp && pwd
-/tmp
-minishell> export MY_VAR=42
-minishell> echo $MY_VAR
+$ export NAME=42
+$ echo $NAME
 42
+
+$ cat < input.txt > output.txt
+
+$ exit
 ```
 
-</td>
-<td width="50%">
+------------------------------------------------------------------------
 
-### 🔹 Pipes & Redirections
-```bash
-minishell> ls -la | grep minishell
-minishell> cat < input.txt > output.txt
-minishell> echo "test" >> file.txt
-minishell> cat << EOF
-heredoc> Hello
-heredoc> World
-heredoc> EOF
-```
+## Technical Decisions
 
-</td>
-</tr>
-<tr>
-<td width="50%">
+-   Lexer & Parser for structured input
+-   fork/execve execution model
+-   Pipe handling with dup2
+-   Careful memory management
+-   Custom signal handling
 
-### 🔹 Command Execution
-```bash
-minishell> /bin/ls
-minishell> which gcc
-/usr/bin/gcc
-minishell> echo $?
-0
-```
+------------------------------------------------------------------------
 
-</td>
-<td width="50%">
+## Resources
 
-### 🔹 Signal Handling
-```bash
-^C
-minishell> 
-^D
-exit
-```
-✅ Ctrl+C (new prompt)  
-✅ Ctrl+D (exit)  
-✅ Ctrl+\ (ignore)  
+### Documentation & References
 
-</td>
-</tr>
-</table>
+-   The Linux Programming Interface -- Michael Kerrisk
+-   Advanced Programming in the UNIX Environment -- W. Richard Stevens
+-   GNU Bash Manual: https://www.gnu.org/software/bash/manual/
+-   POSIX Standard: https://pubs.opengroup.org/onlinepubs/9699919799/
 
----
+### Tutorials
 
-## 🏗️ Project Architecture
+-   https://linuxhint.com/write-simple-shell-c/
+-   https://brennan.io/2015/01/16/write-a-shell-in-c/
 
-```
-minishell/
-├── src/
-│   ├── main.c                 # Entry point & REPL loop
-│   ├── parsing/
-│   │   ├── lexer.c           # Tokenization
-│   │   ├── parser.c          # Syntax tree
-│   │   ├── expander.c        # Variable expansion
-│   │   └── quotes.c          # Quote handling
-│   ├── execution/
-│   │   ├── executor.c        # Command execution
-│   │   ├── pipes.c           # Pipe management
-│   │   ├── redirections.c    # I/O redirections
-│   │   └── heredoc.c         # Heredoc
-│   ├── builtins/
-│   │   ├── cd.c              # Change directory
-│   │   ├── echo.c            # Echo command
-│   │   ├── env.c             # Environment display
-│   │   ├── exit.c            # Exit shell
-│   │   ├── export.c          # Export variables
-│   │   ├── pwd.c             # Print working dir
-│   │   └── unset.c           # Unset variables
-│   ├── signals/
-│   │   └── signals.c         # Signal handling
-│   └── utils/
-│       ├── env_utils.c       # Environment helpers
-│       ├── error.c           # Error handling
-│       └── memory.c          # Memory management
-├── includes/
-│   └── minishell.h           # Main header
-├── libft/                    # Custom C library
-└── Makefile
-```
+### Use of AI
 
----
+AI tools were used for: - Understanding system calls - Debugging -
+Documentation assistance
 
-## 🛠️ Tech Stack & Tools
+All implementation decisions were reviewed manually.
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=c,git,github,linux,bash,vim,vscode&theme=dark" />
-</p>
+------------------------------------------------------------------------
 
-<div align="center">
+## Authors
 
-| Category | Tools |
-|----------|-------|
-| **Language** | C (C99 standard) |
-| **Build** | Makefile, gcc/clang |
-| **Libraries** | readline, libft (custom) |
-| **Debugging** | GDB, Valgrind, lldb |
-| **Testing** | Custom test suite, bash comparison |
-| **VCS** | Git & GitHub |
-
-</div>
-
----
-
-## 🧪 Testing Strategy
-
-### Current Test Coverage
-
-```
-Unit Tests:        ████████████████░░░░  80% (36/45 functions)
-Integration Tests: ███████████░░░░░░░░░  55% (11/20 scenarios)
-Memory Tests:      ███████████████████░  95% (no known leaks)
-Edge Cases:        ████████░░░░░░░░░░░░  40% (needs more work)
-```
-
-### Test Commands
-
-```bash
-# Run all tests
-make test
-
-# Memory leak check
-make valgrind
-valgrind --leak-check=full --show-leak-kinds=all ./minishell
-
-# Compare with bash
-./test_comparison.sh
-
-# Specific feature tests
-./tests/test_pipes.sh
-./tests/test_redirections.sh
-./tests/test_builtins.sh
-```
-
----
-
-## 📚 Learning Outcomes
-
-<table>
-<tr>
-<td width="50%">
-
-### 🎓 Technical Skills
-- ✅ System programming in C
-- ✅ Process management (fork/exec)
-- ✅ File descriptor manipulation
-- ✅ Signal handling
-- ✅ Memory management
-- ✅ Parsing & lexical analysis
-
-</td>
-<td width="50%">
-
-### 🔧 Tools & Practices
-- ✅ Debugging with GDB
-- ✅ Memory profiling (Valgrind)
-- ✅ Git workflow & collaboration
-- ✅ Code documentation
-- ✅ Test-driven development
-- ✅ 42 Norminette compliance
-
-</td>
-</tr>
-</table>
-
----
-
-## 🐛 Known Issues & TODO
-
-### 🔴 Critical
-- [x] Heredoc implementation incomplete
-- [x] Signal handling in child processes needs work
-
-### 🟡 Medium Priority
-- [x] Edge cases with multiple redirections
-- [x] Complex pipe chains (5+) need testing
-- [x] Some error messages don't match bash exactly
-
-### 🟢 Low Priority
-- [x] Code refactoring for better modularity
-- [x] Additional test coverage
-- [x] Performance optimization
-
----
-
-## 🤝 Team & Collaboration
-
-**Developed by:**
-- 👤 **Felipe & Gramos** - [@feliperamosminishell](https://github.com/feliperamosminishell)
-
----
-
-## 📖 Resources & References
-
-- 📘 [Bash Reference Manual](https://www.gnu.org/software/bash/manual/)
-- 🔧 [Unix System Calls](https://man7.org/linux/man-pages/)
-- 💻 [42 Docs - Minishell](https://harm-smits.github.io/42docs/projects/minishell)
-- 📝 [Writing a Unix Shell](https://brennan.io/2015/01/16/write-a-shell-in-c/)
-
----
-
-## 📊 Project Stats
-
-- 📅 Started: January 15, 2025
-- 🎯 Deadline: March 6, 2025  
-- 💻 Language: C (C99)
-- 📏 Lines of Code: ~3000+
-- ✅ Norminette: Passing
-
----
-
-<div align="center">
-
-## 💬 Contact & Feedback
-
-```bash
-$ echo "Let's connect!"
-```
-
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/feliperamosminishell)
-[![42 Intra](https://img.shields.io/badge/42_Intra-000000?style=for-the-badge&logo=42&logoColor=white)](https://profile.intra.42.fr/)
-
-
----
-
-### ⭐ If this project helped you, consider giving it a star!
-
-```bash
-$ git add star
-$ git commit -m "Thanks for the awesome work!"
-$ git push origin main
-```
-
----
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
-
-**Made with ❤️, ☕, and countless `segfaults`**
-
-<img src="https://komarev.com/ghpvc/?username=feliperamosminishell&color=00ff41&style=flat-square&label=Profile+Views" alt="views"/>
-
-### 📌 Last Updated: March 31, 2026 at 01:44 UTC
-
-</div>
-
----
-
-## 📝 How to Update This README
-
-Este README se actualiza **AUTOMÁTICAMENTE** gracias a GitHub Actions.
-
-### 🤖 Actualizaciones Automáticas
-
-- ✅ **Barras de progreso**: Se calculan según checkboxes marcadas
-- ⏱️ **Timeline**: Se actualiza según la fecha actual vs deadline
-- 📊 **Estadísticas**: Tareas y tiempo se calculan automáticamente
-- 🔄 **Frecuencia**: Cada día a las 00:00 UTC y con cada push
-
-### ✏️ Solo marca las checkboxes:
-
-```markdown
-- [x] Tarea pendiente
-- [x] Tarea completada  ← Marca así cuando completes
-```
-
-El sistema actualizará todo automáticamente 🚀
+-   Your Name Here
