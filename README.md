@@ -135,7 +135,3 @@ Documentation assistance
 All implementation decisions were reviewed manually.
 
 ------------------------------------------------------------------------
-
-## Authors
-
--   Your Name Here
