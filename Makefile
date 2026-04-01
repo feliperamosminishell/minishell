@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
+#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/04/01 01:04:57 by goramos-         ###   ########.fr        #
+#    Updated: 2026/03/31 04:49:54 by juan-her         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ ERROR_SRCS = error_handling.c \
 # Archivos fuente - Lexer
 LEXER_SRCS = check_str.c \
 				check_str2.c \
+				word_util.c \
 				handle_word.c \
 				lexer.c
 
@@ -58,12 +59,10 @@ UTILS_SRCS	= env_utils.c \
 				export_utils.c \
 				export_utils_2.c \
 				free_nodes.c \
-				free_nodes_2.c \
 				new_nodes.c \
 				ft_freelist.c \
 				utils.c \
-				utils_redir.c \
-				shell_level.c
+				utils_redir.c
 
 # Archivos fuente - Executor
 REDIR_SRCS	= get_next_line.c \
@@ -71,9 +70,8 @@ REDIR_SRCS	= get_next_line.c \
 
 # Archivos fuente - Executor
 EXEC_SRCS	= exec.c \
-				executor.c \
-				exec_util.c \
-				exec_utils_2.c
+				executor.c\
+				exec_util.c
 # Archivos fuente - Executor
 SIG_SRCS	= signal.c
 

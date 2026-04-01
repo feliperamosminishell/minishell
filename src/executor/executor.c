@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 19:10:30 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 00:50:51 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 18:02:05 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_free_array(char **strs)
+static void	ft_free_array(char **strs)
 {
 	int	i;
 
@@ -22,7 +22,6 @@ void	ft_free_array(char **strs)
 	while (strs[i])
 	{
 		free(strs[i]);
-		strs[i] = NULL;
 		i++;
 	}
 	free(strs);
@@ -42,7 +41,7 @@ static char	**ft_search_paths(char **env, int *i)
 	return (paths);
 }
 
-void	ft_search_path(char *cmd, char **paths, int i, char **path)
+static void	ft_search_path(char *cmd, char **paths, int i, char **path)
 {
 	char	*url_path;
 
@@ -54,6 +53,7 @@ void	ft_search_path(char *cmd, char **paths, int i, char **path)
 static char	*ft_find_path(char *cmd, char **env)
 {
 	char	**paths;
+	char	*path;
 	int		i;
 
 	if (!cmd || !*cmd)
@@ -67,7 +67,14 @@ static char	*ft_find_path(char *cmd, char **env)
 	paths = ft_search_paths(env, &i);
 	if (!paths)
 		return (NULL);
-	return (ft_check_paths(cmd, paths, i));
+	while (paths[++i])
+	{
+		ft_search_path(cmd, paths, i, &path);
+		if (access(path, X_OK) == 0)
+			return (ft_free_array(paths), path);
+		free(path);
+	}
+	return (ft_free_array(paths), NULL);
 }
 
 void	ft_execute(char **cmd, char **env)

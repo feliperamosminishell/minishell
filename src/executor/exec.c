@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:40:10 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/31 02:38:16 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ int	ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 			ft_exc_built(mini, *cmd);
 			exit((*mini)->exit_status);
 		}
-		env_arr = ft_env_to_array((*mini)->env);
-		ft_execute((*cmd)->argv, env_arr);
-		ft_free_array(env_arr);
-		exit(1);
+		else
+		{
+			ft_execute((*cmd)->argv, (*mini)->env_bash);
+			exit(1);
+		}
 	}
 	return (1);
 }

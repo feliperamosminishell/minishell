@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:44:25 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 00:41:45 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 00:41:10 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_handle_sing(int sig)
 {
 	(void)sig;
 	g_who_sig = 1;
-	write(STDOUT_FILENO, "^C\n", 3);
+	write(1, "\n", 1);
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
@@ -59,7 +59,4 @@ void	ft_check_exit_statuc(t_shell **mini)
 		}
 		pid = wait(&status);
 	}
-	ft_init_sig_father();
 }
-
-void	ft_update_shlvl(t_shell *mini);

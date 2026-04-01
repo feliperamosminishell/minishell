@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:47:08 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/31 15:43:41 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void	ft_init_lexer(t_lexer *lexer, int last_status, t_shell **mini)
 	lexer->i = 0;
 	lexer->in_s = 0;
 	lexer->in_d = 0;
-	lexer->start = 0;
 	lexer->after_heredoc = 0;
+	lexer->start = 0;
 	lexer->list = NULL;
 	lexer->last_status = last_status;
 	lexer->env = (*mini)->env;
@@ -80,7 +80,7 @@ t_token	*ft_lexer(const char *line, int last_status, t_shell **mini)
 	ft_init_lexer(&lx, last_status, mini);
 	if (!ft_check_str(line))
 	{
-		(*mini)->exit_status = 2;
+		(*mini)->exit_status = 127;
 		return (NULL);
 	}
 	ft_lex_loop(line, &lx);

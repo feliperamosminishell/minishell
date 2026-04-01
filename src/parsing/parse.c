@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 03:03:59 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/17 21:28:24 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/03/31 02:52:59 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ static t_cmd	*ft_separate_token(t_token **token)
 			return (NULL);
 	}
 	if (list_arg)
-	{
 		cmd->argv = ft_conv_args(&list_arg);
+	if (cmd->redirs || cmd->argv)
 		ft_add_cmd(&list_cmd, cmd);
-	}
 	else
 		ft_free_cmds(&cmd);
 	return (list_cmd);

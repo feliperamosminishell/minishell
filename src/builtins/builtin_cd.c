@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 20:45:28 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/01 01:34:47 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:38:26 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ static int	cd_do(t_shell *shell, const char *path)
 	char	old[4096];
 	char	new[4096];
 
-	if(!getcwd(old,sizeof(old)))
-		return (cd_error(shell,"getxwd failed",NULL));
 	if (chdir(path) != 0)
 		return (cd_error(shell, strerror(errno), path));
 	if (!getcwd(new, sizeof(new)))

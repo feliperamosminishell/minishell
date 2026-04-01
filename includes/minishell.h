@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:42:25 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/31 04:48:56 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,9 @@ void	ft_free_args(t_args **ags);
 void	ft_free_redirs(t_redir **redir);
 void	ft_free_cmds(t_cmd **cmd);
 t_env	*init_env(char **envp);
-void	ft_update_shlvl(t_shell *mini);
-void	ft_free_env(t_env *env);
+void	free_env(t_env *env);
 int		ft_is_redir(t_en_token type);
 void	ft_print_message(int fd, char *str);
-void	ft_free_env_node(t_env *node);
-void	ft_free_shell(t_shell **mini);
-char	**ft_env_to_array(t_env *env);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
@@ -144,6 +140,8 @@ int		ft_check_str(const char *str);
 
 // ==========  LEXER ==========
 void	ft_lstadd_token(t_token **lst, t_token *new_node);
+void	ft_globlal(const char *line, t_lexer *lx, char **vl);
+void	ft_word(const char *line, t_lexer *lx, char **vl);
 void	ft_handle_word(const char *line, t_lexer *lx);
 t_token	*ft_lexer(const char *line, int last_status, t_shell **mini);
 int		ft_pipe_followed_by_redir(const char *str, int i);
@@ -169,6 +167,7 @@ int		builtin_env(char **argv, t_shell *shell);
 void	builtin_exit(t_shell *shell, char **argv);
 void	builtin_export_no_args(t_shell *shell);
 void	builtin_export_with_args(t_shell *shell, char **args);
+int		builtin_pwd(t_shell *sh);
 void	builtin_unset(t_shell *shell, char **args);
 
 // ========== BUILTINS UTILS ==========
@@ -183,7 +182,6 @@ int		is_valid_id(char *key);
 char	*get_value(char *arg);
 t_env	*env_find(t_env *env, const char *key);
 void	env_update(t_env *node, const char *new_value);
-void	ft_free_array(char **strs);
 
 // ========== EXPAND ==========
 char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env);
@@ -206,9 +204,6 @@ int		ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
 void	ft_next_cmd(t_cmd *cmd, int *fd, int *prev_pipe);
 int		ft_exec_builtin_solo(t_cmd *cmd, t_shell **mini, int prev_pipe);
 int		ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
-char	*ft_check_paths(char *cmd, char **paths, int i);
-void	ft_search_path(char *cmd, char **paths, int i, char **path);
-
 
 // ========== SIGNALS ==========
 void	ft_init_sig_father(void);

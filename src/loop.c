@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:15:39 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/31 02:34:52 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,11 @@ static void	ft_handler_line(char *line, t_shell **mini)
 
 static void	ft_exit_shell(t_shell *mini, char *line)
 {
-	int	status;
-
-	status = mini->exit_status;
 	if (line)
 		free(line);
 	printf("exit\n");
-	ft_free_shell(mini);
 	rl_clear_history();
-	exit(status);
+	exit(mini->exit_status);
 }
 
 static int	ft_is_exit_cmd(char *line)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_nodes.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:57:55 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 00:51:21 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/02/18 16:32:25 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ void	ft_free_args(t_args **ags)
 {
 	t_args	*ag;
 
-	if (!ags || !*ags)
-		return ;
 	while (*ags)
 	{
 		ag = (*ags)->next;
-		if ((*ags)->ag)
-			free ((*ags)->ag);
+		free ((*ags)->ag);
 		free (*ags);
 		*ags = ag;
 	}
@@ -45,8 +42,6 @@ void	ft_free_redirs(t_redir **redir)
 {
 	t_redir	*tmp;
 
-	if (!redir || !*redir)
-		return ;
 	while (*redir)
 	{
 		tmp = (*redir)->next;
@@ -62,8 +57,6 @@ void	ft_free_cmds(t_cmd **cmd)
 	int		i;
 	t_cmd	*tmp;
 
-	if (!cmd || !*cmd)
-		return ;
 	while (*cmd)
 	{
 		tmp = (*cmd)->next;
@@ -74,8 +67,7 @@ void	ft_free_cmds(t_cmd **cmd)
 				free((*cmd)->argv[i++]);
 			free((*cmd)->argv);
 		}
-		if ((*cmd)->redirs)
-			ft_free_redirs(&(*cmd)->redirs);
+		ft_free_redirs(&(*cmd)->redirs);
 		free(*cmd);
 		*cmd = tmp;
 	}

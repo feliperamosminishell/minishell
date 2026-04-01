@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_redir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:45:09 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:40:15 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	if (WIFSIGNALED(status) && WTERMSIG(status) == SIGINT)
 	{
 		close(fd[0]);
-		return (ft_heredoc_interrupted(fd[0], mini));
+		return (ft_heredoc_interrupted(-1, mini));
 	}
 	return (fd[0]);
 }

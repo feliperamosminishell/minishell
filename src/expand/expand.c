@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 01:53:29 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:50:07 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/30 05:16:06 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ char	*ft_expand_var(const char *line, int *i, int last_status, t_env *env)
 	start = *i;
 	while (ft_isalnum(line[*i]) || line[*i] == '_')
 		(*i)++;
-	if (*i == start)
-		return (ft_strdup("$"));
 	var = ft_substr(line, start, *i - start);
 	value = ft_get_env_value(env, var);
 	free(var);

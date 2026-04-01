@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:09:31 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/01 00:58:56 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:08:08 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	exit_numeric_error(t_shell *shell, char **argv)
 	ft_putstr_fd(argv[1], STDERR_FILENO);
 	ft_putstr_fd(": numeric argument required\n", STDERR_FILENO);
 	ft_free_cmds(&shell->cmds);
-	ft_free_env(shell->env);
+	free_env(shell->env);
 	exit(2);
 }
 
@@ -90,7 +90,7 @@ void	builtin_exit(t_shell *shell, char **argv)
 	if (argc == 1)
 	{
 		ft_free_cmds(&shell->cmds);
-		ft_free_env(shell->env);
+		free_env(shell->env);
 		exit(shell->exit_status);
 	}
 	if (!ft_isnum(argv[1]))
@@ -101,6 +101,6 @@ void	builtin_exit(t_shell *shell, char **argv)
 	if (overflow)
 		exit_numeric_error(shell, argv);
 	ft_free_cmds(&shell->cmds);
-	ft_free_env(shell->env);
+	free_env(shell->env);
 	exit((unsigned char)val);
 }
