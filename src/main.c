@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 00:52:23 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/01 20:21:25 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_init_shell(t_shell *mini, char **ev)
 	mini->env_bash = ev;
 	mini->exit_status = 0;
 	mini->env = init_env(ev);
+	ft_update_shlvl(mini);
 	mini->cmds = NULL;
 	mini->pwd_data.old_pwd = NULL;
 	if (getcwd(buf, sizeof(buf)))

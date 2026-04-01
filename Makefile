@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+         #
+#    By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 22:53:20 by juan-her          #+#    #+#              #
-#    Updated: 2026/03/31 04:49:54 by juan-her         ###   ########.fr        #
+#    Updated: 2026/04/01 20:21:25 by goramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,11 @@ UTILS_SRCS	= env_utils.c \
 				export_utils.c \
 				export_utils_2.c \
 				free_nodes.c \
+				free_nodes_2.c \
 				new_nodes.c \
 				ft_freelist.c \
 				utils.c \
+				shlvls.c \
 				utils_redir.c
 
 # Archivos fuente - Executor

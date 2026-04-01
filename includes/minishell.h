@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/31 04:48:56 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/01 21:17:07 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,10 @@ t_env	*init_env(char **envp);
 void	free_env(t_env *env);
 int		ft_is_redir(t_en_token type);
 void	ft_print_message(int fd, char *str);
+void	ft_free_shell(t_shell *mini);
+void	ft_update_shlvl(t_shell *mini);
+char	**ft_env_to_array(t_env *env);
+void	ft_free_array(char **strs);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
