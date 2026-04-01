@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 13:37:01 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/27 11:12:36 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 02:28:47 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@ void	builtin_unset(t_shell *shell, char **args)
 	int	i;
 
 	i = 1;
+	shell->exit_status = 0;
 	while (args[i])
 	{
+		if (!is_valid_id(args[1]))
+		{
+			ft_putstr_fd("Minishell); unset '",STDERR_FILENO);
+			ft_putstr_fd(args[1],STDERR_FILENO);
+			ft_putstr_fd("': not a valid identifier\n",STDERR_FILENO);
+		}
 		unset_one(shell, args[i]);
 		i++;
 	}
-	shell->exit_status = 0;
 }

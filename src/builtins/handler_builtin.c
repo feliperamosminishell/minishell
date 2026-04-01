@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:53:13 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/27 11:12:44 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:58:53 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,20 @@ int	ft_is_builtin(char *cmd)
 		return (1);
 	else if (ft_strcmp(cte_cmd, "exit") == 0)
 		return (1);
-	else if (ft_strcmp(cte_cmd, "pwd") == 0)
-		return (1);
 	else if (ft_strcmp(cte_cmd, "unset") == 0)
 		return (1);
 	return (0);
+}
+
+static void	ft_handle_export(t_shell **mini, char **args)
+{
+	if (!args[1])
+	{
+		builtin_export_no_args(*mini);
+		(*mini)->exit_status = 0;
+	}
+	else
+		builtin_export_with_args(*mini, args);
 }
 
 void	ft_exc_built(t_shell **mini, t_cmd *cmd)
@@ -52,12 +61,7 @@ void	ft_exc_built(t_shell **mini, t_cmd *cmd)
 	else if (ft_strcmp(cte_cmd, "env") == 0)
 		(*mini)->exit_status = builtin_env(args, *mini);
 	else if (ft_strcmp(cte_cmd, "export") == 0)
-	{
-		if (!args[1])
-			builtin_export_no_args(*mini);
-		else
-			builtin_export_with_args(*mini, args);
-	}
+		ft_handle_export(mini, args);
 	else if (ft_strcmp(cte_cmd, "exit") == 0)
 		builtin_exit(*mini, args);
 	else if (ft_strcmp(cte_cmd, "pwd") == 0)

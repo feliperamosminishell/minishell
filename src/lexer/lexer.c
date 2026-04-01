@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:05:51 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:10:57 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:47:08 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_token	*ft_lexer(const char *line, int last_status, t_shell **mini)
 	ft_init_lexer(&lx, last_status, mini);
 	if (!ft_check_str(line))
 	{
-		(*mini)->exit_status = 127;
+		(*mini)->exit_status = 2;
 		return (NULL);
 	}
 	ft_lex_loop(line, &lx);

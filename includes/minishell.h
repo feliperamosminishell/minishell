@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 01:05:33 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:42:25 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int		ft_is_redir(t_en_token type);
 void	ft_print_message(int fd, char *str);
 void	ft_free_env_node(t_env *node);
 void	ft_free_shell(t_shell **mini);
+char	**ft_env_to_array(t_env *env);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);

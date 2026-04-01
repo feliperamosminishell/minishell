@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 00:37:01 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/27 11:07:44 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:55:01 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	builtin_echo(char **argv)
 	}
 	while (argv[i])
 	{
-		printf("%s", argv[i]);
+		write(1, argv[i], ft_strlen(argv[i]));
 		if (argv[i + 1])
-			printf(" ");
+			write(1, " ", 1);
 		i++;
 	}
 	if (flag_nl)
-		printf("\n");
+		write(1, "\n", 1);
 	return (0);
 }

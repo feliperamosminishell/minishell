@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:01:04 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/27 11:43:20 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:31:00 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_handle_word(const char *line, t_lexer *lx)
 
 	quotes = 0;
 	value = ft_strdup("");
-	while (line[lx->i] && !ft_is_operator(line[lx->i])
+	while (line[lx->i] && !ft_is_operator(line[lx->i] || lx->in_s)
 		&& (!ft_isspace(line[lx->i]) || lx->in_s))
 		ft_search_line(line, lx, &quotes, &value);
 	if (value && value[0])
