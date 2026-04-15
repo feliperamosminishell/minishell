@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 04:08:49 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 06:43:49 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ static void	ft_handler_line(char *line, t_shell **mini)
 	(*mini)->cmds = ft_parser(&tokens, mini);
 	ft_free_tokens(&head);
 	if ((*mini)->cmds)
-	{
 		ft_exec(mini);
+	if ((*mini)->cmds)
+	{
 		ft_free_cmds(&(*mini)->cmds);
+		(*mini)->cmds = NULL;
 	}
 }
 

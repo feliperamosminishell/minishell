@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 23:24:25 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/15 01:08:18 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 07:03:54 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,25 @@ void	ft_free_shell(t_shell *mini)
 	if (!mini)
 		return ;
 	if (mini->cmds)
+	{
 		ft_free_cmds(&mini->cmds);
+		mini->cmds = NULL;
+	}
 	if (mini->env)
+	{
 		ft_free_env(mini->env);
+		mini->env = NULL;
+	}
 	if (mini->pwd_data.pwd)
+	{
 		free(mini->pwd_data.pwd);
+		mini->pwd_data.pwd = NULL;
+	}
 	if (mini->pwd_data.old_pwd)
+	{
 		free(mini->pwd_data.old_pwd);
+		mini->pwd_data.old_pwd = NULL;
+	}
 }
 
 void	ft_close_fds(t_shell *shell)

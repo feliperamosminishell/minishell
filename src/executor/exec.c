@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 04:09:47 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 07:04:28 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,15 @@ void	ft_exec(t_shell **mini)
 	while (cmd)
 	{
 		if (ft_exec_builtin_solo(cmd, mini, prev_pipe) != 0)
+		{
 			return ;
+		}
 		if (cmd->next && pipe(fd) == -1)
+		{
+			if (prev_pipe != -1)
+				close(prev_pipe);
 			return ;
+		}
 		if (!ft_execution(fd, prev_pipe, &cmd, mini))
 		{
 			if (prev_pipe != -1)

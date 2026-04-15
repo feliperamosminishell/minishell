@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 01:08:47 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 06:54:13 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ typedef struct s_pwd
 typedef struct s_shell
 {
 	t_cmd	*cmds;
-	char	**env_bash;
 	t_env	*env;
 	t_pwd	pwd_data;
 	int		exit_status;
@@ -216,5 +215,6 @@ int		ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);
 void	ft_init_sig_father(void);
 void	ft_init_sig_son(void);
 void	ft_check_exit_statuc(t_shell **mini);
+void	ft_heredoc_sigint(int sig);
 
 #endif

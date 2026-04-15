@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:23:22 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/27 11:07:57 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 06:53:59 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	builtin_env(char **argv, t_shell *shell)
 		shell->exit_status = 1;
 		return (1);
 	}
-	if (!shell->env_bash)
-		return (0);
 	print_env_list(shell->env);
 	return (0);
 }

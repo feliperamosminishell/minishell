@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_word.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:01:04 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/31 04:53:26 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/15 07:35:05 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,5 @@ void	ft_handle_word(const char *line, t_lexer *lx)
 	value = ft_strdup("");
 	while (line[lx->i] && (ft_q(lx) || ft_is(line, lx)))
 		ft_search_line(line, lx, &quotes, &value);
-	if (value && value[0])
-		ft_lstadd_token(&lx->list, ft_new_token(WORD, value, quotes));
-	else
-		free(value);
+	ft_lstadd_token(&lx->list, ft_new_token(WORD, value, quotes));
 }

@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:35:39 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/15 03:27:15 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 05:01:10 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_exec_end(t_shell **mini)
 {
 	ft_check_exit_statuc(mini);
 	ft_init_sig_father();
-	ft_free_shell(*mini);
 }
 
 static void	ft_close_cmd_fds(t_cmd *cmd)
