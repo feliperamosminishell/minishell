@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 01:20:37 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 04:08:49 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,5 @@ void	ft_loop(t_shell *mini)
 			ft_handler_line(line, &mini);
 		}
 		free(line);
-		//ft_free_shell(mini);
 	}
 }

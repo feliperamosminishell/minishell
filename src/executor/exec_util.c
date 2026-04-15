@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:35:39 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/15 01:37:05 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 03:27:15 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_exec_end(t_shell **mini)
 {
-	t_cmd	*tmp;
-
-	tmp = (*mini)->cmds;
 	ft_check_exit_statuc(mini);
 	ft_init_sig_father();
-	ft_cleanup_cmds(tmp);
+	ft_free_shell(*mini);
 }
 
 static void	ft_close_cmd_fds(t_cmd *cmd)
@@ -39,21 +36,11 @@ static void	ft_close_cmd_fds(t_cmd *cmd)
 int	ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 {
 	if (!ft_prepare_redirection(*cmd, mini))
-	{
-		ft_free_shell(*mini);
 		return (0);
-	}
 	if (!(*cmd)->argv || !(*cmd)->argv[0])
-	{
-		ft_free_shell(*mini);
 		return (1);
-	}
 	if (!ft_exec_cmd_child(fd, pv_p, cmd, mini))
-	{
-		ft_free_shell(*mini);
 		return (0);
-	}
-	ft_free_shell(*mini);
 	return (1);
 }
 
