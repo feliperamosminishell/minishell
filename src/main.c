@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:32 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 06:54:55 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/16 01:17:20 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ int	main(int ac, char **ag, char **env)
 	t_shell	mini;
 	char	**ev;
 
-	(void) ac;
 	(void) ag;
+	if (ac != 1)
+		return (1);
 	ev = ft_check_ev(env);
 	if (!ev)
 		return (1);

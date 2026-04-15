@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shlvls.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:05:57 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/01 21:15:53 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/16 01:09:22 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_calculate_new_shlvl(int current_level)
 {
 	int	new_value;
 
-	if (current_level < 0)
+	if (current_level < 0 || current_level > 2147483646)
 		new_value = 1;
 	else
 		new_value = current_level + 1;

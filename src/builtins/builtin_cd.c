@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 20:45:28 by goramos-          #+#    #+#             */
-/*   Updated: 2026/03/30 19:38:26 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/16 01:24:34 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static void	cd_update_env(t_shell *shell, const char *old, const char *new)
 	if (node)
 		env_update(node, old);
 	else
+	{
+		ft_putstr_fd("minishell: warning: OLDPWD not set.\n", STDERR_FILENO);
 		add_back_env(&shell->env, create_env_node("OLDPWD", old));
+	}
 	node = env_find(shell->env, "PWD");
 	if (node)
 		env_update(node, new);
@@ -56,6 +59,8 @@ static int	cd_do(t_shell *shell, const char *path)
 	char	old[4096];
 	char	new[4096];
 
+	if (!getcwd(old, sizeof(old)))
+		(void)cd_error(shell, "getcwd failed", NULL);
 	if (chdir(path) != 0)
 		return (cd_error(shell, strerror(errno), path));
 	if (!getcwd(new, sizeof(new)))
