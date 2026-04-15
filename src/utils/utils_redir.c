@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_redir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 22:54:34 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/14 19:42:03 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/15 01:50:11 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	ft_set_fd(t_redir *rd_tmp, t_shell **mini)
 	{
 		fd = ft_handle_heredoc(rd_tmp->file, mini, rd_tmp->quotes);
 		ft_init_sig_father();
+		if (fd < 0)
+			return (-1);
 	}
 	else if (rd_tmp->type == REDIR_IN)
 		fd = open(rd_tmp->file, O_RDONLY);
@@ -41,7 +43,13 @@ int	ft_prepare_redirection(t_cmd *cmd, t_shell **mini)
 	{
 		fd = ft_set_fd(rd_tmp, mini);
 		if (fd < 0)
+		{
+			if (cmd->fd_in != STDIN_FILENO && cmd->fd_in != -1)
+				close(cmd->fd_in);
+			if (cmd->fd_out != STDOUT_FILENO && cmd->fd_out != -1)
+				close(cmd->fd_out);
 			return (0);
+		}
 		if (rd_tmp->type == HEREDOC || rd_tmp->type == REDIR_IN)
 		{
 			if (cmd->fd_in != STDIN_FILENO)

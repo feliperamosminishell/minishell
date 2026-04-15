@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 23:24:25 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/01 00:30:41 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 01:08:18 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,12 @@ void	ft_free_shell(t_shell *mini)
 		free(mini->pwd_data.pwd);
 	if (mini->pwd_data.old_pwd)
 		free(mini->pwd_data.old_pwd);
+}
+
+void	ft_close_fds(t_shell *shell)
+{
+	dup2(shell->stdin_backup, STDIN_FILENO);
+	dup2(shell->stdout_backup, STDOUT_FILENO);
+	close(shell->stdin_backup);
+	close(shell->stdout_backup);
 }

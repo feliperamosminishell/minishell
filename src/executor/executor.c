@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 19:10:30 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 21:11:48 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 00:53:10 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char	*ft_find_path(char *cmd, char **env)
 	return (ft_free_array(paths), NULL);
 }
 
-void	ft_execute(char **cmd, char **env)
+void	ft_execute(char **cmd, char **env, t_shell *shell)
 {
 	char	*path;
 
@@ -87,6 +87,8 @@ void	ft_execute(char **cmd, char **env)
 	if (!path)
 	{
 		ft_print_error_exec(0, cmd[0]);
+		ft_free_array(env);
+		ft_free_shell(shell);
 		exit(127);
 	}
 	execve(path, cmd, env);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_nodes.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:57:55 by juan-her          #+#    #+#             */
-/*   Updated: 2026/02/18 16:32:25 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/15 01:52:36 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ void	ft_free_cmds(t_cmd **cmd)
 	while (*cmd)
 	{
 		tmp = (*cmd)->next;
+		if ((*cmd)->fd_in > 2)
+			close((*cmd)->fd_in);
+		if ((*cmd)->fd_out > 2)
+			close((*cmd)->fd_out);
 		if ((*cmd)->argv)
 		{
 			i = 0;

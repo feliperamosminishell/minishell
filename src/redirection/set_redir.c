@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_redir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 19:40:15 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/15 03:03:25 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static void	ft_read_stdin(char *limiter, t_shell **mini, int quotes, int fd)
 	}
 }
 
-static int	ft_heredoc_interrupted(int fd0, t_shell **mini)
+static int	ft_heredoc_interrupted(t_shell **mini)
 {
-	close(fd0);
+	ft_close_all_heredocs((*mini)->cmds);
 	write(1, "\n", 1);
 	rl_on_new_line();
 	rl_replace_line("", 0);
@@ -54,6 +54,7 @@ static void	ft_heredoc_child(char *limiter, t_shell **mini, int quotes, int *fd)
 	close(fd[0]);
 	ft_read_stdin(limiter, mini, quotes, fd[1]);
 	close(fd[1]);
+	ft_free_shell(*mini);
 	exit(0);
 }
 
@@ -80,7 +81,7 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	if (WIFSIGNALED(status) && WTERMSIG(status) == SIGINT)
 	{
 		close(fd[0]);
-		return (ft_heredoc_interrupted(-1, mini));
+		return (ft_heredoc_interrupted(mini));
 	}
 	return (fd[0]);
 }
@@ -89,7 +90,7 @@ void	ft_close_all_heredocs(t_cmd *cmd)
 {
 	while (cmd)
 	{
-		if (cmd->fd_in != STDIN_FILENO)
+		if (cmd->fd_in != STDIN_FILENO && cmd->fd_in != -1)
 		{
 			close(cmd->fd_in);
 			cmd->fd_in = STDIN_FILENO;

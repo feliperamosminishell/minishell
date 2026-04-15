@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:14:16 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/14 19:44:40 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/15 01:20:37 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,6 @@ static void	ft_exit_shell(t_shell *mini, char *line)
 	exit(status);
 }
 
-static int	ft_is_exit_cmd(char *line)
-{
-	if (!ft_strncmp(line, "exit", 4) && line[4] == '\0')
-		return (1);
-	return (0);
-}
-
 void	ft_loop(t_shell *mini)
 {
 	char	*line;
@@ -60,13 +53,12 @@ void	ft_loop(t_shell *mini)
 			ft_exit_shell(mini, NULL);
 		if (g_who_sig)
 			g_who_sig = 0;
-		if (ft_is_exit_cmd(line))
-			ft_exit_shell(mini, line);
 		if (*line)
 		{
 			add_history(line);
 			ft_handler_line(line, &mini);
 		}
 		free(line);
+		//ft_free_shell(mini);
 	}
 }

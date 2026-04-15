@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 19:59:57 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 21:15:55 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 00:49:15 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_exec_cmd_child(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 			exit((*mini)->exit_status);
 		}
 		env_arr = ft_env_to_array((*mini)->env);
-		ft_execute((*cmd)->argv, env_arr);
+		ft_execute((*cmd)->argv, env_arr, *mini);
 		ft_free_array(env_arr);
 		exit(1);
 	}

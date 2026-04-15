@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/01 21:17:07 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/15 01:08:47 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ typedef struct s_shell
 	t_env	*env;
 	t_pwd	pwd_data;
 	int		exit_status;
+	int		stdin_backup;
+	int		stdout_backup;
 }	t_shell;
 
 // ========== FUNCTION PROTOTYPES ==========
@@ -130,6 +132,7 @@ void	ft_free_shell(t_shell *mini);
 void	ft_update_shlvl(t_shell *mini);
 char	**ft_env_to_array(t_env *env);
 void	ft_free_array(char **strs);
+void	ft_close_fds(t_shell *shell);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
@@ -201,7 +204,7 @@ void	ft_close_all_heredocs(t_cmd *cmd);
 void	ft_cleanup_cmds(t_cmd *cmd);
 
 // ========== EXECUTOR ==========
-void	ft_execute(char **cmd, char **env);
+void	ft_execute(char **cmd, char **env, t_shell *shell);
 void	ft_exec(t_shell **mini);
 void	ft_exec_end(t_shell **mini);
 int		ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:35:39 by goramos-          #+#    #+#             */
-/*   Updated: 2026/04/01 18:02:08 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/15 01:37:05 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ int	ft_execution(int fd[2], int pv_p, t_cmd **cmd, t_shell **mini)
 {
 	if (!ft_prepare_redirection(*cmd, mini))
 	{
-		ft_close_cmd_fds(*cmd);
+		ft_free_shell(*mini);
 		return (0);
 	}
 	if (!(*cmd)->argv || !(*cmd)->argv[0])
 	{
-		ft_close_cmd_fds(*cmd);
+		ft_free_shell(*mini);
 		return (1);
 	}
 	if (!ft_exec_cmd_child(fd, pv_p, cmd, mini))
 	{
-		ft_close_cmd_fds(*cmd);
+		ft_free_shell(*mini);
 		return (0);
 	}
-	ft_close_cmd_fds(*cmd);
+	ft_free_shell(*mini);
 	return (1);
 }
 
@@ -68,23 +68,20 @@ void	ft_next_cmd(t_cmd *cmd, int *fd, int *prev_pipe)
 
 int	ft_exec_builtin_solo(t_cmd *cmd, t_shell **mini, int prev_pipe)
 {
-	int	stdin_backup;
-	int	stdout_backup;
-
 	if (cmd->next || prev_pipe != -1 || !cmd->argv || !cmd->argv[0])
 		return (0);
 	if (!ft_is_builtin(cmd->argv[0]))
 		return (0);
 	if (!ft_prepare_redirection(cmd, mini))
 		return (-1);
-	stdin_backup = dup(STDIN_FILENO);
-	stdout_backup = dup(STDOUT_FILENO);
+	(*mini)->stdin_backup = dup(STDIN_FILENO);
+	(*mini)->stdout_backup = dup(STDOUT_FILENO);
 	ft_apply_redirections(cmd);
 	ft_exc_built(mini, cmd);
-	dup2(stdin_backup, STDIN_FILENO);
-	dup2(stdout_backup, STDOUT_FILENO);
-	close(stdin_backup);
-	close(stdout_backup);
+	dup2((*mini)->stdin_backup, STDIN_FILENO);
+	dup2((*mini)->stdout_backup, STDOUT_FILENO);
+	close((*mini)->stdin_backup);
+	close((*mini)->stdout_backup);
 	ft_close_cmd_fds(cmd);
 	ft_check_exit_statuc(mini);
 	ft_init_sig_father();
