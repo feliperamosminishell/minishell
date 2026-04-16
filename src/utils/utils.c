@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 15:47:46 by goramos-          #+#    #+#             */
-/*   Updated: 2026/02/18 16:33:15 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:56:09 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ void	ft_print_message(int fd, char *str)
 		return ;
 	while (str[i])
 		write(fd, &str[i++], 1);
+}
+
+void	close_pipe(int prev_pipe)
+{
+	if (prev_pipe != -1)
+		close(prev_pipe);
+}
+
+int	is_limiter(char *line, char *limiter)
+{
+	if (!line || !limiter)
+		return (0);
+	return (ft_strlen(line) == ft_strlen(limiter)
+		&& ft_strncmp(line, limiter, ft_strlen(limiter)+1) == 0);
 }

@@ -1,4 +1,4 @@
-This project has been created as part of the curriculum of 42 by juan-her, goramos-
+*This project has been created as part of the curriculum of 42 by juan-her, goramos-*
 
 # Minishell
 

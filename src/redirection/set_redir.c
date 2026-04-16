@@ -1,5 +1,4 @@
 /* ************************************************************************** */
-
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   set_redir.c                                        :+:      :+:    :+:   */
@@ -7,19 +6,11 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:49:45 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 07:29:44 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:58:52 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-static int	is_limiter(char *line, char *limiter)
-{
-	if (!line || !limiter)
-		return (0);
-	return (ft_strlen(line) == ft_strlen(limiter)
-		&& ft_strncmp(line, limiter, ft_strlen(limiter)+1) == 0);
-}
 
 static void	ft_read_stdin(char *limiter, t_shell **mini, int quotes, int fd)
 {
@@ -28,10 +19,10 @@ static void	ft_read_stdin(char *limiter, t_shell **mini, int quotes, int fd)
 
 	while (1)
 	{
-		write(1, "> ", 2);
-		line = get_next_line(0);
+		(write(1, "> ", 2), line = get_next_line(0));
 		if (!line)
 		{
+			write(1, "\n", 1);
 			break ;
 		}
 		len = ft_strlen(line);
@@ -46,18 +37,17 @@ static void	ft_read_stdin(char *limiter, t_shell **mini, int quotes, int fd)
 			write(fd, line, ft_strlen(line));
 		else
 			ft_write_pipe(line, (*mini)->exit_status, fd, (*mini)->env);
-		write(fd, "\n", 1);
-		free(line);
+		(write(fd, "\n", 1), free(line));
 	}
 }
 
 static int	ft_heredoc_interrupted(t_shell **mini)
 {
 	ft_close_all_heredocs((*mini)->cmds);
-	write(1, "^C\n", 1);
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	(*mini)->exit_status = 130;
+	(*mini)->cmds->is_here = 1;
 	return (-1);
 }
 
@@ -67,7 +57,6 @@ static void	ft_heredoc_child(char *limiter, t_shell **mini, int quotes, int *fd)
 
 	write_fd = fd[1];
 	close(fd[0]);
-	signal(SIGINT, ft_heredoc_sigint);
 	ft_read_stdin(limiter, mini, quotes, write_fd);
 	close(fd[1]);
 	ft_free_shell(*mini);
@@ -79,6 +68,7 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	int		fd[2];
 	int		status;
 	pid_t	pid;
+	pid_t	ret;
 
 	if (quotes != 0 && quotes != 1)
 		quotes = 0;
@@ -87,16 +77,12 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	signal(SIGINT, ft_heredoc_sigint);
 	pid = fork();
 	if (pid == -1)
-	{
-		close(fd[0]);
-		close(fd[1]);
-		return (-1);
-	}
+		return (close(fd[0]), close(fd[1]), -1);
 	if (pid == 0)
 		ft_heredoc_child(limiter, mini, quotes, fd);
 	close(fd[1]);
-	waitpid(pid, &status, 0);
-	if (WIFSIGNALED(status))
+	ret = waitpid(pid, &status, 0);
+	if (ret == -1 || WIFSIGNALED(status))
 	{
 		close(fd[0]);
 		return (ft_heredoc_interrupted(mini));

@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:14:01 by juan-her          #+#    #+#             */
-/*   Updated: 2026/03/30 00:41:39 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:34:46 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_token	*ft_new_token(int type, char *value, int quotes)
 {
 	t_token	*list;
 
-	list = malloc(sizeof(t_token));
+	list = ft_calloc(1, sizeof(t_token));
 	if (!list)
 		return (NULL);
 	list->value = value;
@@ -50,6 +50,7 @@ t_cmd	*ft_new_cmd(void)
 	cmd->fd_out = STDOUT_FILENO;
 	cmd->redirs = NULL;
 	cmd->next = NULL;
+	cmd->is_here = 0;
 	return (cmd);
 }
 

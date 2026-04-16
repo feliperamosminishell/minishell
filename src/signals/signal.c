@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:44:25 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/16 14:53:00 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:59:38 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,15 @@ void	ft_check_exit_statuc(t_shell **mini)
 			(*mini)->exit_status = WEXITSTATUS(status);
 		else if (WIFSIGNALED(status))
 		{
-			if (WTERMSIG(status) == SIGINT)
+			if (WTERMSIG(status) == SIGINT && !(*mini)->cmds->is_here)
 				write(1, "\n", 1);
 			(*mini)->exit_status = 128 + WTERMSIG(status);
 		}
 		pid = wait(&status);
 	}
 }
+
 void	ft_heredoc_sigint(int sig)
 {
 	(void)sig;
-	get_next_line(-1);
-	printf("\n");
 }

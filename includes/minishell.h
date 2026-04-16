@@ -6,7 +6,7 @@
 /*   By: goramos- <goramos-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:48:48 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 06:54:13 by goramos-         ###   ########.fr       */
+/*   Updated: 2026/04/16 17:00:01 by goramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct s_cmd
 	int				fd_in;
 	int				fd_out;
 	struct s_cmd	*next;
+	int				is_here;
 }	t_cmd;
 
 typedef struct s_pwd
@@ -132,6 +133,8 @@ void	ft_update_shlvl(t_shell *mini);
 char	**ft_env_to_array(t_env *env);
 void	ft_free_array(char **strs);
 void	ft_close_fds(t_shell *shell);
+void	close_pipe(int prev_pipe);
+int		is_limiter(char *line, char *limiter);
 
 // ==========  ERROR_HANDLER ==========
 void	ft_print_error_sintax(int message);
