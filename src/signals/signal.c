@@ -6,7 +6,7 @@
 /*   By: juan-her <juan-her@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:44:25 by juan-her          #+#    #+#             */
-/*   Updated: 2026/04/15 21:49:27 by juan-her         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:53:00 by juan-her         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_check_exit_statuc(t_shell **mini)
 }
 void	ft_heredoc_sigint(int sig)
 {
-	g_who_sig = sig;
+	(void)sig;
+	get_next_line(-1);
 	printf("\n");
 }

@@ -80,6 +80,8 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 	int		status;
 	pid_t	pid;
 
+	if (quotes != 0 && quotes != 1)
+		quotes = 0;
 	if (pipe(fd) == -1)
 		return (-1);
 	signal(SIGINT, ft_heredoc_sigint);
@@ -94,12 +96,7 @@ int	ft_handle_heredoc(char *limiter, t_shell **mini, int quotes)
 		ft_heredoc_child(limiter, mini, quotes, fd);
 	close(fd[1]);
 	waitpid(pid, &status, 0);
-	if (g_who_sig == SIGINT)
-	{
-		g_who_sig = 0;
-		(*mini)->exit_status = 130;
-	}
-	if (WIFSIGNALED(status) && WTERMSIG(status) == SIGINT)
+	if (WIFSIGNALED(status))
 	{
 		close(fd[0]);
 		return (ft_heredoc_interrupted(mini));
